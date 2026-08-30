@@ -157,7 +157,113 @@
 </section>
 
 <!-- ============================================================
-     4. PLANS — มือถือเลื่อนซ้ายขวา / จอใหญ่เป็น grid
+     4. MAP — แผนผังย่อ สี่จุดหลัก
+     เป็นภาพรวมสั้น ๆ บนหน้าแรก ของเต็ม 40 หมุดอยู่ที่ map.html
+     ใช้ token ชุดภาพประกอบเดียวกับ map.html จะได้ดูเป็นชุดเดียวกัน
+     และล็อกสีไว้เหมือนงานพิมพ์ ไม่สลับตามโหมดกลางคืน
+     ============================================================ -->
+<section class="section" id="map">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <p class="eyebrow">แผนผังเกาะเกร็ด</p>
+      <h2 class="section__title">ดูทั้งเกาะในภาพเดียว</h2>
+      <p class="section__lead">
+        เกาะเกร็ดไม่ใหญ่ เดินรอบได้ในวันเดียว จุดหลักเกาะกลุ่มกันอยู่ทางเหนือของเกาะใกล้ท่าเรือ
+        กดที่ป้ายเพื่ออ่านรายละเอียดแต่ละจุด
+      </p>
+    </div>
+
+    <div class="map reveal">
+      <div class="map__frame">
+        <svg class="map__art" viewBox="0 0 800 500" role="img"
+             aria-label="แผนผังเกาะเกร็ดแบบวาด แสดงเกาะกลางแม่น้ำเจ้าพระยา มีจุดสำคัญสี่จุดอยู่บนเกาะ และมีเส้นประแสดงเส้นทางเรือข้ามฟากจากฝั่งปากเกร็ดมายังเกาะ">
+          <rect class="map__water" x="0" y="0" width="800" height="500"/>
+
+          <!-- ฝั่งปากเกร็ด ด้านเหนือ -->
+          <path class="map__land" d="M0 0 H800 V64 C712 92 628 78 528 100 C428 122 306 106 186 93 C114 85 58 90 0 99 Z"/>
+          <!-- ฝั่งตรงข้าม ด้านตะวันออกเฉียงใต้ -->
+          <path class="map__land" d="M800 196 C742 246 700 314 662 372 C634 416 596 462 556 500 H800 Z"/>
+
+          <!-- น้ำตื้นริมตลิ่งรอบเกาะ ทำให้เกาะดูลอยอยู่กลางน้ำ -->
+          <path class="map__shallow" d="M166 296 C168 230 242 186 334 168 C438 148 552 160 622 204 C686 244 692 304 650 354 C606 406 492 432 386 424 C280 416 198 374 172 334 C166 322 165 308 166 296 Z"/>
+
+          <!-- ตัวเกาะเกร็ด -->
+          <path class="map__isle" d="M180 296 C182 236 250 196 336 182 C432 166 540 176 606 216 C664 251 668 306 630 348 C588 394 484 416 386 408 C286 400 210 362 187 326 C181 314 179 305 180 296 Z"/>
+
+          <!-- เส้นทางเรือข้ามฟาก : เกาะเกร็ดไม่มีสะพาน ต้องนั่งเรือ -->
+          <path class="map__ferry" d="M480 112 V188"/>
+          <circle class="map__pier" cx="480" cy="104" r="7"/>
+          <rect class="map__cap" x="436" y="60" width="88" height="30" rx="15"/>
+          <text class="map__label" x="480" y="81">ท่าเรือ</text>
+
+          <rect class="map__cap" x="52" y="424" width="184" height="30" rx="15"/>
+          <text class="map__label" x="144" y="445">แม่น้ำเจ้าพระยา</text>
+
+          <!-- ต้นไม้ วางเลี่ยงตำแหน่งป้ายไว้แล้ว -->
+          <g class="map__tree">
+            <circle cx="600" cy="330" r="13"/><circle cx="624" cy="306" r="10"/>
+            <circle cx="246" cy="352" r="11"/><circle cx="286" cy="372" r="9"/>
+            <circle cx="446" cy="368" r="12"/><circle cx="530" cy="352" r="9"/>
+            <circle cx="232" cy="300" r="9"/><circle cx="576" cy="212" r="9"/>
+          </g>
+
+          <!-- เรือลำเล็กบนแม่น้ำ -->
+          <path class="map__boat" d="M96 372 q22 16 44 0"/>
+          <path class="map__boat" d="M118 372 v-16"/>
+          <path class="map__boat" d="M714 138 q22 16 44 0"/>
+          <path class="map__boat" d="M736 138 v-16"/>
+
+          <!-- จุดสี่จุด เลขตรงกับป้ายด้านล่าง -->
+          <g>
+            <circle class="map__dot" cx="248" cy="250" r="15"/>
+            <text class="map__dot-no" x="248" y="256">1</text>
+            <circle class="map__dot" cx="400" cy="210" r="15"/>
+            <text class="map__dot-no" x="400" y="216">2</text>
+            <circle class="map__dot" cx="560" cy="245" r="15"/>
+            <text class="map__dot-no" x="560" y="251">3</text>
+            <circle class="map__dot" cx="336" cy="340" r="15"/>
+            <text class="map__dot-no" x="336" y="346">4</text>
+          </g>
+        </svg>
+
+        <!-- --x / --y คิดเป็น % ของกรอบ ให้ตรงกับพิกัดจุดใน viewBox ข้างบน
+             เช่น จุดที่ 1 อยู่ที่ (248, 250) ของ 800x500 = 31% , 50% -->
+        <div class="map__pins">
+          <a class="pin" style="--x: 31%; --y: 50%" href="places/leaning-pagoda.html">
+            <span class="pin__no">1</span>
+            <span class="pin__name">เจดีย์เอียงมุเตา</span>
+            <span class="pin__go" aria-hidden="true">→</span>
+          </a>
+          <a class="pin" style="--x: 50%; --y: 42%" href="places/wat-poramai.html">
+            <span class="pin__no">2</span>
+            <span class="pin__name">วัดปรมัยยิกาวาส</span>
+            <span class="pin__go" aria-hidden="true">→</span>
+          </a>
+          <a class="pin" style="--x: 70%; --y: 49%" href="places/riverside-market.html">
+            <span class="pin__no">3</span>
+            <span class="pin__name">ตลาดริมน้ำ</span>
+            <span class="pin__go" aria-hidden="true">→</span>
+          </a>
+          <a class="pin" style="--x: 42%; --y: 68%" href="places/kwan-aman.html">
+            <span class="pin__no">4</span>
+            <span class="pin__name">หมู่บ้านกวานอาม่าน</span>
+            <span class="pin__go" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="map__foot">
+      <p class="map__note">
+        แผนผังนี้ย่อไว้ให้เห็นภาพรวม ไม่ใช่แผนที่ตามมาตราส่วนจริง
+      </p>
+      <a class="btn btn--green btn--sm" href="map.html">ดูแผนที่เต็ม 40 จุด</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     5. PLANS — มือถือเลื่อนซ้ายขวา / จอใหญ่เป็น grid
      ============================================================ -->
 <section class="section" id="plans">
   <div class="wrap">
@@ -210,7 +316,7 @@
 </section>
 
 <!-- ============================================================
-     5. PLACES — เที่ยวไหนดี 4 จุด
+     6. PLACES — เที่ยวไหนดี 4 จุด
      ============================================================ -->
 <section class="section" id="places" style="background: var(--bg-sunken)">
   <div class="wrap">
@@ -268,7 +374,7 @@
 </section>
 
 <!-- ============================================================
-     6. EAT — กินอะไรดี 4 อย่าง
+     7. EAT — กินอะไรดี 4 อย่าง
      ============================================================ -->
 <section class="section" id="eat">
   <div class="wrap">
@@ -325,7 +431,7 @@
 </section>
 
 <!-- ============================================================
-     7. FERRY — พื้น Something Blue (ใช้สีนี้เฉพาะส่วนนี้)
+     8. FERRY — พื้น Something Blue (ใช้สีนี้เฉพาะส่วนนี้)
      ============================================================ -->
 <section class="section ferry" id="ferry">
   <div class="wrap">
@@ -394,7 +500,7 @@
 </section>
 
 <!-- ============================================================
-     8. FACILITIES — สีล็อกไว้ตายตัว พื้น Moselle Green
+     9. FACILITIES — สีล็อกไว้ตายตัว พื้น Moselle Green
      ============================================================ -->
 <section class="section fac" id="fac">
   <div class="wrap">
@@ -442,7 +548,7 @@
 </section>
 
 <!-- ============================================================
-     9. POSTS — โพสต์ล่าสุด
+     10. POSTS — โพสต์ล่าสุด
      ============================================================ -->
 <section class="section" id="posts">
   <div class="wrap">
@@ -483,7 +589,7 @@
 </main>
 
 <!-- ============================================================
-     10. FOOTER — สีล็อกไว้ตายตัว
+     11. FOOTER — สีล็อกไว้ตายตัว
      ============================================================ -->
 <footer class="footer">
   <div class="wrap">
