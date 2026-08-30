@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kret Check — เกาะเกร็ด ชุมชนมอญ นนทบุรี</title>
+<meta name="description" content="คู่มือเที่ยวเกาะเกร็ดสำหรับคนที่มีเวลาครึ่งวัน เช็กเรือ เช็กราคา เช็กว่าไปยังไง แล้วค่อยออกเดินทาง">
+<meta name="theme-color" content="#513229">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kret Check — เกาะเกร็ด ชุมชนมอญ นนทบุรี">
+<meta property="og:description" content="คู่มือเที่ยวเกาะเกร็ดสำหรับคนที่มีเวลาครึ่งวัน">
+<meta property="og:locale" content="th_TH">
+
+<link rel="icon" href="assets/logo/logo-small.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/main.css">
+
+<!-- ใส่ data-theme ก่อนหน้าจะวาด กันหน้าขาวแวบตอนเปิดในโหมดมืด
+     ส่วนที่เหลือของ theme toggle อยู่ใน assets/js/main.js -->
+<script>
+(function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('kretcheck-theme');if(t)d.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">ข้ามไปที่เนื้อหา</a>
+
+<!-- ============================================================
+     1. NAV — สีล็อกไว้ตายตัว ไม่เปลี่ยนตามโหมด
+     ============================================================ -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <div class="nav__bar">
+
+      <a class="nav__brand" href="#top">
+        <svg viewBox="0 0 96 96" aria-hidden="true">
+          <circle cx="48" cy="48" r="44" fill="#F4F1E2"/>
+          <path d="M22 58c4-17 15-24 26-24s22 7 26 24z" fill="#2D4A35"/>
+          <path d="M45 34l3-10 3 10z" fill="#513229"/>
+          <rect x="18" y="64" width="60" height="6" rx="3" fill="#513229"/>
+          <rect x="30" y="75" width="36" height="6" rx="3" fill="#513229" opacity=".5"/>
+        </svg>
+        <span>
+          <span class="nav__name">KRET CHECK!</span>
+          <!-- บรรทัดคู่ ต้องมีเสมอในบริบทที่คนยังไม่รู้จักแบรนด์ -->
+          <span class="nav__sub">เกาะเกร็ด · ชุมชนมอญ นนทบุรี</span>
+        </span>
+      </a>
+
+      <ul class="nav__links">
+        <li><a class="nav__link" href="#plans">แพลนเที่ยว</a></li>
+        <li><a class="nav__link" href="#places">เที่ยวไหนดี</a></li>
+        <li><a class="nav__link" href="#eat">กินอะไรดี</a></li>
+        <li><a class="nav__link" href="#ferry">เรือข้ามฟาก</a></li>
+        <li><a class="nav__link" href="#fac">สิ่งอำนวยความสะดวก</a></li>
+      </ul>
+
+      <button class="icon-btn" type="button" data-theme-toggle aria-pressed="false" aria-label="สลับเป็นโหมดกลางคืน">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <button class="icon-btn burger" type="button" data-burger aria-expanded="false" aria-controls="nav-panel" aria-label="เปิดเมนู">
+        <span class="burger__box" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- เมนูปุ่มกดเปิด : ใช้ตั้งแต่มือถือถึงไอแพดแนวตั้ง (< 1000px) -->
+  <nav class="nav__panel" id="nav-panel" data-nav-panel data-open="false" aria-label="เมนูหลัก">
+    <div class="wrap">
+      <ul>
+        <li><a href="#plans">แพลนเที่ยว</a></li>
+        <li><a href="#places">เที่ยวไหนดี</a></li>
+        <li><a href="#eat">กินอะไรดี</a></li>
+        <li><a href="#ferry">เรือข้ามฟาก</a></li>
+        <li><a href="#fac">สิ่งอำนวยความสะดวก</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ============================================================
+     2. HERO — สีล็อกไว้ตายตัว
+     ============================================================ -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero__grid">
+      <div>
+        <p class="eyebrow" style="color: var(--c-sun)">นนทบุรี · นั่งเรือ 5 นาที</p>
+        <h1 class="hero__title">มีเวลาครึ่งวัน<br>ก็ไป<em>เกาะเกร็ด</em>ได้</h1>
+        <p class="hero__lead">
+          เกาะกลางแม่น้ำเจ้าพระยาที่ยังมีชุมชนมอญอยู่จริง วัดเก่า เตาเผาเครื่องปั้นดินเผา
+          และคาเฟ่ริมน้ำที่เปิดใหม่เรื่อย ๆ เช็กให้ครบก่อนออกจากบ้าน แล้วค่อยไป
+        </p>
+
+        <ul class="stickers">
+          <li class="sticker">นั่งเรือ 5 นาที</li>
+          <li class="sticker">เดินจบใน 1 วัน</li>
+          <li class="sticker">คาเฟ่ริมน้ำ</li>
+        </ul>
+
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#plans">เริ่มจากแพลนเที่ยว</a>
+          <a class="btn btn--ghost" href="#ferry">เรือข้ามฟากไปยังไง</a>
+        </div>
+      </div>
+
+      <!-- ช่องรูป hero : โผล่เฉพาะจอ 1000px ขึ้นไป -->
+      <div class="hero__media" aria-hidden="true">ใส่รูปตรงนี้ — เจดีย์เอียงริมน้ำ</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     3. FACTS — ตอบ 3 คำถามที่ถามกันมากที่สุด
+     ============================================================ -->
+<section class="facts">
+  <div class="wrap">
+    <div class="facts__grid">
+      <div class="reveal">
+        <p class="fact__q">ไกลไหม</p>
+        <p class="fact__a">อยู่ในนนทบุรี</p>
+        <p class="fact__note">จากกลางกรุงเทพฯ เดินทางประมาณหนึ่งชั่วโมงโดยรถ แล้วต่อเรือข้ามฟากอีกไม่กี่นาที</p>
+      </div>
+      <div class="reveal">
+        <p class="fact__q">แพงไหม</p>
+        <p class="fact__a">ค่าเรือหลักหน่วย</p>
+        <p class="fact__note">ค่าเรือข้ามฟากคิดเป็นหลักหน่วยต่อเที่ยว เข้าวัดไม่เสียค่าเข้า</p>
+      </div>
+      <div class="reveal">
+        <p class="fact__q">งบเท่าไร</p>
+        <p class="fact__a">หลักร้อยต้น ๆ</p>
+        <p class="fact__note">ถ้ากินของกินริมทางกับกาแฟหนึ่งแก้ว งบหลักร้อยต้น ๆ ก็อยู่ได้ทั้งวัน</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     4. PLANS — มือถือเลื่อนซ้ายขวา / จอใหญ่เป็น grid
+     ============================================================ -->
+<section class="section" id="plans">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <p class="eyebrow">แพลนเที่ยว</p>
+      <h2 class="section__title">เลือกแพลนที่ตรงกับวันของคุณ</h2>
+      <p class="section__lead">สามแบบ เลือกอันเดียวแล้วออกเดินทางได้เลย ไม่ต้องวางแผนเอง</p>
+    </div>
+
+    <div class="rail">
+
+      <a class="plan reveal" href="plans/half-day.html">
+        <span class="plan__tag">ครึ่งวัน</span>
+        <h3 class="plan__title">ตื่นสาย ก็ยังทัน</h3>
+        <ol class="plan__steps">
+          <li><span class="plan__time">บ่ายต้น</span><span>ข้ามเรือ เดินเข้าวัดปรมัยยิกาวาส</span></li>
+          <li><span class="plan__time">บ่ายกลาง</span><span>เดินดูเจดีย์เอียงมุเตา ถ่ายรูปริมน้ำ</span></li>
+          <li><span class="plan__time">บ่ายแก่</span><span>แวะคาเฟ่ริมน้ำ นั่งรอแดดอ่อน</span></li>
+          <li><span class="plan__time">เย็น</span><span>ซื้อของฝากที่ตลาด แล้วข้ามเรือกลับ</span></li>
+        </ol>
+        <p class="plan__foot">อ่านแพลนเต็ม →</p>
+      </a>
+
+      <a class="plan reveal" href="plans/budget-300.html">
+        <span class="plan__tag">งบ 300</span>
+        <h3 class="plan__title">พกสามร้อยก็เที่ยวได้</h3>
+        <ol class="plan__steps">
+          <li><span class="plan__time">ค่าเรือ</span><span>ไปกลับ คิดเป็นหลักหน่วย</span></li>
+          <li><span class="plan__time">ของคาว</span><span>ทอดมันหน่อกะลาริมทาง</span></li>
+          <li><span class="plan__time">ของหวาน</span><span>ขนมมอญเจ้าประจำในตลาด</span></li>
+          <li><span class="plan__time">กาแฟ</span><span>คาเฟ่ริมน้ำหนึ่งแก้ว</span></li>
+        </ol>
+        <p class="plan__foot">อ่านแพลนเต็ม →</p>
+      </a>
+
+      <a class="plan reveal" href="plans/photo.html">
+        <span class="plan__tag">สายถ่ายรูป</span>
+        <h3 class="plan__title">ไล่แสงตั้งแต่เช้ายันเย็น</h3>
+        <ol class="plan__steps">
+          <li><span class="plan__time">เช้า</span><span>แสงเฉียงเข้าเจดีย์ คนยังน้อย</span></li>
+          <li><span class="plan__time">สาย</span><span>เตาเผาที่หมู่บ้านกวานอาม่าน</span></li>
+          <li><span class="plan__time">บ่าย</span><span>ตรอกในชุมชน เงาไม้กับผนังปูน</span></li>
+          <li><span class="plan__time">เย็น</span><span>แสงส้มตกน้ำ ถ่ายจากบนเรือ</span></li>
+        </ol>
+        <p class="plan__foot">อ่านแพลนเต็ม →</p>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     5. PLACES — เที่ยวไหนดี 4 จุด
+     ============================================================ -->
+<section class="section" id="places" style="background: var(--bg-sunken)">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <p class="eyebrow">เที่ยวไหนดี</p>
+      <h2 class="section__title">สี่จุดที่ไม่ควรพลาด</h2>
+      <p class="section__lead">เดินถึงกันหมดในวันเดียว เรียงตามลำดับที่เดินต่อกันได้พอดี</p>
+    </div>
+
+    <div class="grid">
+
+      <a class="card reveal" href="places/wat-poramai.html">
+        <div class="slot" aria-hidden="true">ใส่รูปตรงนี้</div>
+        <div class="card__body">
+          <p class="card__kicker">วัด</p>
+          <h3 class="card__title">วัดปรมัยยิกาวาส</h3>
+          <p class="card__text">วัดหลักของเกาะ พระอุโบสถศิลปะผสมมอญ ลงเรือแล้วเดินถึงเป็นที่แรก</p>
+          <p class="card__foot">อ่านต่อ →</p>
+        </div>
+      </a>
+
+      <a class="card reveal" href="places/leaning-pagoda.html">
+        <div class="slot" aria-hidden="true">ใส่รูปตรงนี้</div>
+        <div class="card__body">
+          <p class="card__kicker">แลนด์มาร์ก</p>
+          <h3 class="card__title">เจดีย์เอียงมุเตา</h3>
+          <p class="card__text">เจดีย์ริมน้ำที่เอียงจริงจากการกัดเซาะของแม่น้ำ จุดถ่ายรูปประจำเกาะ</p>
+          <p class="card__foot">อ่านต่อ →</p>
+        </div>
+      </a>
+
+      <a class="card reveal" href="places/kwan-aman.html">
+        <div class="slot" aria-hidden="true">ใส่รูปตรงนี้</div>
+        <div class="card__body">
+          <p class="card__kicker">ชุมชน</p>
+          <h3 class="card__title">หมู่บ้านกวานอาม่าน</h3>
+          <p class="card__text">หมู่บ้านเครื่องปั้นดินเผามอญ ยังมีเตาเผาที่ใช้งานอยู่จริง</p>
+          <p class="card__foot">อ่านต่อ →</p>
+        </div>
+      </a>
+
+      <a class="card reveal" href="places/riverside-market.html">
+        <div class="slot" aria-hidden="true">ใส่รูปตรงนี้</div>
+        <div class="card__body">
+          <p class="card__kicker">ตลาด</p>
+          <h3 class="card__title">ตลาดริมน้ำ</h3>
+          <p class="card__text">ของกินกับของฝากอยู่รวมกันตรงนี้ คึกคักที่สุดช่วงเสาร์อาทิตย์</p>
+          <p class="card__foot">อ่านต่อ →</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     6. EAT — กินอะไรดี 4 อย่าง
+     ============================================================ -->
+<section class="section" id="eat">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <p class="eyebrow">กินอะไรดี</p>
+      <h2 class="section__title">ของกินที่มีเฉพาะที่นี่</h2>
+      <p class="section__lead">ของคาว ของหวาน แล้วปิดท้ายด้วยกาแฟริมน้ำ</p>
+    </div>
+
+    <div class="grid">
+
+      <a class="card reveal" href="eat/savoury.html">
+        <div class="slot" aria-hidden="true">ใส่รูปตรงนี้</div>
+        <div class="card__body">
+          <p class="card__kicker">ของคาว</p>
+          <h3 class="card__title">ทอดมันหน่อกะลา</h3>
+          <p class="card__text">พืชท้องถิ่นของเกาะเกร็ด กินได้แค่ที่นี่ กรอบนอกนุ่มใน</p>
+          <p class="card__foot">อ่านต่อ →</p>
+        </div>
+      </a>
+
+      <a class="card reveal" href="eat/khao-chae.html">
+        <div class="slot" aria-hidden="true">ใส่รูปตรงนี้</div>
+        <div class="card__body">
+          <p class="card__kicker">ของคาว</p>
+          <h3 class="card__title">ข้าวแช่มอญ</h3>
+          <p class="card__text">ข้าวแช่น้ำลอยดอกไม้กับเครื่องเคียง ของกินหน้าร้อนของชาวมอญ</p>
+          <p class="card__foot">อ่านต่อ →</p>
+        </div>
+      </a>
+
+      <a class="card reveal" href="eat/dessert.html">
+        <div class="slot" aria-hidden="true">ใส่รูปตรงนี้</div>
+        <div class="card__body">
+          <p class="card__kicker">ของหวาน</p>
+          <h3 class="card__title">ขนมหวานมอญ</h3>
+          <p class="card__text">ขนมชั้น ทองหยิบ และขนมมอญโบราณที่หากินยากขึ้นทุกปี</p>
+          <p class="card__foot">อ่านต่อ →</p>
+        </div>
+      </a>
+
+      <a class="card reveal" href="eat/cafe.html">
+        <div class="slot" aria-hidden="true">ใส่รูปตรงนี้</div>
+        <div class="card__body">
+          <p class="card__kicker">คาเฟ่</p>
+          <h3 class="card__title">คาเฟ่ริมน้ำ</h3>
+          <p class="card__text">นั่งมองเรือผ่าน พักขาก่อนเดินรอบเกาะต่อ มีให้เลือกหลายร้าน</p>
+          <p class="card__foot">อ่านต่อ →</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     7. FERRY — พื้น Something Blue (ใช้สีนี้เฉพาะส่วนนี้)
+     ============================================================ -->
+<section class="section ferry" id="ferry">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <p class="eyebrow">เรือข้ามฟาก</p>
+      <h2 class="section__title">เกาะเกร็ดไม่มีสะพาน ต้องนั่งเรือ</h2>
+      <p class="section__lead">เป็นเรื่องที่คนถามมากที่สุด สรุปให้ครบตรงนี้</p>
+    </div>
+
+    <div class="tickets">
+
+      <div class="ticket reveal">
+        <p class="ticket__route">ท่าวัดสนามเหนือ <span aria-hidden="true">→</span> เกาะเกร็ด</p>
+        <dl class="ticket__meta">
+          <div><dt>ค่าเรือ</dt><dd>หลักหน่วย/เที่ยว</dd></div>
+          <div><dt>ใช้เวลา</dt><dd>ราว 5 นาที</dd></div>
+          <div><dt>ความถี่</dt><dd>ออกเรื่อย ๆ</dd></div>
+        </dl>
+        <p class="ticket__note">ท่าหลักที่คนส่วนใหญ่ใช้ ลงเรือแล้วถึงวัดปรมัยยิกาวาสเลย</p>
+      </div>
+
+      <div class="ticket reveal">
+        <p class="ticket__route">ท่าน้ำปากเกร็ด <span aria-hidden="true">→</span> เกาะเกร็ด</p>
+        <dl class="ticket__meta">
+          <div><dt>ค่าเรือ</dt><dd>หลักหน่วย/เที่ยว</dd></div>
+          <div><dt>ใช้เวลา</dt><dd>ราว 5–10 นาที</dd></div>
+          <div><dt>ความถี่</dt><dd>ออกเรื่อย ๆ</dd></div>
+        </dl>
+        <p class="ticket__note">ทางเลือกสำรองถ้าท่าแรกคนแน่น จอดรถได้สะดวกกว่าในบางช่วง</p>
+      </div>
+
+    </div>
+
+    <ol class="steps">
+      <li>
+        <div>
+          <h3>ไปให้ถึงท่าเรือ</h3>
+          <p>ขับรถหรือนั่งรถสาธารณะมาที่ฝั่งปากเกร็ด แล้วเดินเข้าไปที่ท่า</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>จ่ายค่าเรือตรงท่า</h3>
+          <p>จ่ายเป็นเงินสดที่จุดขายตั๋ว เตรียมแบงก์ย่อยไปด้วยจะสะดวกกว่า</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>ลงเรือ ข้ามฟาก</h3>
+          <p>ใช้เวลาไม่กี่นาที นั่งฝั่งริมได้วิวแม่น้ำเต็ม ๆ</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>ขากลับใช้ท่าเดิม</h3>
+          <p>เช็กเวลาเรือเที่ยวสุดท้ายก่อนเดินไปไกล จะได้ไม่ตกเรือ</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="draft-note" style="margin-top: var(--sp-6)">
+      <span aria-hidden="true">⚠</span>
+      <span><strong>ข้อมูลชุดนี้ยังเป็นตัวอย่าง</strong> ค่าเรือ เวลา และความถี่ ต้องไปเช็กของจริงที่ท่าก่อนนำไปใช้</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     8. FACILITIES — สีล็อกไว้ตายตัว พื้น Moselle Green
+     ============================================================ -->
+<section class="section fac" id="fac">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <p class="eyebrow">สิ่งอำนวยความสะดวก</p>
+      <h2 class="section__title">เรื่องที่ควรรู้ก่อนไปถึง</h2>
+      <p class="section__lead">แปดข้อที่ทำให้วันนั้นราบรื่นขึ้น</p>
+    </div>
+
+    <div class="fac__grid">
+      <div class="fac__item reveal">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 8v8M15 8v8"/></svg> ห้องน้ำ</h3>
+        <p>มีในวัดและในตลาด บางจุดมีค่าบริการเล็กน้อย เตรียมเหรียญไว้</p>
+      </div>
+      <div class="fac__item reveal">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 17V7h3.5a3 3 0 0 1 0 6H9"/></svg> ที่จอดรถ</h3>
+        <p>จอดฝั่งปากเกร็ดก่อนลงเรือ วันหยุดเต็มเร็ว ไปเช้าหน่อยจะดีกว่า</p>
+      </div>
+      <div class="fac__item reveal">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 10h20"/></svg> เงินสดกับตู้ ATM</h3>
+        <p>ร้านเล็กหลายร้านรับแต่เงินสด กดเงินมาจากฝั่งก่อนข้ามจะปลอดภัยกว่า</p>
+      </div>
+      <div class="fac__item reveal">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 18v-6a8 8 0 0 1 16 0v6"/><path d="M2 18h20"/></svg> จุดนั่งพัก</h3>
+        <p>มีศาลาริมน้ำและร้านกาแฟกระจายอยู่รอบเกาะ เดินสิบนาทีก็เจอที่นั่ง</p>
+      </div>
+      <div class="fac__item reveal">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M7 12h10"/></svg> จุดปฐมพยาบาล</h3>
+        <p>ยาสามัญหาซื้อได้ในตลาด ถ้าเรื่องใหญ่ต้องข้ามกลับไปฝั่ง</p>
+      </div>
+      <div class="fac__item reveal">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1"/></svg> สัญญาณมือถือ</h3>
+        <p>ใช้ได้ทั่วเกาะ แต่บางตรอกลึกอาจอ่อน โหลดแผนที่เก็บไว้ก่อนได้</p>
+      </div>
+      <div class="fac__item reveal">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 7h14l-1 13H6z"/><path d="M9 7V4h6v3"/></svg> ถังขยะ</h3>
+        <p>มีตามจุดหลัก ถ้าเดินเข้าตรอกลึกอาจต้องถือติดมือไปสักพัก</p>
+      </div>
+      <div class="fac__item reveal">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg> เวลาที่ควรไป</h3>
+        <p>เสาร์อาทิตย์ร้านเปิดครบแต่คนเยอะ วันธรรมดาเงียบและบางร้านปิด</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     9. POSTS — โพสต์ล่าสุด
+     ============================================================ -->
+<section class="section" id="posts">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <p class="eyebrow">โพสต์ล่าสุด</p>
+      <h2 class="section__title">อ่านต่อก่อนไป</h2>
+    </div>
+
+    <div class="grid grid--3">
+      <a class="card reveal" href="places/leaning-pagoda.html">
+        <div class="card__body">
+          <p class="card__kicker">แลนด์มาร์ก</p>
+          <h3 class="card__title">เจดีย์เอียงมุเตา เอียงเพราะอะไร</h3>
+          <p class="card__text">เรื่องของแม่น้ำที่กัดตลิ่งจนเจดีย์เอียงลงไปทีละนิด</p>
+          <p class="card__foot">อ่านต่อ →</p>
+        </div>
+      </a>
+      <a class="card reveal" href="eat/savoury.html">
+        <div class="card__body">
+          <p class="card__kicker">ของกิน</p>
+          <h3 class="card__title">หน่อกะลาคืออะไร ทำไมมีแค่ที่นี่</h3>
+          <p class="card__text">พืชท้องถิ่นที่กลายเป็นของกินประจำเกาะไปแล้ว</p>
+          <p class="card__foot">อ่านต่อ →</p>
+        </div>
+      </a>
+      <a class="card reveal" href="plans/half-day.html">
+        <div class="card__body">
+          <p class="card__kicker">แพลนเที่ยว</p>
+          <h3 class="card__title">ครึ่งวันเที่ยวเกาะเกร็ดให้คุ้ม</h3>
+          <p class="card__text">ลำดับการเดินที่ไม่ต้องย้อนทาง จบพอดีตอนแดดอ่อน</p>
+          <p class="card__foot">อ่านต่อ →</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     10. FOOTER — สีล็อกไว้ตายตัว
+     ============================================================ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+
+      <div>
+        <div class="footer__brand">
+          <svg viewBox="0 0 96 96" aria-hidden="true">
+            <circle cx="48" cy="48" r="44" fill="#F4F1E2"/>
+            <path d="M22 58c4-17 15-24 26-24s22 7 26 24z" fill="#2D4A35"/>
+            <path d="M45 34l3-10 3 10z" fill="#513229"/>
+            <rect x="18" y="64" width="60" height="6" rx="3" fill="#513229"/>
+            <rect x="30" y="75" width="36" height="6" rx="3" fill="#513229" opacity=".5"/>
+          </svg>
+          <span>
+            <span class="footer__name">KRET CHECK!</span><br>
+            <span class="footer__sub">เกาะเกร็ด · ชุมชนมอญ นนทบุรี</span>
+          </span>
+        </div>
+        <p class="footer__text">
+          เช็กก่อนไป เช็กอินตอนถึง คู่มือเที่ยวเกาะเกร็ดที่เขียนให้คนมีเวลาน้อย
+        </p>
+      </div>
+
+      <div>
+        <h3>เที่ยว</h3>
+        <ul>
+          <li><a href="#plans">แพลนเที่ยว</a></li>
+          <li><a href="#places">เที่ยวไหนดี</a></li>
+          <li><a href="#eat">กินอะไรดี</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>เตรียมตัว</h3>
+        <ul>
+          <li><a href="#ferry">เรือข้ามฟาก</a></li>
+          <li><a href="#fac">สิ่งอำนวยความสะดวก</a></li>
+          <li><a href="docs/sitemap.html">ผังเว็บ</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>ติดตาม</h3>
+        <ul>
+          <li><a href="#top">Instagram</a></li>
+          <li><a href="#top">TikTok</a></li>
+          <li><a href="docs/brand.html">เกี่ยวกับแบรนด์</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <p class="footer__bar">
+      © 2569 Kret Check · งานส่วนที่ 2 · เว็บบล็อกท่องเที่ยวเกาะเกร็ด<br>
+      ข้อมูลค่าเรือ เวลา และราคาบนหน้านี้ยังเป็นตัวอย่าง ต้องเก็บข้อมูลจริงก่อนเผยแพร่
+    </p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

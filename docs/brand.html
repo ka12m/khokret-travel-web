@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ชื่อ โลโก้ และสี — Kret Check</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#513229">
+<link rel="icon" href="../assets/logo/logo-small.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/main.css">
+<script>
+(function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('kretcheck-theme');if(t)d.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<style>
+  .doc { max-width: 820px; margin-inline: auto; }
+  .logo-row { display: grid; gap: var(--sp-5); margin-block: var(--sp-5); }
+  @media (min-width: 700px) { .logo-row { grid-template-columns: repeat(3, 1fr); } }
+  .logo-box { padding: var(--sp-5); border: 1px solid var(--card-line); border-radius: var(--r-md); background: var(--bg-raised); text-align: center; }
+  .logo-box--dark { background: var(--c-earth); }
+  .logo-box svg { width: 92px; height: 92px; margin-inline: auto; }
+  .logo-box p { margin-top: var(--sp-3); font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-mute); }
+  .logo-box--dark p { color: var(--c-mute-cool); }
+
+  .parts { list-style: none; display: grid; gap: var(--sp-3); }
+  .parts li { display: grid; grid-template-columns: 1.5rem 1fr; gap: var(--sp-3); align-items: start; font-size: var(--fs-sm); }
+  .parts i { display: block; width: 1.1rem; height: 1.1rem; margin-top: .3rem; border-radius: 4px; }
+
+  .wordmark {
+    padding: var(--sp-6);
+    border-radius: var(--r-md);
+    background: var(--c-earth);
+    color: var(--c-cream);
+    text-align: center;
+  }
+  .wordmark b { display: block; font-family: var(--font-display); font-size: 2.25rem; font-weight: 700; letter-spacing: .01em; }
+  .wordmark span { display: block; margin-top: var(--sp-2); font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--c-mute-cool); }
+
+  .type-demo { padding: var(--sp-5); border: 1px solid var(--card-line); border-radius: var(--r-md); background: var(--bg-raised); }
+  .type-demo + .type-demo { margin-top: var(--sp-4); }
+  .type-demo small { display: block; margin-bottom: var(--sp-2); font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-mute); }
+
+  .swatch { display: grid; grid-template-columns: 3.5rem 1fr; gap: var(--sp-4); align-items: center; padding: var(--sp-3) 0; border-bottom: 1px solid var(--card-line); }
+  .swatch i { display: block; height: 3.5rem; border-radius: var(--r-sm); border: 1px solid var(--line); }
+  .swatch code { font-family: var(--font-mono); font-size: var(--fs-sm); }
+  .swatch p { color: var(--text-mute); font-size: var(--fs-sm); }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <div class="nav__bar">
+      <a class="nav__brand" href="../index.html">
+        <svg viewBox="0 0 96 96" aria-hidden="true">
+          <circle cx="48" cy="48" r="44" fill="#F4F1E2"/>
+          <path d="M22 58c4-17 15-24 26-24s22 7 26 24z" fill="#2D4A35"/>
+          <path d="M45 34l3-10 3 10z" fill="#513229"/>
+          <rect x="18" y="64" width="60" height="6" rx="3" fill="#513229"/>
+          <rect x="30" y="75" width="36" height="6" rx="3" fill="#513229" opacity=".5"/>
+        </svg>
+        <span>
+          <span class="nav__name">KRET CHECK!</span>
+          <span class="nav__sub">เกาะเกร็ด · ชุมชนมอญ นนทบุรี</span>
+        </span>
+      </a>
+      <button class="icon-btn" type="button" data-theme-toggle aria-pressed="false" aria-label="สลับเป็นโหมดกลางคืน">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="doc">
+
+    <ol class="crumbs">
+      <li><a href="../index.html">หน้าแรก</a></li>
+      <li>เกี่ยวกับแบรนด์</li>
+    </ol>
+
+    <header class="section__head" style="padding-top: var(--sp-3)">
+      <p class="eyebrow">เอกสารประกอบงาน</p>
+      <h1 class="section__title">ชื่อ โลโก้ และสี</h1>
+      <p class="section__lead">
+        ที่มาของทุกอย่างที่เห็นบนเว็บนี้ ทำไมถึงชื่อนี้ ทำไมโลโก้หน้าตาแบบนี้
+        และทำไมถึงใช้แค่ห้าสี
+      </p>
+    </header>
+
+    <!-- ============ ชื่อ ============ -->
+    <section class="section" style="padding-block: var(--sp-6)">
+      <h2 class="section__title" style="font-size: var(--fs-xl); margin-bottom: var(--sp-4)">ชื่อ</h2>
+
+      <div class="wordmark">
+        <b>KRET CHECK!</b>
+        <span>เกาะเกร็ด · ชุมชนมอญ นนทบุรี</span>
+      </div>
+
+      <div class="prose" style="margin-top: var(--sp-5)">
+        <p>
+          <strong>Kret</strong> มาจากเกาะเกร็ด ตัดให้เหลือพยางค์เดียวเพื่อให้จำง่ายและพิมพ์ง่าย
+        </p>
+        <p>
+          <strong>Check</strong> ทำงานสองชั้นพร้อมกัน ชั้นแรกคือ <em>เช็กอิน</em>
+          แบบที่ Gen Z ใช้กันจริง คือไปถึงแล้วถ่ายรูปลงโซเชียล
+          ชั้นที่สองคือ <em>เช็ก</em> ในความหมายว่าตรวจสอบข้อมูลให้ครบก่อนออกจากบ้าน
+          ซึ่งเป็นสิ่งที่เว็บนี้ทำจริง ๆ
+        </p>
+
+        <div class="tip">
+          <h3>กฎการเขียนชื่อ</h3>
+          <p>
+            ใน README, URL, handle และเอกสารทุกชนิด ให้เขียนว่า <code>Kret Check</code> เสมอ
+            ส่วน <code>KRET CHECK!</code> ที่มีเครื่องหมายตกใจ ใช้ได้เฉพาะในโลโก้
+            เพราะเป็นลูกเล่นทางกราฟิก ห้ามใส่ใน URL หรือชื่อไฟล์เด็ดขาด
+          </p>
+        </div>
+
+        <p>
+          บรรทัดคู่ <strong>เกาะเกร็ด · ชุมชนมอญ นนทบุรี</strong>
+          ต้องอยู่ใต้โลโก้เสมอในบริบทที่คนยังไม่รู้จักแบรนด์
+          เพราะชื่อ Kret Check อย่างเดียวไม่ได้บอกว่านี่คือที่ไหน
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ โลโก้ ============ -->
+    <section class="section" style="padding-block: var(--sp-6)">
+      <h2 class="section__title" style="font-size: var(--fs-xl); margin-bottom: var(--sp-2)">โลโก้ — เกาะกลางน้ำ</h2>
+      <p class="section__lead">โลโก้เล่าเรื่องเดียว คือเกาะกลางแม่น้ำที่มีวัดอยู่บนนั้น</p>
+
+      <div class="logo-row">
+        <div class="logo-box">
+          <svg viewBox="0 0 96 96" aria-label="โลโก้ตัวเต็ม">
+            <circle cx="72" cy="22" r="8" fill="#FCE6B7"/>
+            <path d="M16 62c5-22 19-32 32-32s27 10 32 32z" fill="#2D4A35"/>
+            <path d="M44.5 30l3.5-13 3.5 13z" fill="#513229"/>
+            <rect x="10" y="70" width="76" height="7" rx="3.5" fill="#513229"/>
+            <rect x="24" y="82" width="48" height="7" rx="3.5" fill="#513229" opacity=".55"/>
+          </svg>
+          <p>logo-full.svg<br>ใช้ที่ขนาด 40px ขึ้นไป</p>
+        </div>
+
+        <div class="logo-box logo-box--dark">
+          <svg viewBox="0 0 96 96" aria-label="โลโก้ในกรอบวงกลม">
+            <circle cx="48" cy="48" r="44" fill="#F4F1E2"/>
+            <path d="M22 58c4-17 15-24 26-24s22 7 26 24z" fill="#2D4A35"/>
+            <path d="M45 34l3-10 3 10z" fill="#513229"/>
+            <rect x="18" y="64" width="60" height="6" rx="3" fill="#513229"/>
+            <rect x="30" y="75" width="36" height="6" rx="3" fill="#513229" opacity=".5"/>
+          </svg>
+          <p>logo-circle.svg<br>ใช้บน navbar และบนพื้นเข้ม</p>
+        </div>
+
+        <div class="logo-box">
+          <svg viewBox="0 0 96 96" aria-label="โลโก้ขนาดเล็ก">
+            <path d="M14 64c5-24 20-35 34-35s29 11 34 35z" fill="#2D4A35"/>
+            <path d="M44 29l4-14 4 14z" fill="#513229"/>
+            <rect x="8" y="72" width="80" height="8" rx="4" fill="#513229"/>
+            <rect x="24" y="84" width="48" height="8" rx="4" fill="#513229" opacity=".55"/>
+          </svg>
+          <p>logo-small.svg<br>เล็กกว่า 40px ตัดจุดแดดออก</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top: var(--sp-5); margin-bottom: var(--sp-3); font-family: var(--font-display); font-size: var(--fs-lg)">ส่วนประกอบ 4 ชิ้น</h3>
+      <ul class="parts">
+        <li><i style="background: #2D4A35"></i><span><strong>โดมสีเขียว</strong> — ตัวเกาะเกร็ด</span></li>
+        <li><i style="background: #513229"></i><span><strong>ยอดแหลมบนโดม</strong> — เจดีย์เอียงมุเตา</span></li>
+        <li><i style="background: #513229; opacity: .55"></i><span><strong>เส้นสองเส้นล่าง</strong> — แม่น้ำเจ้าพระยา สื่อว่าต้องนั่งเรือถึงจะไปได้</span></li>
+        <li><i style="background: #FCE6B7"></i><span><strong>จุดเหลืองมุมขวาบน</strong> — แดดริมน้ำ ตัดออกเมื่อโลโก้เล็กกว่า 40px</span></li>
+      </ul>
+    </section>
+
+    <!-- ============ สี ============ -->
+    <section class="section" style="padding-block: var(--sp-6)">
+      <h2 class="section__title" style="font-size: var(--fs-xl); margin-bottom: var(--sp-2)">สี — ห้าสี ห้ามเพิ่ม</h2>
+      <p class="section__lead" style="margin-bottom: var(--sp-4)">
+        ทุกสีเก็บมาจากของจริงที่มีอยู่บนเกาะ ไม่ได้เลือกจากจานสีในโปรแกรม
+      </p>
+
+      <div class="swatch">
+        <i style="background: #513229"></i>
+        <div><code>#513229 — Mother Earth</code><p>ดินเผาที่ยังไม่เคลือบ จากหมู่บ้านกวานอาม่าน</p></div>
+      </div>
+      <div class="swatch">
+        <i style="background: #2D4A35"></i>
+        <div><code>#2D4A35 — Moselle Green</code><p>ต้นไม้ริมน้ำและร่มเงาในวัด</p></div>
+      </div>
+      <div class="swatch">
+        <i style="background: #F4F1E2"></i>
+        <div><code>#F4F1E2 — Lucky Dice</code><p>ดินเผาเนื้อขาวและแสงธรรมชาติ</p></div>
+      </div>
+      <div class="swatch">
+        <i style="background: #D8EBF9"></i>
+        <div><code>#D8EBF9 — Something Blue</code><p>ท้องฟ้าสะท้อนผิวน้ำ</p></div>
+      </div>
+      <div class="swatch">
+        <i style="background: #FCE6B7"></i>
+        <div><code>#FCE6B7 — The Bay</code><p>แดดบ่ายและขนมหวานมอญ</p></div>
+      </div>
+
+      <div class="tip" style="margin-top: var(--sp-5)">
+        <h3>ทำไมถึงล็อกไว้แค่ห้าสี</h3>
+        <p>
+          ยิ่งมีสีน้อย โอกาสที่คู่สีจะพังตอนสลับโหมดกลางวัน/กลางคืนยิ่งน้อย
+          ด้วยเหตุผลเดียวกัน navbar, hero, ส่วนสิ่งอำนวยความสะดวก และ footer
+          ถูกล็อกสีไว้ตายตัว ไม่เปลี่ยนตามโหมด
+          ถ้าต้องการเฉดใหม่ ให้ทำให้เข้มขึ้นหรืออ่อนลงจากห้าสีเดิม อย่าเพิ่มสีใหม่
+        </p>
+      </div>
+
+      <p style="margin-top: var(--sp-5)">
+        ดูค่าคอนทราสต์ทุกคู่ได้ที่ <a href="sitemap.html">หน้าผังเว็บ</a>
+      </p>
+    </section>
+
+    <!-- ============ ฟอนต์ ============ -->
+    <section class="section" style="padding-block: var(--sp-6)">
+      <h2 class="section__title" style="font-size: var(--fs-xl); margin-bottom: var(--sp-4)">ฟอนต์</h2>
+
+      <div class="type-demo">
+        <small>Display / heading — Mitr 500, 600, 700</small>
+        <p style="font-family: var(--font-display); font-size: var(--fs-2xl); font-weight: 600; line-height: 1.3">
+          มีเวลาครึ่งวันก็ไปเกาะเกร็ดได้
+        </p>
+      </div>
+
+      <div class="type-demo">
+        <small>Body — IBM Plex Sans Thai 400, 500, 600</small>
+        <p>
+          เกาะกลางแม่น้ำเจ้าพระยาที่ยังมีชุมชนมอญอยู่จริง วัดเก่า
+          เตาเผาเครื่องปั้นดินเผา และคาเฟ่ริมน้ำที่เปิดใหม่เรื่อย ๆ
+        </p>
+      </div>
+
+      <div class="type-demo">
+        <small>Label / mono — IBM Plex Mono 400, 500</small>
+        <p style="font-family: var(--font-mono); letter-spacing: .08em">
+          เกาะเกร็ด · ชุมชนมอญ นนทบุรี · 0123456789
+        </p>
+      </div>
+
+      <p style="margin-top: var(--sp-4); color: var(--text-mute); font-size: var(--fs-sm)">
+        โหลดจาก Google Fonts ทั้งหมด เรียกครั้งเดียวใน &lt;head&gt; ของทุกหน้า
+      </p>
+    </section>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p class="footer__bar" style="margin-top: 0; border-top: 0; padding-top: 0">
+      © 2569 Kret Check · เอกสารประกอบงานส่วนที่ 2
+    </p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>

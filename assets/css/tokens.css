@@ -1,0 +1,164 @@
+/* ============================================================
+   Kret Check — Design tokens
+   เกาะเกร็ด · ชุมชนมอญ นนทบุรี
+
+   สีทุกสีในเว็บนี้ต้องมาจากไฟล์นี้ที่เดียว
+   ห้ามเขียน hex ลงใน main.css หรือใน HTML โดยตรง
+
+   กฎ (จาก HANDOFF.md ข้อ 1-2):
+   - ใช้ได้แค่ห้าสีหลัก ถ้าต้องการเฉดใหม่ให้ไล่จากห้าสีเดิม
+   - ทุกคู่ตัวหนังสือ/พื้นหลังต้องได้อย่างน้อย 4.5:1 (WCAG AA)
+   ============================================================ */
+
+:root {
+  /* ---------- ห้าสีหลัก ห้ามเพิ่มสีนอกชุดนี้ ---------- */
+
+  /* Mother Earth — ดินเผาที่ยังไม่เคลือบ จากหมู่บ้านกวานอาม่าน */
+  --c-earth: #513229;
+  /* Moselle Green — ต้นไม้ริมน้ำและร่มเงาในวัด */
+  --c-green: #2D4A35;
+  /* Lucky Dice — ดินเผาเนื้อขาวและแสงธรรมชาติ */
+  --c-cream: #F4F1E2;
+  /* Something Blue — ท้องฟ้าสะท้อนผิวน้ำ (ใช้เฉพาะส่วนเรือข้ามฟาก) */
+  --c-sky: #D8EBF9;
+  /* The Bay — แดดบ่ายและขนมหวานมอญ (สีเน้นจุดเดียว) */
+  --c-sun: #FCE6B7;
+
+  /* ---------- เฉดที่ไล่จากห้าสีข้างบน ไม่ใช่สีใหม่ ---------- */
+  --c-earth-700: #3E261E;   /* น้ำตาลเข้มขึ้นหนึ่งขั้น */
+  --c-earth-900: #2E1C16;   /* น้ำตาลเข้มสุด — พื้นหลังโหมดกลางคืน */
+  --c-cream-100: #FFFDF5;   /* ครีมอ่อนขึ้น */
+  --c-cream-300: #E7E3D0;   /* ครีมเข้มขึ้น */
+  --c-mute-warm: #7A5A48;   /* ตัวหนังสือรอง บนพื้นสว่าง — 5.5:1 บน cream */
+  --c-mute-cool: #CFBFAF;   /* ตัวหนังสือรอง บนพื้นเข้ม — 9.1:1 บน earth-900 */
+
+  /* ---------- เส้นขอบและเงา ไล่จาก earth ด้วย alpha ---------- */
+  --line: rgba(81, 50, 41, .16);
+  --line-strong: rgba(81, 50, 41, .28);
+  --shadow-sm: 0 1px 2px rgba(46, 28, 22, .06), 0 2px 8px rgba(46, 28, 22, .05);
+  --shadow-md: 0 2px 4px rgba(46, 28, 22, .07), 0 10px 26px rgba(46, 28, 22, .09);
+  --shadow-lg: 0 4px 8px rgba(46, 28, 22, .09), 0 20px 46px rgba(46, 28, 22, .13);
+
+  /* ============================================================
+     พื้นผิวที่สลับตามโหมด — ค่าเริ่มต้นคือโหมดกลางวัน
+     หมายเหตุ: navbar / hero / สิ่งอำนวยความสะดวก / footer
+     ไม่ได้ใช้ตัวแปรกลุ่มนี้ เพราะถูกล็อกสีไว้ตายตัว (HANDOFF ข้อ 3)
+     ============================================================ */
+  --bg: var(--c-cream);
+  --bg-raised: var(--c-cream-100);
+  --bg-sunken: var(--c-cream-300);
+  --text: var(--c-earth);
+  --text-mute: var(--c-mute-warm);
+  --card-line: var(--line);
+
+  /* ---------- ฟอนต์ ---------- */
+  --font-display: "Mitr", "Noto Sans Thai", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans Thai", "Noto Sans Thai", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+
+  /* ---------- ขนาดตัวหนังสือ ฐานคือมือถือ ---------- */
+  --fs-base: 16px;
+  --fs-xs: .75rem;
+  --fs-sm: .875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.375rem;
+  --fs-2xl: 1.75rem;
+  --fs-3xl: 2.125rem;
+  --fs-4xl: 2.625rem;
+
+  --lh-tight: 1.25;
+  --lh-snug: 1.45;
+  --lh-body: 1.75;
+
+  /* ---------- ระยะห่าง ---------- */
+  --sp-1: .25rem;
+  --sp-2: .5rem;
+  --sp-3: .75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+  --section-y: 3.5rem;      /* ระยะบน-ล่างของแต่ละ section */
+  --gutter: 1.25rem;        /* ขอบซ้าย-ขวาของหน้า */
+  --maxw: 1180px;
+
+  /* ---------- ความโค้งและจังหวะ ---------- */
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-pill: 999px;
+  --ease: cubic-bezier(.4, 0, .2, 1);
+  --dur: .22s;
+
+  --nav-h: 60px;
+}
+
+/* ============================================================
+   โหมดกลางคืน
+   สลับแค่พื้นผิวกลาง ๆ ของหน้า ส่วนที่ล็อกสีไม่แตะ
+   ============================================================ */
+:root[data-theme="dark"] {
+  --bg: var(--c-earth-900);
+  --bg-raised: var(--c-earth-700);
+  --bg-sunken: var(--c-earth);
+  --text: var(--c-cream);
+  --text-mute: var(--c-mute-cool);
+  --card-line: rgba(244, 241, 226, .16);
+  --line: rgba(244, 241, 226, .16);
+  --line-strong: rgba(244, 241, 226, .3);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .3), 0 2px 8px rgba(0, 0, 0, .24);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, .34), 0 10px 26px rgba(0, 0, 0, .3);
+  --shadow-lg: 0 4px 8px rgba(0, 0, 0, .38), 0 20px 46px rgba(0, 0, 0, .36);
+}
+
+/* คนที่ตั้งเครื่องเป็นโหมดมืดไว้ และยังไม่เคยกดปุ่มสลับเอง */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: var(--c-earth-900);
+    --bg-raised: var(--c-earth-700);
+    --bg-sunken: var(--c-earth);
+    --text: var(--c-cream);
+    --text-mute: var(--c-mute-cool);
+    --card-line: rgba(244, 241, 226, .16);
+    --line: rgba(244, 241, 226, .16);
+    --line-strong: rgba(244, 241, 226, .3);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, .3), 0 2px 8px rgba(0, 0, 0, .24);
+    --shadow-md: 0 2px 4px rgba(0, 0, 0, .34), 0 10px 26px rgba(0, 0, 0, .3);
+    --shadow-lg: 0 4px 8px rgba(0, 0, 0, .38), 0 20px 46px rgba(0, 0, 0, .36);
+  }
+}
+
+/* ============================================================
+   Breakpoints — mobile first ขยายขึ้นด้วย min-width เท่านั้น
+   ============================================================ */
+
+/* ไอแพดแนวตั้ง 700-999px : 2 คอลัมน์ ยังใช้เมนูปุ่มกดเปิด */
+@media (min-width: 700px) {
+  :root {
+    --section-y: 4.5rem;
+    --gutter: 2rem;
+    --nav-h: 66px;
+  }
+}
+
+/* ไอแพดแนวนอน 1000-1199px : 4 คอลัมน์ เมนูกางเต็มแถบ ตัวหนังสือ 16.5px */
+@media (min-width: 1000px) {
+  :root {
+    --fs-base: 16.5px;
+    --section-y: 5.5rem;
+    --gutter: 2.5rem;
+    --nav-h: 72px;
+  }
+}
+
+/* คอม 1200px+ : ระยะห่างกว้างขึ้น ตัวหนังสือ 17px */
+@media (min-width: 1200px) {
+  :root {
+    --fs-base: 17px;
+    --section-y: 6.5rem;
+    --gutter: 3rem;
+    --fs-4xl: 3.25rem;
+  }
+}

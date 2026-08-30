@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96" role="img" aria-label="Kret Check">
+  <title>Kret Check</title>
+  <!-- จุดเหลืองมุมขวาบน : แดดริมน้ำ -->
+  <circle cx="72" cy="22" r="8" fill="#FCE6B7"/>
+  <!-- โดมสีเขียว : ตัวเกาะเกร็ด -->
+  <path d="M16 62c5-22 19-32 32-32s27 10 32 32z" fill="#2D4A35"/>
+  <!-- ยอดแหลมบนโดม : เจดีย์เอียงมุเตา -->
+  <path d="M44.5 30l3.5-13 3.5 13z" fill="#513229"/>
+  <!-- เส้นสองเส้นล่าง : แม่น้ำเจ้าพระยา -->
+  <rect x="10" y="70" width="76" height="7" rx="3.5" fill="#513229"/>
+  <rect x="24" y="82" width="48" height="7" rx="3.5" fill="#513229" opacity=".55"/>
+</svg>

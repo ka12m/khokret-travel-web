@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96" role="img" aria-label="Kret Check">
+  <title>Kret Check</title>
+  <!-- กรอบวงกลมสีครีม : ใช้บน navbar และบนพื้นเข้ม -->
+  <circle cx="48" cy="48" r="44" fill="#F4F1E2"/>
+  <path d="M22 58c4-17 15-24 26-24s22 7 26 24z" fill="#2D4A35"/>
+  <path d="M45 34l3-10 3 10z" fill="#513229"/>
+  <rect x="18" y="64" width="60" height="6" rx="3" fill="#513229"/>
+  <rect x="30" y="75" width="36" height="6" rx="3" fill="#513229" opacity=".5"/>
+</svg>

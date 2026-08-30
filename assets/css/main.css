@@ -1,0 +1,856 @@
+/* ============================================================
+   Kret Check — main.css
+   เขียนแบบ mobile first : CSS ฐานคือมือถือ แล้วขยายด้วย min-width
+   สีทุกสีมาจาก tokens.css ห้ามเขียน hex ในไฟล์นี้
+   ============================================================ */
+
+/* ---------- reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  /* HANDOFF ข้อ 4 : ต้องกำหนด background ที่ทั้ง html และ body
+     ไม่งั้นเวลาเลื่อนเลยขอบหน้าจะเห็นพื้นขาวโผล่ในโหมดมืด */
+  background: var(--bg);
+  font-size: var(--fs-base);
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 1rem);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  font-weight: 400;
+  line-height: var(--lh-body);
+  overflow-x: hidden;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+img, svg, video { display: block; max-width: 100%; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+
+h1, h2, h3, h4 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  /* HANDOFF ข้อ 5 : ห้ามใช้ -webkit-text-stroke กับพาดหัว อ่านไม่ออก */
+}
+p { margin: 0; }
+ul, ol { margin: 0; padding: 0; }
+
+:focus-visible {
+  outline: 3px solid var(--c-sun);
+  outline-offset: 3px;
+  border-radius: var(--r-sm);
+}
+
+/* ---------- โครงหน้า ---------- */
+.wrap {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section { padding-block: var(--section-y); }
+
+.section__head { margin-bottom: var(--sp-5); }
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: var(--sp-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.section__title {
+  font-size: var(--fs-2xl);
+  font-weight: 600;
+}
+
+.section__lead {
+  margin-top: var(--sp-3);
+  max-width: 56ch;
+  color: var(--text-mute);
+  font-size: var(--fs-md);
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--sp-4);
+  top: -100%;
+  z-index: 200;
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--r-sm);
+  background: var(--c-sun);
+  color: var(--c-earth);
+  font-weight: 600;
+  text-decoration: none;
+}
+.skip-link:focus { top: var(--sp-3); }
+
+/* ============================================================
+   NAVBAR — สีล็อกไว้ตายตัว ไม่เปลี่ยนตามโหมด (HANDOFF ข้อ 3)
+   พื้น Mother Earth + ตัวหนังสือ Lucky Dice = 10.0:1
+   ============================================================ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--c-earth);
+  color: var(--c-cream);
+  border-bottom: 1px solid rgba(244, 241, 226, .14);
+}
+
+.nav__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-height: var(--nav-h);
+}
+
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-right: auto;
+  text-decoration: none;
+}
+
+.nav__brand svg { width: 34px; height: 34px; flex: none; }
+
+.nav__name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: .01em;
+}
+
+/* บรรทัดคู่ใต้โลโก้ — ต้องมีเสมอในบริบทที่คนยังไม่รู้จักแบรนด์ */
+.nav__sub {
+  display: block;
+  margin-top: 2px;
+  color: var(--c-mute-cool);
+  font-family: var(--font-mono);
+  font-size: .625rem;
+  letter-spacing: .04em;
+  line-height: 1.2;
+}
+
+.nav__links {
+  display: none;              /* มือถือ+ไอแพดแนวตั้ง : ซ่อนไว้ในเมนูปุ่มกด */
+  list-style: none;
+}
+
+.nav__link {
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--r-pill);
+  color: var(--c-cream);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.nav__link:hover { background: rgba(244, 241, 226, .12); }
+.nav__link[aria-current="true"] { background: var(--c-sun); color: var(--c-earth); }
+
+.icon-btn {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  padding: 0;
+  border: 1px solid rgba(244, 241, 226, .28);
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--c-cream);
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.icon-btn:hover { background: rgba(244, 241, 226, .14); border-color: rgba(244, 241, 226, .5); }
+.icon-btn svg { width: 20px; height: 20px; }
+
+/* ปุ่มสลับโหมด : แสดงไอคอนเดียวตามโหมดที่ใช้อยู่ */
+.icon-btn .i-moon { display: none; }
+:root[data-theme="dark"] .icon-btn .i-sun { display: none; }
+:root[data-theme="dark"] .icon-btn .i-moon { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .icon-btn .i-sun { display: none; }
+  :root:not([data-theme="light"]) .icon-btn .i-moon { display: block; }
+}
+
+/* เส้นสามขีด -> กากบาท */
+.burger__box { position: relative; width: 18px; height: 12px; }
+.burger__box span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
+}
+.burger__box span:nth-child(1) { top: 0; }
+.burger__box span:nth-child(2) { top: 5px; }
+.burger__box span:nth-child(3) { top: 10px; }
+.burger[aria-expanded="true"] .burger__box span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+.burger[aria-expanded="true"] .burger__box span:nth-child(2) { opacity: 0; }
+.burger[aria-expanded="true"] .burger__box span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
+/* แผงเมนูที่กดเปิด */
+.nav__panel {
+  display: grid;
+  overflow: hidden;
+  max-height: 0;
+  border-top: 1px solid transparent;
+  transition: max-height var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.nav__panel[data-open="true"] {
+  max-height: 26rem;
+  border-top-color: rgba(244, 241, 226, .14);
+}
+.nav__panel ul { list-style: none; padding-block: var(--sp-2) var(--sp-4); }
+.nav__panel a {
+  display: block;
+  padding: var(--sp-3) 0;
+  border-bottom: 1px solid rgba(244, 241, 226, .1);
+  color: var(--c-cream);
+  font-size: var(--fs-lg);
+  font-weight: 500;
+  text-decoration: none;
+}
+.nav__panel li:last-child a { border-bottom: 0; }
+
+/* ============================================================
+   HERO — สีล็อกไว้ตายตัว (HANDOFF ข้อ 3)
+   ============================================================ */
+.hero {
+  background: var(--c-earth);
+  color: var(--c-cream);
+  padding-block: var(--sp-7) var(--sp-8);
+}
+
+.hero__grid { display: grid; gap: var(--sp-6); }
+
+.hero__title {
+  font-size: var(--fs-3xl);
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+.hero__title em {
+  font-style: normal;
+  color: var(--c-sun);
+}
+
+.hero__lead {
+  margin-top: var(--sp-4);
+  max-width: 46ch;
+  color: var(--c-mute-cool);
+  font-size: var(--fs-lg);
+}
+
+/* สติกเกอร์ 3 อัน */
+.stickers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-top: var(--sp-5);
+  list-style: none;
+}
+.sticker {
+  padding: var(--sp-2) var(--sp-4);
+  border-radius: var(--r-pill);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: .03em;
+  transform: rotate(-1.5deg);
+}
+.sticker:nth-child(1) { background: var(--c-sun); color: var(--c-earth); transform: rotate(-2deg); }
+.sticker:nth-child(2) { background: var(--c-sky); color: var(--c-earth); transform: rotate(1.5deg); }
+.sticker:nth-child(3) { background: var(--c-cream); color: var(--c-earth); transform: rotate(-1deg); }
+
+.hero__cta { display: flex; flex-wrap: wrap; gap: var(--sp-3); margin-top: var(--sp-6); }
+
+/* ช่องรูป hero — โผล่เฉพาะจอ 1000px ขึ้นไป */
+.hero__media { display: none; }
+
+/* ---------- ปุ่ม ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  padding: var(--sp-3) var(--sp-5);
+  border: 2px solid transparent;
+  border-radius: var(--r-pill);
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform var(--dur) var(--ease), background var(--dur) var(--ease),
+              color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.btn:hover { transform: translateY(-2px); }
+
+/* The Bay บน Mother Earth = 9.3:1 */
+.btn--primary { background: var(--c-sun); color: var(--c-earth); }
+.btn--primary:hover { background: var(--c-cream); }
+
+/* Moselle Green + Lucky Dice = 8.6:1 */
+.btn--green { background: var(--c-green); color: var(--c-cream); }
+.btn--green:hover { background: var(--c-earth); }
+
+.btn--ghost { border-color: currentColor; background: transparent; }
+.btn--ghost:hover { background: rgba(244, 241, 226, .12); }
+
+.btn--sm { padding: var(--sp-2) var(--sp-4); font-size: var(--fs-sm); }
+
+/* ============================================================
+   FACTS — แถบตอบ 3 คำถาม
+   ============================================================ */
+.facts {
+  background: var(--bg-sunken);
+  border-block: 1px solid var(--card-line);
+  padding-block: var(--sp-6);
+}
+.facts__grid { display: grid; gap: var(--sp-5); }
+.fact__q {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+}
+.fact__a {
+  margin-top: var(--sp-2);
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  line-height: var(--lh-tight);
+}
+.fact__note { margin-top: var(--sp-2); color: var(--text-mute); font-size: var(--fs-sm); }
+
+/* ============================================================
+   การ์ด — ใช้ร่วมกันทั้ง เที่ยวไหนดี / กินอะไรดี / โพสต์
+   ============================================================ */
+.grid { display: grid; gap: var(--sp-5); }
+
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--card-line);
+  border-radius: var(--r-md);
+  background: var(--bg-raised);
+  color: var(--text);
+  text-decoration: none;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+/* ช่องรอใส่รูป — หาคำว่า "ใส่รูปตรงนี้" เพื่อไล่แทนที่ */
+.slot {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  background: var(--bg-sunken);
+  border-bottom: 1px solid var(--card-line);
+  color: var(--text-mute);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: .08em;
+  text-align: center;
+}
+.slot--wide { aspect-ratio: 16 / 9; }
+
+.card__body { display: flex; flex-direction: column; gap: var(--sp-2); padding: var(--sp-4); flex: 1; }
+.card__kicker {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+}
+.card__title { font-size: var(--fs-lg); font-weight: 600; }
+.card__text { color: var(--text-mute); font-size: var(--fs-sm); }
+.card__foot {
+  margin-top: auto;
+  padding-top: var(--sp-3);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+}
+
+/* ============================================================
+   PLANS — มือถือเลื่อนซ้ายขวา / จอใหญ่เป็น grid
+   ============================================================ */
+.rail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 78%;
+  gap: var(--sp-4);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: var(--sp-4);
+  margin-inline: calc(var(--gutter) * -1);
+  padding-inline: var(--gutter);
+  scrollbar-width: thin;
+}
+.rail > * { scroll-snap-align: start; }
+
+.plan {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-5);
+  border: 1px solid var(--card-line);
+  border-radius: var(--r-md);
+  background: var(--bg-raised);
+  text-decoration: none;
+  color: var(--text);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+a.plan:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+.plan__tag {
+  align-self: flex-start;
+  padding: var(--sp-1) var(--sp-3);
+  border-radius: var(--r-pill);
+  background: var(--c-sun);
+  color: var(--c-earth);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+}
+.plan__title { font-size: var(--fs-xl); font-weight: 600; }
+.plan__steps { list-style: none; display: grid; gap: var(--sp-3); }
+.plan__steps li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--sp-3);
+  align-items: start;
+  color: var(--text-mute);
+  font-size: var(--fs-sm);
+}
+.plan__time {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  padding-top: .25em;
+  color: var(--text);
+  white-space: nowrap;
+}
+.plan__foot {
+  margin-top: auto;
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--card-line);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+
+/* ============================================================
+   FERRY — พื้น Something Blue (สีนี้ใช้เฉพาะส่วนนี้เท่านั้น)
+   ตัวหนังสือ Mother Earth บน Something Blue = 9.3:1
+   ============================================================ */
+.ferry { background: var(--c-sky); color: var(--c-earth); }
+.ferry .section__lead,
+.ferry .eyebrow { color: var(--c-earth); opacity: .78; }
+
+.tickets { display: grid; gap: var(--sp-4); margin-bottom: var(--sp-6); }
+
+.ticket {
+  position: relative;
+  display: grid;
+  gap: var(--sp-3);
+  padding: var(--sp-5);
+  border-radius: var(--r-md);
+  background: var(--c-cream-100);
+  box-shadow: var(--shadow-sm);
+}
+/* รอยปรุแบบตั๋วเรือ */
+.ticket::after {
+  content: "";
+  position: absolute;
+  left: var(--sp-5);
+  right: var(--sp-5);
+  bottom: 3.25rem;
+  border-top: 2px dashed var(--line);
+}
+.ticket__route {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+}
+.ticket__route span[aria-hidden] { color: var(--c-green); }
+.ticket__meta { display: grid; gap: var(--sp-2); font-size: var(--fs-sm); }
+.ticket__meta div { display: flex; justify-content: space-between; gap: var(--sp-3); }
+.ticket__meta dt { color: var(--c-mute-warm); }
+.ticket__meta dd { margin: 0; font-family: var(--font-mono); font-weight: 500; }
+.ticket__note {
+  margin-top: var(--sp-4);
+  padding-top: var(--sp-2);
+  font-size: var(--fs-xs);
+  color: var(--c-mute-warm);
+}
+
+.steps { list-style: none; counter-reset: s; display: grid; gap: var(--sp-4); }
+.steps li {
+  counter-increment: s;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--sp-4);
+  align-items: start;
+}
+.steps li::before {
+  content: counter(s);
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--r-pill);
+  background: var(--c-green);
+  color: var(--c-cream);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+.steps h3 { font-size: var(--fs-md); font-weight: 600; }
+.steps p { margin-top: var(--sp-1); font-size: var(--fs-sm); opacity: .8; }
+
+/* ============================================================
+   FACILITIES — สีล็อกไว้ตายตัว พื้น Moselle Green (HANDOFF ข้อ 3)
+   Lucky Dice บน Moselle Green = 8.6:1
+   ============================================================ */
+.fac { background: var(--c-green); color: var(--c-cream); }
+.fac .section__lead { color: var(--c-cream); opacity: .8; }
+.fac .eyebrow { color: var(--c-sun); }
+
+.fac__grid { display: grid; gap: var(--sp-4); }
+.fac__item {
+  padding: var(--sp-4);
+  border: 1px solid rgba(244, 241, 226, .2);
+  border-radius: var(--r-md);
+  background: rgba(244, 241, 226, .06);
+}
+.fac__item h3 {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-md);
+  font-weight: 600;
+}
+.fac__item h3 svg { width: 20px; height: 20px; flex: none; color: var(--c-sun); }
+.fac__item p { margin-top: var(--sp-2); font-size: var(--fs-sm); opacity: .82; }
+
+/* ============================================================
+   FOOTER — สีล็อกไว้ตายตัว (HANDOFF ข้อ 3)
+   ============================================================ */
+.footer {
+  background: var(--c-earth);
+  color: var(--c-cream);
+  padding-block: var(--sp-7) var(--sp-5);
+}
+.footer__grid { display: grid; gap: var(--sp-6); }
+.footer__brand { display: flex; align-items: center; gap: var(--sp-3); }
+.footer__brand svg { width: 44px; height: 44px; flex: none; }
+.footer__name { font-family: var(--font-display); font-size: var(--fs-xl); font-weight: 700; }
+.footer__sub { color: var(--c-mute-cool); font-family: var(--font-mono); font-size: var(--fs-xs); }
+.footer__text { margin-top: var(--sp-4); max-width: 42ch; color: var(--c-mute-cool); font-size: var(--fs-sm); }
+.footer h3 {
+  margin-bottom: var(--sp-3);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--c-sun);
+}
+.footer ul { list-style: none; display: grid; gap: var(--sp-2); }
+.footer a { color: var(--c-cream); font-size: var(--fs-sm); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+.footer__bar {
+  margin-top: var(--sp-6);
+  padding-top: var(--sp-4);
+  border-top: 1px solid rgba(244, 241, 226, .16);
+  color: var(--c-mute-cool);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  line-height: 1.7;
+}
+
+/* ---------- ป้ายเตือนว่าข้อมูลยังเป็นตัวอย่าง (HANDOFF ข้อ 7) ---------- */
+.draft-note {
+  display: flex;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--r-md);
+  background: var(--bg-sunken);
+  color: var(--text-mute);
+  font-size: var(--fs-sm);
+}
+.draft-note strong { color: var(--text); }
+
+/* ในส่วนเรือข้ามฟาก พื้นถูกล็อกเป็น Something Blue ตลอด ไม่เปลี่ยนตามโหมด
+   กล่องเตือนในนั้นจึงต้องล็อกสีตัวหนังสือด้วย ไม่งั้นพอสลับเป็นโหมดมืด
+   ตัวหนังสือจะกลายเป็นสีครีมไปอยู่บนพื้นฟ้า แล้วอ่านไม่ออก */
+.ferry .draft-note {
+  border-color: rgba(81, 50, 41, .3);
+  background: rgba(81, 50, 41, .06);
+  color: var(--c-earth);
+}
+.ferry .draft-note strong { color: var(--c-earth); }
+
+/* ---------- scroll reveal ----------
+   ซ่อนไว้เฉพาะตอนที่ JS ทำงานเท่านั้น (คลาส .js ใส่จากสคริปต์ใน <head>)
+   ถ้า JS พัง ปิด หรือโหลดไม่ทัน เนื้อหาต้องยังอ่านได้ตามปกติ */
+.js .reveal { opacity: 0; transform: translateY(14px); transition: opacity .5s var(--ease), transform .5s var(--ease); }
+.js .reveal.is-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  .js .reveal { opacity: 1; transform: none; }
+}
+
+/* ============================================================
+   700-999px — ไอแพดแนวตั้ง : 2 คอลัมน์ ยังใช้เมนูปุ่มกดเปิด
+   ============================================================ */
+@media (min-width: 700px) {
+  .section__title { font-size: var(--fs-3xl); }
+  .hero__title { font-size: var(--fs-4xl); }
+  .facts__grid { grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); }
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .fac__grid { grid-template-columns: repeat(2, 1fr); }
+  .tickets { grid-template-columns: repeat(2, 1fr); }
+  .steps { grid-template-columns: repeat(2, 1fr); gap: var(--sp-5); }
+  .footer__grid { grid-template-columns: 1.4fr 1fr 1fr; }
+  .rail { grid-auto-columns: 46%; }
+}
+
+/* ============================================================
+   1000-1199px — ไอแพดแนวนอน : 4 คอลัมน์ เมนูกางเต็มแถบ (ชิดกัน)
+   ============================================================ */
+@media (min-width: 1000px) {
+  .burger { display: none; }
+  .nav__panel { display: none; }
+  .nav__links { display: flex; align-items: center; gap: 2px; }
+
+  .hero { padding-block: var(--sp-8); }
+  .hero__grid { grid-template-columns: 1.05fr .95fr; align-items: center; gap: var(--sp-7); }
+  .hero__media {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 4 / 3;
+    border: 1px solid rgba(244, 241, 226, .28);
+    border-radius: var(--r-lg);
+    background: rgba(244, 241, 226, .07);
+    color: var(--c-mute-cool);
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+    letter-spacing: .08em;
+    text-align: center;
+  }
+
+  .grid { grid-template-columns: repeat(4, 1fr); }
+  .grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .fac__grid { grid-template-columns: repeat(4, 1fr); }
+  .steps { grid-template-columns: repeat(4, 1fr); }
+  .footer__grid { grid-template-columns: 1.6fr 1fr 1fr 1fr; }
+
+  /* แพลนเที่ยว : เลิกเลื่อนซ้ายขวา กลายเป็น grid */
+  .rail {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(3, 1fr);
+    overflow: visible;
+    margin-inline: 0;
+    padding-inline: 0;
+    padding-bottom: 0;
+    gap: var(--sp-5);
+  }
+}
+
+/* ============================================================
+   1200px+ — คอม : ระยะห่างกว้างขึ้น
+   ============================================================ */
+@media (min-width: 1200px) {
+  .nav__links { gap: var(--sp-2); }
+  .nav__link { padding: var(--sp-2) var(--sp-4); font-size: var(--fs-md); }
+  .grid { gap: var(--sp-6); }
+  .rail { gap: var(--sp-6); }
+  .fac__grid { gap: var(--sp-5); }
+  .hero__grid { gap: var(--sp-8); }
+}
+
+/* ============================================================
+   หน้าบทความ (เทมเพลตเดียวใช้ซ้ำทุกโพสต์)
+   ต้นแบบอยู่ที่ article-template.html
+   ============================================================ */
+
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  padding-block: var(--sp-4);
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-mute);
+}
+.crumbs a { color: var(--text-mute); text-decoration: none; }
+.crumbs a:hover { color: var(--text); text-decoration: underline; }
+.crumbs li + li::before { content: "/"; margin-right: var(--sp-2); opacity: .5; }
+
+.article { max-width: 720px; margin-inline: auto; }
+
+.article__head { padding-bottom: var(--sp-5); }
+.article__title {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-3xl);
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+.article__lead {
+  margin-top: var(--sp-4);
+  color: var(--text-mute);
+  font-size: var(--fs-lg);
+}
+.article__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+  margin-top: var(--sp-4);
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--card-line);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-mute);
+}
+
+.article__hero { margin-bottom: var(--sp-6); border-radius: var(--r-md); overflow: hidden; }
+
+/* ------------------------------------------------------------
+   กล่องสรุป — HANDOFF ข้อ 8 : ต้องอยู่บนสุดก่อนเนื้อหาเสมอ
+   เพราะคนครึ่งหนึ่งอ่านแค่กล่องนี้แล้วปิด
+   ------------------------------------------------------------ */
+.summary {
+  margin-bottom: var(--sp-6);
+  padding: var(--sp-5);
+  border: 2px solid var(--c-green);
+  border-radius: var(--r-md);
+  background: var(--bg-raised);
+}
+.summary h2 {
+  margin-bottom: var(--sp-4);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+}
+.summary__list { display: grid; gap: var(--sp-3); }
+.summary__row {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: var(--sp-3);
+  align-items: baseline;
+  padding-bottom: var(--sp-3);
+  border-bottom: 1px solid var(--card-line);
+}
+.summary__row:last-child { padding-bottom: 0; border-bottom: 0; }
+.summary__row dt { color: var(--text-mute); font-size: var(--fs-sm); }
+.summary__row dd { margin: 0; font-weight: 600; }
+.summary__row dd small {
+  display: block;
+  margin-top: 2px;
+  color: var(--text-mute);
+  font-size: var(--fs-xs);
+  font-weight: 400;
+}
+
+.prose > * + * { margin-top: var(--sp-5); }
+.prose h2 { margin-top: var(--sp-7); font-size: var(--fs-xl); font-weight: 600; }
+.prose h3 { margin-top: var(--sp-6); font-size: var(--fs-lg); font-weight: 600; }
+.prose p { font-size: var(--fs-md); }
+.prose ul, .prose ol { padding-left: 1.25rem; display: grid; gap: var(--sp-2); }
+.prose li { padding-left: var(--sp-1); }
+.prose a { color: var(--text); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.prose figure { margin: 0; }
+.prose figcaption {
+  margin-top: var(--sp-2);
+  color: var(--text-mute);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+}
+
+/* กล่องเคล็ดลับ — ใช้ The Bay เป็นสีเน้น */
+.tip {
+  padding: var(--sp-5);
+  border-left: 4px solid var(--c-sun);
+  border-radius: var(--r-sm);
+  background: var(--bg-sunken);
+}
+.tip h3 {
+  margin: 0 0 var(--sp-2);
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  font-weight: 600;
+}
+.tip p { color: var(--text-mute); font-size: var(--fs-sm); }
+
+.tags { display: flex; flex-wrap: wrap; gap: var(--sp-2); list-style: none; }
+.tag {
+  padding: var(--sp-1) var(--sp-3);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-pill);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  text-decoration: none;
+}
+.tag:hover { background: var(--bg-sunken); }
+
+.related { margin-top: var(--sp-8); padding-top: var(--sp-6); border-top: 1px solid var(--card-line); }
+
+/* หน้า 404 */
+.oops { display: grid; place-items: center; text-align: center; min-height: 64vh; padding-block: var(--sp-8); }
+.oops__code {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  letter-spacing: .2em;
+  color: var(--text-mute);
+}
+.oops__title { margin-top: var(--sp-3); font-size: var(--fs-3xl); font-weight: 700; }
+.oops__text { margin-top: var(--sp-4); max-width: 44ch; color: var(--text-mute); }
+.oops__cta { display: flex; flex-wrap: wrap; gap: var(--sp-3); justify-content: center; margin-top: var(--sp-6); }
+.oops svg { width: 110px; height: 110px; margin-bottom: var(--sp-4); }
+
+@media (min-width: 700px) {
+  .article__title { font-size: var(--fs-4xl); }
+  .summary__list { grid-template-columns: repeat(2, 1fr); gap: var(--sp-3) var(--sp-5); }
+}
+
+@media (min-width: 1000px) {
+  .article { max-width: 760px; }
+}
