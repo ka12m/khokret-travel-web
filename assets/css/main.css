@@ -417,103 +417,6 @@ a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 }
 
 /* ============================================================
-   MAP — ผังถนนย่อบนหน้าแรก
-   วาดเป็นผังถนนแบบแผนที่นำทาง ไม่ได้ใช้ tile จากผู้ให้บริการแผนที่
-   เพราะ CSP ของหน้าตัวอย่างบล็อกรูปจากโฮสต์ภายนอก และจะได้ไม่ต้องใช้ API key
-   ถนนวาดสองชั้น ชั้นล่างเป็นขอบ ชั้นบนเป็นผิวถนน แบบเดียวกับแผนที่นำทางทั่วไป
-   สีล็อกไว้เหมือนงานพิมพ์ ไม่สลับตามโหมดกลางคืน เหมือน map.html
-
-   มือถือ  : ผังอยู่บน ป้ายสถานที่เรียงเป็นรายการอยู่ล่าง
-   1000px+ : ป้ายลอยทับบนผังตามตำแหน่งจริง
-   ============================================================ */
-.map {
-  border: 1px solid var(--card-line);
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-}
-
-.map__frame { position: relative; background: var(--c-sky-400); }
-.map__art { display: block; width: 100%; height: auto; }
-
-.map__water { fill: var(--c-sky-400); }
-.map__land { fill: var(--c-cream-300); }
-.map__park { fill: var(--c-green-200); }
-
-/* ถนน : ชั้นขอบก่อน แล้วทับด้วยผิวถนน */
-.map__case { fill: none; stroke: var(--c-mute-warm); stroke-opacity: .35; stroke-linecap: round; stroke-linejoin: round; }
-.map__road { fill: none; stroke: var(--c-cream-100); stroke-linecap: round; stroke-linejoin: round; }
-.map__road--main { stroke: var(--c-sun-500); }
-
-.map__ferry { fill: none; stroke: var(--c-sky-800); stroke-width: 3; stroke-dasharray: 9 9; stroke-linecap: round; }
-.map__pier { fill: var(--c-sky-800); }
-.map__dot { fill: var(--c-clay); stroke: var(--c-cream-100); stroke-width: 3; }
-.map__dot-no { fill: var(--c-cream-100); font-family: var(--font-mono); font-size: 17px; font-weight: 500; text-anchor: middle; }
-
-/* ป้ายบนภาพวางบนแคปซูลครีมเสมอ ตัวหนังสือจะได้ไม่ไปนอนบนน้ำหรือบนถนน */
-.map__cap { fill: var(--c-cream-100); }
-.map__label { fill: var(--c-earth); font-family: var(--font-mono); font-size: 15px; text-anchor: middle; }
-.map__label--area {
-  fill: var(--c-earth);
-  font-family: var(--font-display);
-  font-size: 26px;
-  font-weight: 600;
-  text-anchor: middle;
-  opacity: .5;
-  letter-spacing: .06em;
-}
-
-/* ---------- ป้ายสถานที่ ---------- */
-.map__pins {
-  display: grid;
-  gap: var(--sp-2);
-  padding: var(--sp-4);
-  background: var(--bg-raised);
-  border-top: 1px solid var(--card-line);
-}
-
-.pin {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-3);
-  padding: var(--sp-3) var(--sp-4);
-  border-radius: var(--r-pill);
-  background: var(--c-green);
-  color: var(--c-cream);
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  text-decoration: none;
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--dur) var(--ease), background var(--dur) var(--ease);
-}
-.pin:hover { transform: translateY(-2px); background: var(--c-earth); }
-
-.pin__no {
-  display: grid;
-  place-items: center;
-  width: 1.5rem;
-  height: 1.5rem;
-  flex: none;
-  border-radius: var(--r-pill);
-  background: var(--c-sun);
-  color: var(--c-earth);
-  font-family: var(--font-mono);
-  font-size: var(--fs-xs);
-  font-weight: 500;
-}
-.pin__name { flex: 1; }
-.pin__go { flex: none; font-family: var(--font-mono); }
-
-.map__foot {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--sp-3) var(--sp-5);
-  margin-top: var(--sp-4);
-}
-.map__note { flex: 1 1 20rem; color: var(--text-mute); font-family: var(--font-mono); font-size: var(--fs-xs); }
-
-/* ============================================================
    PLANS — มือถือเลื่อนซ้ายขวา / จอใหญ่เป็น grid
    ============================================================ */
 .rail {
@@ -759,7 +662,6 @@ a.plan:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
   .grid { grid-template-columns: repeat(2, 1fr); }
   .fac__grid { grid-template-columns: repeat(2, 1fr); }
   .tickets { grid-template-columns: repeat(2, 1fr); }
-
   .steps { grid-template-columns: repeat(2, 1fr); gap: var(--sp-5); }
   .footer__grid { grid-template-columns: 1.4fr 1fr 1fr; }
   .rail { grid-auto-columns: 46%; }
@@ -801,32 +703,6 @@ a.plan:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
     background: transparent;
   }
 
-  /* ป้ายลอยทับแผนผัง ตำแหน่งมาจาก --x / --y ที่เขียนไว้ในแต่ละป้าย
-     (คิดเป็น % ของกรอบ ตรงกับพิกัดจุดใน viewBox ของ SVG)
-     เริ่มที่ 1000px ไม่ใช่ 700px เพราะกรอบที่แคบกว่านี้ป้ายจะทับกันเอง
-     ไอแพดแนวตั้งจึงยังใช้แบบรายการอยู่ เหมือนที่ยังใช้เมนูปุ่มกด */
-  .map__pins {
-    position: absolute;
-    inset: 0;
-    display: block;
-    padding: 0;
-    background: transparent;
-    border-top: 0;
-    pointer-events: none;
-  }
-  .pin {
-    position: absolute;
-    left: var(--x);
-    top: var(--y);
-    transform: translate(-50%, -50%);
-    pointer-events: auto;
-    white-space: nowrap;
-  }
-  .pin:hover, .pin:focus-visible { transform: translate(-50%, -50%) translateY(-3px); }
-  /* ช่วง 1000-1199 กรอบยังแคบ ย่อป้ายลงเหมือนที่ตัวหนังสือทั้งหน้าย่อเป็น 16.5px */
-  .pin { gap: var(--sp-2); padding: var(--sp-2) var(--sp-3); font-size: var(--fs-xs); }
-  .pin__no { width: 1.25rem; height: 1.25rem; }
-
   .grid { grid-template-columns: repeat(4, 1fr); }
   .grid--3 { grid-template-columns: repeat(3, 1fr); }
   .fac__grid { grid-template-columns: repeat(4, 1fr); }
@@ -849,10 +725,6 @@ a.plan:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
    1200px+ — คอม : ระยะห่างกว้างขึ้น
    ============================================================ */
 @media (min-width: 1200px) {
-  /* จอกว้างพอแล้ว ป้ายกลับมาขนาดปกติ */
-  .pin { gap: var(--sp-3); padding: var(--sp-3) var(--sp-4); font-size: var(--fs-sm); }
-  .pin__no { width: 1.5rem; height: 1.5rem; }
-
   .nav__links { gap: var(--sp-2); }
   .nav__link { padding: var(--sp-2) var(--sp-4); font-size: var(--fs-md); }
   .grid { gap: var(--sp-6); }
