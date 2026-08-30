@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>แผนที่เกาะเกร็ด — Kret Check</title>
+<meta name="description" content="แผนที่ภาพวาดเกาะเกร็ด ชุมชนมอญ นนทบุรี รวมท่าเรือ 4 ท่า วัดรอบเกาะ หมู่บ้านเครื่องปั้นดินเผา ร้านขนมไทย สวนสมุนไพร คาเฟ่ และโฮมสเตย์ ครบ 40 จุดในแผ่นเดียว">
+<meta name="theme-color" content="var(--c-earth)">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="แผนที่เกาะเกร็ด — Kret Check">
+<meta property="og:description" content="แผนที่ภาพวาดเกาะเกร็ด รวม 40 จุดรอบเกาะไว้ในแผ่นเดียว">
+<meta property="og:locale" content="th_TH">
+
+<link rel="icon" href="assets/logo/logo-small.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/map.css">
+
+<script>
+(function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('kretcheck-theme');if(t)d.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">ข้ามไปที่เนื้อหา</a>
+
+<!-- ============================================================
+     NAV — สีล็อกไว้ตายตัว ไม่เปลี่ยนตามโหมด
+     ============================================================ -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <div class="nav__bar">
+
+      <a class="nav__brand" href="index.html">
+        <svg viewBox="0 0 96 96" aria-hidden="true">
+          <circle cx="48" cy="48" r="44" fill="var(--c-cream)"/>
+          <path d="M22 58c4-17 15-24 26-24s22 7 26 24z" fill="var(--c-green)"/>
+          <path d="M45 34l3-10 3 10z" fill="var(--c-earth)"/>
+          <rect x="18" y="64" width="60" height="6" rx="3" fill="var(--c-earth)"/>
+          <rect x="30" y="75" width="36" height="6" rx="3" fill="var(--c-earth)" opacity=".5"/>
+        </svg>
+        <span>
+          <span class="nav__name">KRET CHECK!</span>
+          <span class="nav__sub">เกาะเกร็ด · ชุมชนมอญ นนทบุรี</span>
+        </span>
+      </a>
+
+      <ul class="nav__links">
+        <li><a class="nav__link" href="index.html#plans">แพลนเที่ยว</a></li>
+        <li><a class="nav__link" href="index.html#places">เที่ยวไหนดี</a></li>
+        <li><a class="nav__link" href="index.html#eat">กินอะไรดี</a></li>
+        <li><a class="nav__link is-here" href="map.html" aria-current="page">แผนที่เกาะ</a></li>
+        <li><a class="nav__link" href="index.html#ferry">เรือข้ามฟาก</a></li>
+      </ul>
+
+      <button class="icon-btn" type="button" data-theme-toggle aria-pressed="false" aria-label="สลับเป็นโหมดกลางคืน">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+
+      <button class="icon-btn burger" type="button" data-burger aria-expanded="false" aria-controls="nav-panel" aria-label="เปิดเมนู">
+        <span class="burger__box" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+
+    </div>
+  </div>
+
+  <nav class="nav__panel" id="nav-panel" data-nav-panel data-open="false" aria-label="เมนูหลัก">
+    <div class="wrap">
+      <ul>
+        <li><a href="index.html#plans">แพลนเที่ยว</a></li>
+        <li><a href="index.html#places">เที่ยวไหนดี</a></li>
+        <li><a href="index.html#eat">กินอะไรดี</a></li>
+        <li><a href="map.html">แผนที่เกาะ</a></li>
+        <li><a href="index.html#ferry">เรือข้ามฟาก</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<article class="article">
+
+  <!-- ============================================================
+       หัวเรื่อง
+       ============================================================ -->
+  <header class="article__head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="เส้นทางหน้า">
+        <a href="index.html">หน้าแรก</a> · <span>แผนที่เกาะ</span>
+      </nav>
+      <p class="eyebrow">แผนที่ภาพวาด · ฉบับเดินเที่ยวทั้งเกาะ</p>
+      <h1 class="article__title">แผนที่เกาะเกร็ด<br>ทั้งเกาะอยู่ในแผ่นเดียว</h1>
+      <p class="article__lead">
+        วาดใหม่จากแผนที่ท่องเที่ยวของชุมชนเกาะเกร็ด จัดกลุ่มใหม่เป็น 6 เส้นทาง
+        เครื่องปั้นดินเผา · ขนมหวาน · สมุนไพรและเกษตร · นาฏศิลป์ · เส้นทางนักปั่นและวัด · ท่าเรือ
+        หมายเลขบนแผนที่ตรงกับรายชื่อด้านล่างทุกจุด
+      </p>
+      <p class="article__meta">
+        <span>40 จุดทั่วเกาะ</span> · <span>ท่าเรือ 4 ท่า</span> · <span>ปั่นรอบเกาะ ~1 ชั่วโมง</span>
+      </p>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       ตัวแผนที่ — SVG วาดเอง ไม่ใช้ไฟล์ภาพ ย่อขยายได้ไม่แตก
+       ============================================================ -->
+  <section class="section" aria-labelledby="h-map">
+    <div class="wrap">
+      <h2 class="section__title" id="h-map">แผนที่</h2>
+
+      <p class="map-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 12h16M4 12l4-4M4 12l4 4M20 12l-4-4M20 12l-4 4"/>
+        </svg>
+        เลื่อนแผนที่ไปทางซ้าย-ขวาเพื่อดูให้ครบ
+      </p>
+
+      <div class="mapsheet">
+        <div class="mapsheet__scroll">
+    <svg class="map" viewBox="0 0 1400 980" role="img" aria-labelledby="map-title map-desc" xmlns="http://www.w3.org/2000/svg">
+      <title id="map-title">แผนที่ภาพวาดเกาะเกร็ด</title>
+      <desc id="map-desc">แผนที่วาดมือของเกาะเกร็ด จังหวัดนนทบุรี แสดงเกาะกลางแม่น้ำเจ้าพระยา ท่าเรือสี่ท่ารอบเกาะ วัดหลัก หมู่บ้านเครื่องปั้นดินเผากวานอาม่านทางทิศเหนือ ตลาดริมน้ำและร้านขนมทางทิศตะวันออก สวนสมุนไพรและสวนผลไม้กลางเกาะ พร้อมหมุดหมายเลข 1 ถึง 40 ที่ตรงกับรายชื่อร้านและสถานที่ในตารางใต้แผนที่</desc>
+      <defs>
+      <!-- ============ ชิ้นส่วนภาพประกอบ ใช้ซ้ำด้วย <use> ============ -->
+      <symbol id="s-palm" viewBox="0 0 100 100">
+        <path d="M52 98c-3-24 0-42 4-58" fill="none" stroke="var(--c-earth-600)" stroke-width="7" stroke-linecap="round"/>
+        <g>
+          <path d="M56 40c-15-11-30-10-38 1 13-4 26-2 35 5z" fill="var(--c-green-500)"/>
+          <path d="M56 40c15-12 31-11 39-1-14-3-27-1-36 6z" fill="var(--c-green-400)"/>
+          <path d="M56 40c-7-17-19-25-32-24 12 5 20 14 26 26z" fill="var(--c-green-600)"/>
+          <path d="M56 40c9-16 21-23 34-20-12 4-21 13-27 25z" fill="var(--c-green-500)"/>
+          <path d="M56 40c-4-15 0-28 10-35-5 12-6 23-4 34z" fill="var(--c-green-400)"/>
+        </g>
+        <circle cx="56" cy="40" r="5" fill="var(--c-green-600)"/>
+      </symbol>
+
+      <symbol id="s-tree" viewBox="0 0 100 100">
+        <path d="M50 100V64" fill="none" stroke="var(--c-earth-600)" stroke-width="9" stroke-linecap="round"/>
+        <circle cx="50" cy="42" r="32" fill="var(--c-green-400)"/>
+        <path d="M50 10a32 32 0 0 1 0 64z" fill="var(--c-green-500)"/>
+      </symbol>
+
+      <symbol id="s-tree2" viewBox="0 0 100 100">
+        <path d="M50 100V70" fill="none" stroke="var(--c-earth-600)" stroke-width="8" stroke-linecap="round"/>
+        <path d="M50 6 78 46H22z" fill="var(--c-green-500)"/>
+        <path d="M50 30 82 74H18z" fill="var(--c-green-400)"/>
+      </symbol>
+
+      <symbol id="s-bush" viewBox="0 0 100 60">
+        <path d="M10 58c-10-14 2-30 16-24 4-14 24-17 32-5 13-6 26 5 23 17 8 4 7 12-1 12z" fill="var(--c-green-400)"/>
+      </symbol>
+
+      <!-- วัดไทย หลังคาซ้อนสองชั้น มีช่อฟ้า -->
+      <symbol id="s-temple" viewBox="0 0 100 100">
+        <rect x="20" y="60" width="60" height="34" rx="3" fill="var(--c-cream-100)"/>
+        <rect x="42" y="72" width="16" height="22" rx="2" fill="var(--c-clay)"/>
+        <path d="M50 26 90 64H10z" fill="var(--c-clay)"/>
+        <path d="M50 8 80 42H20z" fill="var(--c-sun-500)"/>
+        <path d="M10 64 2 54M90 64l8-10M20 42l-6-8M80 42l6-8" stroke="var(--c-clay-600)" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <path d="M50 8V0" stroke="var(--c-sun-600)" stroke-width="5" stroke-linecap="round"/>
+      </symbol>
+
+      <!-- เจดีย์มอญเอียง สัญลักษณ์วัดปรมัยยิกาวาส -->
+      <symbol id="s-pagoda" viewBox="0 0 100 100">
+        <g transform="rotate(-9 50 98)">
+          <rect x="10" y="88" width="80" height="11" rx="5" fill="var(--c-cream-300)"/>
+          <path d="M16 88h68l-8-13H24z" fill="var(--c-cream-100)"/>
+          <path d="M26 75h48l-7-12H33z" fill="var(--c-cream-300)"/>
+          <path d="M34 63h32l-5-10H39z" fill="var(--c-cream-100)"/>
+          <path d="M38 53c0-14 4-24 12-32 8 8 12 18 12 32z" fill="var(--c-cream-100)"/>
+          <ellipse cx="50" cy="22" rx="9" ry="3" fill="var(--c-sun-500)"/>
+          <ellipse cx="50" cy="16" rx="6" ry="3" fill="var(--c-sun-600)"/>
+          <path d="M50 14c2-5 2-9 0-14-2 5-2 9 0 14z" fill="var(--c-sun-500)"/>
+          <path d="M26 75h48M34 63h32" stroke="var(--c-sun-600)" stroke-width="2" opacity=".5"/>
+        </g>
+      </symbol>
+
+      <!-- โอ่ง หม้อดินเผา -->
+      <symbol id="s-pot" viewBox="0 0 100 100">
+        <path d="M50 96c-21 0-32-13-32-30 0-13 7-21 11-28h42c4 7 11 15 11 28 0 17-11 30-32 30z" fill="var(--c-clay)"/>
+        <path d="M26 38h48l3-9c-8-5-18-7-27-7s-19 2-27 7z" fill="var(--c-clay-600)"/>
+        <path d="M22 60h56" stroke="var(--c-cream)" stroke-width="4" opacity=".5" fill="none"/>
+        <g fill="var(--c-cream)" opacity=".55">
+          <circle cx="34" cy="74" r="4"/><circle cx="50" cy="78" r="4"/><circle cx="66" cy="74" r="4"/>
+        </g>
+      </symbol>
+
+      <!-- เตาเผาโอ่ง มีควัน -->
+      <symbol id="s-kiln" viewBox="0 0 100 100">
+        <path d="M14 92c0-26 16-42 36-42s36 16 36 42z" fill="var(--c-clay-600)"/>
+        <path d="M24 92c0-20 11-32 26-32s26 12 26 32z" fill="var(--c-clay)"/>
+        <path d="M40 92V76c0-6 4-10 10-10s10 4 10 10v16z" fill="var(--c-sun-500)"/>
+        <rect x="66" y="26" width="12" height="34" rx="3" fill="var(--c-clay-600)"/>
+        <g fill="var(--c-cream-100)" opacity=".85">
+          <circle cx="72" cy="18" r="7"/><circle cx="84" cy="10" r="5"/>
+        </g>
+      </symbol>
+
+      <!-- เรือนไม้มอญ ใต้ถุนสูง ใช้แทนโฮมสเตย์ -->
+      <symbol id="s-house" viewBox="0 0 100 100">
+        <path d="M8 44 50 12l42 32z" fill="var(--c-clay)"/>
+        <rect x="18" y="44" width="64" height="32" fill="var(--c-cream-100)"/>
+        <rect x="42" y="56" width="16" height="20" fill="var(--c-green-500)"/>
+        <rect x="24" y="52" width="12" height="12" fill="var(--c-sky-400)"/>
+        <rect x="64" y="52" width="12" height="12" fill="var(--c-sky-400)"/>
+        <path d="M24 76v20M76 76v20M50 76v20" stroke="var(--c-earth-600)" stroke-width="5" stroke-linecap="round"/>
+      </symbol>
+
+      <!-- แผงตลาดริมทาง ผ้าใบลาย -->
+      <symbol id="s-stall" viewBox="0 0 100 80">
+        <path d="M8 34h84l-8-22H16z" fill="var(--c-cream-100)"/>
+        <path d="M30 12l-4 22h14l3-22zM58 12l3 22h14l-4-22z" fill="var(--c-clay)"/>
+        <rect x="18" y="38" width="64" height="10" rx="3" fill="var(--c-sun-500)"/>
+        <path d="M24 48v26M76 48v26" stroke="var(--c-earth-600)" stroke-width="5" stroke-linecap="round"/>
+        <g fill="var(--c-clay-600)"><circle cx="38" cy="56" r="5"/><circle cx="52" cy="56" r="5"/><circle cx="66" cy="56" r="5"/></g>
+      </symbol>
+
+      <!-- เรือหางยาว -->
+      <symbol id="s-boat" viewBox="0 0 100 60">
+        <path d="M4 30c6 14 22 20 46 20s40-6 46-20c-14 4-30 6-46 6S18 34 4 30z" fill="var(--c-cream-100)"/>
+        <path d="M4 30c14 4 30 6 46 6s32-2 46-6l-4-6c-12 4-26 6-42 6S18 28 8 24z" fill="var(--c-clay)"/>
+        <path d="M74 26 96 6" stroke="var(--c-earth-600)" stroke-width="4" stroke-linecap="round"/>
+        <path d="M22 24V10h30v14z" fill="var(--c-sun-500)"/>
+      </symbol>
+
+      <!-- เรือข้ามฟาก มีหลังคา -->
+      <symbol id="s-ferry" viewBox="0 0 100 60">
+        <path d="M6 34h88c-4 14-18 20-44 20S10 48 6 34z" fill="var(--c-cream-100)"/>
+        <rect x="16" y="30" width="68" height="6" rx="3" fill="var(--c-clay)"/>
+        <rect x="22" y="12" width="56" height="18" rx="3" fill="var(--c-green-500)"/>
+        <rect x="30" y="17" width="10" height="8" fill="var(--c-sky-400)"/>
+        <rect x="46" y="17" width="10" height="8" fill="var(--c-sky-400)"/>
+        <rect x="62" y="17" width="10" height="8" fill="var(--c-sky-400)"/>
+      </symbol>
+
+      <!-- จักรยานเช่า -->
+      <symbol id="s-bike" viewBox="0 0 100 70">
+        <g fill="none" stroke="var(--c-green)" stroke-width="6" stroke-linecap="round">
+          <circle cx="22" cy="46" r="18"/><circle cx="78" cy="46" r="18"/>
+          <path d="M22 46 44 22h20l14 24M44 22h14M64 22l-8 24H22"/>
+        </g>
+        <path d="M52 40h16l-4 6H50z" fill="var(--c-clay)"/>
+      </symbol>
+
+      <symbol id="s-cup" viewBox="0 0 100 100">
+        <path d="M20 44h52v22c0 12-10 20-26 20s-26-8-26-20z" fill="var(--c-cream-100)"/>
+        <path d="M20 44h52v10H20z" fill="var(--c-clay)"/>
+        <path d="M72 50h8c8 0 12 6 12 12s-4 12-12 12h-8" fill="none" stroke="var(--c-cream-100)" stroke-width="7"/>
+        <rect x="10" y="86" width="72" height="8" rx="4" fill="var(--c-cream-300)"/>
+        <g fill="none" stroke="var(--c-cream-100)" stroke-width="5" stroke-linecap="round" opacity=".9">
+          <path d="M36 34c-6-6 6-12 0-20M56 34c-6-6 6-12 0-20"/>
+        </g>
+      </symbol>
+
+      <!-- ขนมไทย ลูกชุบบนพาน -->
+      <symbol id="s-sweet" viewBox="0 0 100 100">
+        <path d="M14 62h72c0 16-16 24-36 24s-36-8-36-24z" fill="var(--c-cream-100)"/>
+        <rect x="34" y="86" width="32" height="8" rx="4" fill="var(--c-cream-300)"/>
+        <circle cx="34" cy="52" r="12" fill="var(--c-sun-500)"/>
+        <circle cx="56" cy="48" r="13" fill="var(--c-clay)"/>
+        <circle cx="74" cy="54" r="10" fill="var(--c-green-400)"/>
+      </symbol>
+
+      <!-- สมุนไพร ครก ใบไม้ -->
+      <symbol id="s-herb" viewBox="0 0 100 100">
+        <path d="M24 56h52c0 22-12 34-26 34s-26-12-26-34z" fill="var(--c-clay)"/>
+        <rect x="18" y="48" width="64" height="10" rx="5" fill="var(--c-clay-600)"/>
+        <path d="M50 44c-16 0-24-10-24-22 14-2 24 6 24 22z" fill="var(--c-green-500)"/>
+        <path d="M50 44c16 0 24-10 24-22-14-2-24 6-24 22z" fill="var(--c-green-400)"/>
+      </symbol>
+
+      <!-- มัสยิด ท่าอิฐ -->
+      <symbol id="s-mosque" viewBox="0 0 100 100">
+        <rect x="18" y="58" width="64" height="36" rx="3" fill="var(--c-cream-100)"/>
+        <path d="M50 20c16 10 22 22 22 38H28c0-16 6-28 22-38z" fill="var(--c-green-500)"/>
+        <path d="M44 94V76c0-4 3-8 6-8s6 4 6 8v18z" fill="var(--c-green-600)"/>
+        <rect x="14" y="44" width="8" height="50" rx="4" fill="var(--c-cream-300)"/>
+        <rect x="78" y="44" width="8" height="50" rx="4" fill="var(--c-cream-300)"/>
+        <path d="M50 16a6 6 0 1 1-4-9 7 7 0 0 0 4 9z" fill="var(--c-sun-600)"/>
+      </symbol>
+
+      <!-- อาคาร อบต. -->
+      <symbol id="s-office" viewBox="0 0 100 100">
+        <rect x="20" y="34" width="60" height="60" rx="3" fill="var(--c-cream-100)"/>
+        <path d="M14 34 50 14l36 20z" fill="var(--c-green-500)"/>
+        <g fill="var(--c-sky-400)">
+          <rect x="30" y="44" width="12" height="12"/><rect x="58" y="44" width="12" height="12"/>
+          <rect x="30" y="64" width="12" height="12"/><rect x="58" y="64" width="12" height="12"/>
+        </g>
+        <rect x="44" y="76" width="12" height="18" fill="var(--c-clay)"/>
+      </symbol>
+
+      <symbol id="s-cloud" viewBox="0 0 120 60">
+        <path d="M22 54c-12 0-20-8-20-18s9-18 20-17c4-11 14-18 26-18 15 0 27 10 29 24 11 1 19 9 19 19 0 6-4 10-10 10z" fill="var(--c-cream-100)"/>
+      </symbol>
+
+      <symbol id="s-bird" viewBox="0 0 100 40">
+        <path d="M4 26C16 6 28 6 38 24 48 6 62 6 74 26" fill="none" stroke="var(--c-cream-100)" stroke-width="6" stroke-linecap="round"/>
+      </symbol>
+
+      <!-- ============ คน 5 ท่า สไตล์แบน ============ -->
+      <!-- นักเดินทางสะพายเป้ -->
+      <symbol id="p-walk" viewBox="0 0 60 110">
+        <rect x="10" y="40" width="16" height="26" rx="6" fill="var(--c-clay)"/>
+        <path d="M22 96V70h6v26zM32 96V70h6v26z" fill="var(--c-green)"/>
+        <path d="M18 96h12v6H16zM28 96h12v6H26z" fill="var(--c-earth)"/>
+        <path d="M22 36h16c5 0 8 4 8 9v22c0 4-3 6-7 6H23c-4 0-7-2-7-6V45c0-5 3-9 6-9z" fill="var(--c-sun-500)"/>
+        <path d="M44 46c4 6 6 12 6 18l-8 1c-1-6-2-11-5-15z" fill="var(--c-sun-500)"/>
+        <circle cx="30" cy="20" r="13" fill="var(--c-skin)"/>
+        <path d="M17 20c0-9 6-15 13-15s13 6 13 15c0-5-6-7-13-7s-13 2-13 7z" fill="var(--c-earth)"/>
+      </symbol>
+
+      <!-- คนถ่ายรูป -->
+      <symbol id="p-photo" viewBox="0 0 60 110">
+        <path d="M22 96V70h6v26zM32 96V70h6v26z" fill="var(--c-earth)"/>
+        <path d="M18 96h12v6H16zM28 96h12v6H26z" fill="var(--c-green)"/>
+        <path d="M22 38h16c5 0 8 4 8 9v20c0 4-3 6-7 6H23c-4 0-7-2-7-6V47c0-5 3-9 6-9z" fill="var(--c-sky-500)"/>
+        <circle cx="30" cy="22" r="13" fill="var(--c-skin)"/>
+        <path d="M17 20c0-9 6-15 13-15s13 6 13 15v3c-3-3-8-4-13-4s-10 1-13 4z" fill="var(--c-clay-600)"/>
+        <rect x="20" y="16" width="24" height="15" rx="3" fill="var(--c-earth)"/>
+        <circle cx="32" cy="23" r="5" fill="var(--c-sky-400)"/>
+        <path d="M20 32c-4 2-6 6-6 10l8 2c0-4 1-6 3-8z" fill="var(--c-sky-500)"/>
+      </symbol>
+
+      <!-- คนปั่นจักรยาน (วางคู่กับ s-bike) -->
+      <symbol id="p-bike" viewBox="0 0 70 110">
+        <path d="M30 92 44 74l6 4-12 20z" fill="var(--c-earth)"/>
+        <path d="M24 74h20c4 0 6-3 6-7V49c0-6-4-10-10-10H30c-6 0-10 4-10 10v18c0 4 2 7 4 7z" fill="var(--c-clay)"/>
+        <path d="M44 44c8 2 14 6 18 12l-7 5c-4-5-8-8-13-9z" fill="var(--c-clay)"/>
+        <circle cx="32" cy="24" r="13" fill="var(--c-skin)"/>
+        <path d="M19 24c0-9 6-16 13-16s13 7 13 16c-3-4-8-6-13-6s-10 2-13 6z" fill="var(--c-sun-600)"/>
+      </symbol>
+
+      <!-- ช่างปั้นนั่งกับแป้นหมุน -->
+      <symbol id="p-potter" viewBox="0 0 80 90">
+        <ellipse cx="40" cy="78" rx="26" ry="8" fill="var(--c-clay-600)"/>
+        <path d="M32 70c-6 0-10-4-10-10s4-9 8-9h10c5 0 9 4 9 9v10z" fill="var(--c-green-500)"/>
+        <path d="M14 66h20v10H16c-3 0-5-2-5-5s1-5 3-5z" fill="var(--c-green-600)"/>
+        <circle cx="24" cy="38" r="12" fill="var(--c-skin)"/>
+        <path d="M12 38c0-9 5-15 12-15s12 6 12 15c-3-4-7-5-12-5s-9 1-12 5z" fill="var(--c-earth)"/>
+        <path d="M36 52c6-2 12 0 16 5l-7 5c-2-3-5-4-9-3z" fill="var(--c-green-500)"/>
+        <path d="M52 72c-8 0-12-5-12-12 0-5 3-8 4-11h16c2 3 5 6 5 11 0 7-5 12-13 12z" fill="var(--c-clay)"/>
+      </symbol>
+
+      <!-- คนถือถาดขนม -->
+      <symbol id="p-sweet" viewBox="0 0 60 110">
+        <path d="M22 96V70h6v26zM32 96V70h6v26z" fill="var(--c-green)"/>
+        <path d="M18 96h12v6H16zM28 96h12v6H26z" fill="var(--c-earth)"/>
+        <path d="M22 38h16c5 0 8 4 8 9v20c0 4-3 6-7 6H23c-4 0-7-2-7-6V47c0-5 3-9 6-9z" fill="var(--c-clay)"/>
+        <circle cx="30" cy="22" r="13" fill="var(--c-skin)"/>
+        <path d="M17 22c0-9 6-16 13-16s13 7 13 16v6c-2-6-7-9-13-9s-11 3-13 9z" fill="var(--c-earth)"/>
+        <path d="M16 44c-4 2-8 4-10 8l6 5 8-6z" fill="var(--c-clay)"/>
+        <rect x="0" y="50" width="26" height="6" rx="3" fill="var(--c-cream-100)"/>
+        <g><circle cx="7" cy="46" r="5" fill="var(--c-sun-500)"/><circle cx="18" cy="46" r="5" fill="var(--c-green-400)"/></g>
+      </symbol>
+
+      <linearGradient id="g-fold-v" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="var(--c-earth)" stop-opacity="0"/>
+        <stop offset=".5" stop-color="var(--c-earth)" stop-opacity=".1"/>
+        <stop offset="1" stop-color="var(--c-earth)" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="g-fold-h" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="var(--c-earth)" stop-opacity="0"/>
+        <stop offset=".5" stop-color="var(--c-earth)" stop-opacity=".1"/>
+        <stop offset="1" stop-color="var(--c-earth)" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+      <rect width="1400" height="980" fill="var(--c-cream)"/>
+      <g id="mainland">
+        <path d="M40 96C300 60 620 44 1000 52C1180 56 1320 70 1362 96C1372 300 1372 660 1360 902C1100 936 700 946 360 938C220 934 92 926 44 908C34 640 32 330 40 96Z" fill="var(--c-green-300)"/>
+        <ellipse cx="180" cy="200" rx="150" ry="90" fill="var(--c-green-300)" opacity=".5" transform="rotate(-12 180 200)"/>
+        <ellipse cx="1180" cy="180" rx="120" ry="80" fill="var(--c-green-300)" opacity=".5" transform="rotate(10 1180 180)"/>
+        <ellipse cx="1210" cy="760" rx="140" ry="86" fill="var(--c-green-300)" opacity=".5" transform="rotate(-8 1210 760)"/>
+        <ellipse cx="520" cy="880" rx="180" ry="70" fill="var(--c-green-300)" opacity=".5" transform="rotate(4 520 880)"/>
+        <ellipse cx="150" cy="560" rx="110" ry="70" fill="var(--c-green-300)" opacity=".5" transform="rotate(16 150 560)"/>
+        <ellipse cx="880" cy="890" rx="150" ry="64" fill="var(--c-green-300)" opacity=".5" transform="rotate(-6 880 890)"/>
+        <path d="M60 250C260 210 300 120 520 96M1240 96C1286 300 1268 620 1206 900M120 812C420 872 800 892 1120 848M1240 420C1180 430 1120 452 1080 480" fill="none" stroke="var(--c-cream)" stroke-width="9" stroke-linecap="round" opacity=".75"/>
+        <path d="M64 150q40 -9 80 0t80 0" fill="none" stroke="var(--c-green-300)" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+        <path d="M64 163q40 -9 80 0t80 0" fill="none" stroke="var(--c-green-300)" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+        <path d="M64 176q40 -9 80 0t80 0" fill="none" stroke="var(--c-green-300)" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+        <path d="M64 189q40 -9 80 0t80 0" fill="none" stroke="var(--c-green-300)" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+        <path d="M64 202q40 -9 80 0t80 0" fill="none" stroke="var(--c-green-300)" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+        <path d="M1226 640q40 -9 80 0t80 0" fill="none" stroke="var(--c-green-300)" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+        <path d="M1226 653q40 -9 80 0t80 0" fill="none" stroke="var(--c-green-300)" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+        <path d="M1226 666q40 -9 80 0t80 0" fill="none" stroke="var(--c-green-300)" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+        <path d="M1226 679q40 -9 80 0t80 0" fill="none" stroke="var(--c-green-300)" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+        <path d="M1226 692q40 -9 80 0t80 0" fill="none" stroke="var(--c-green-300)" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+        <path d="M840 940q40 -9 80 0t80 0" fill="none" stroke="var(--c-green-300)" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+        <path d="M840 953q40 -9 80 0t80 0" fill="none" stroke="var(--c-green-300)" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+        <path d="M840 966q40 -9 80 0t80 0" fill="none" stroke="var(--c-green-300)" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+        <path d="M840 979q40 -9 80 0t80 0" fill="none" stroke="var(--c-green-300)" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+        <path d="M330 960q40 -9 80 0t80 0" fill="none" stroke="var(--c-green-300)" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+        <path d="M330 973q40 -9 80 0t80 0" fill="none" stroke="var(--c-green-300)" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+        <path d="M330 986q40 -9 80 0t80 0" fill="none" stroke="var(--c-green-300)" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+        <path d="M330 999q40 -9 80 0t80 0" fill="none" stroke="var(--c-green-300)" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+      </g>
+      <g id="river">
+        <path d="M180 470C180 338 272 236 410 186C536 140 704 128 846 157C972 182 1068 240 1116 326C1160 404 1152 492 1104 564C1056 638 984 698 892 746C790 799 656 822 540 803C412 782 306 718 236 634C190 578 180 522 180 470Z" fill="var(--c-sky-500)"/>
+        <path d="M250 470C250 360 330 270 450 225C560 184 700 175 820 200C930 222 1010 270 1050 340C1085 402 1080 470 1040 530C1000 590 940 640 860 680C770 724 660 745 560 730C450 713 360 660 300 590C262 546 250 510 250 470Z" fill="var(--c-sky-400)" transform="translate(660 460) scale(1.055) translate(-660 -460)"/>
+        <path d="M230 300q14 -8 28 0t28 0" fill="none" stroke="var(--c-cream-100)" stroke-width="4" stroke-linecap="round" opacity=".55"/>
+        <path d="M215 690q14 -8 28 0t28 0" fill="none" stroke="var(--c-cream-100)" stroke-width="4" stroke-linecap="round" opacity=".55"/>
+        <path d="M700 120q14 -8 28 0t28 0" fill="none" stroke="var(--c-cream-100)" stroke-width="4" stroke-linecap="round" opacity=".55"/>
+        <path d="M1090 250q14 -8 28 0t28 0" fill="none" stroke="var(--c-cream-100)" stroke-width="4" stroke-linecap="round" opacity=".55"/>
+        <path d="M1075 700q14 -8 28 0t28 0" fill="none" stroke="var(--c-cream-100)" stroke-width="4" stroke-linecap="round" opacity=".55"/>
+        <path d="M600 790q14 -8 28 0t28 0" fill="none" stroke="var(--c-cream-100)" stroke-width="4" stroke-linecap="round" opacity=".55"/>
+        <path d="M320 760q14 -8 28 0t28 0" fill="none" stroke="var(--c-cream-100)" stroke-width="4" stroke-linecap="round" opacity=".55"/>
+        <path d="M1130 470q14 -8 28 0t28 0" fill="none" stroke="var(--c-cream-100)" stroke-width="4" stroke-linecap="round" opacity=".55"/>
+      </g>
+      <g id="island">
+        <path d="M250 470C250 360 330 270 450 225C560 184 700 175 820 200C930 222 1010 270 1050 340C1085 402 1080 470 1040 530C1000 590 940 640 860 680C770 724 660 745 560 730C450 713 360 660 300 590C262 546 250 510 250 470Z" fill="var(--c-green-500)"/>
+        <ellipse cx="470" cy="420" rx="150" ry="92" fill="var(--c-green-400)" opacity=".75" transform="rotate(-14 470 420)"/>
+        <ellipse cx="700" cy="520" rx="170" ry="100" fill="var(--c-green-400)" opacity=".75" transform="rotate(8 700 520)"/>
+        <ellipse cx="880" cy="300" rx="90" ry="60" fill="var(--c-green-400)" opacity=".75" transform="rotate(-6 880 300)"/>
+        <ellipse cx="560" cy="650" rx="120" ry="60" fill="var(--c-green-400)" opacity=".75" transform="rotate(6 560 650)"/>
+        <ellipse cx="340" cy="520" rx="90" ry="58" fill="var(--c-green-400)" opacity=".75" transform="rotate(20 340 520)"/>
+        <ellipse cx="950" cy="540" rx="80" ry="52" fill="var(--c-green-400)" opacity=".75" transform="rotate(-10 950 540)"/>
+        <path d="M948 232C978 292 986 350 980 410C974 470 956 520 926 566C900 606 868 640 838 664" fill="none" stroke="var(--c-cream)" stroke-width="12" stroke-linecap="round" opacity=".9"/>
+        <path d="M838 664C740 700 620 700 520 660C420 620 350 540 336 452C324 372 372 300 452 262C540 220 700 208 830 226" fill="none" stroke="var(--c-cream)" stroke-width="9" stroke-linecap="round" opacity=".7"/>
+      </g>
+      <g id="route">
+        <path id="loop" d="M952 300C972 372 962 452 926 528C892 600 828 652 742 674C650 698 556 676 488 618C420 560 388 470 404 388C420 306 486 254 578 236C672 218 800 226 900 258" fill="none" stroke="var(--c-cream-100)" stroke-width="11" stroke-linecap="round" opacity=".45"/>
+        <use href="#loop" stroke="var(--c-clay)" stroke-width="6" stroke-dasharray="3 15" opacity=".95"/>
+      </g>
+      <g id="deco">
+        <use href="#s-palm" x="296" y="396" width="76" height="76"/>
+        <use href="#s-palm" x="366" y="436" width="76" height="76"/>
+        <use href="#s-palm" x="604" y="372" width="72" height="72"/>
+        <use href="#s-palm" x="676" y="424" width="72" height="72"/>
+        <use href="#s-palm" x="470" y="664" width="72" height="72"/>
+        <use href="#s-palm" x="546" y="690" width="68" height="68"/>
+        <use href="#s-palm" x="356" y="496" width="66" height="66"/>
+        <use href="#s-palm" x="434" y="400" width="70" height="70"/>
+        <use href="#s-palm" x="548" y="442" width="72" height="72"/>
+        <use href="#s-palm" x="730" y="392" width="70" height="70"/>
+        <use href="#s-tree" x="738" y="470" width="54" height="54"/>
+        <use href="#s-tree2" x="330" y="424" width="48" height="48"/>
+        <use href="#s-tree" x="288" y="468" width="58" height="58"/>
+        <use href="#s-tree" x="604" y="560" width="62" height="62"/>
+        <use href="#s-tree" x="452" y="616" width="54" height="54"/>
+        <use href="#s-tree2" x="508" y="296" width="58" height="58"/>
+        <use href="#s-tree2" x="420" y="560" width="54" height="54"/>
+        <use href="#s-tree2" x="764" y="264" width="54" height="54"/>
+        <use href="#s-bush" x="396" y="352" width="56" height="56"/>
+        <use href="#s-bush" x="560" y="232" width="52" height="52"/>
+        <use href="#s-bush" x="770" y="676" width="52" height="52"/>
+        <use href="#s-bush" x="640" y="300" width="50" height="50"/>
+        <use href="#s-tree" x="90" y="300" width="56" height="56"/>
+        <use href="#s-tree2" x="150" y="352" width="52" height="52"/>
+        <use href="#s-tree" x="1256" y="302" width="56" height="56"/>
+        <use href="#s-tree2" x="1296" y="382" width="52" height="52"/>
+        <use href="#s-tree" x="1240" y="830" width="54" height="54"/>
+        <use href="#s-tree2" x="214" y="690" width="50" height="50"/>
+        <use href="#s-tree" x="812" y="878" width="52" height="52"/>
+        <use href="#s-tree2" x="990" y="902" width="48" height="48"/>
+        <use href="#s-tree" x="404" y="100" width="52" height="52"/>
+        <use href="#s-tree2" x="906" y="92" width="48" height="48"/>
+        <use href="#s-tree" x="1176" y="176" width="50" height="50"/>
+        <use href="#s-kiln" x="400" y="244" width="78" height="78"/>
+        <use href="#s-pot" x="340" y="296" width="52" height="52"/>
+        <use href="#s-pot" x="470" y="288" width="46" height="46"/>
+        <use href="#s-pot" x="286" y="520" width="44" height="44"/>
+        <use href="#s-house" x="496" y="336" width="58" height="58"/>
+        <use href="#s-house" x="388" y="302" width="54" height="54"/>
+        <use href="#s-stall" x="975" y="298" width="54" height="54"/>
+        <use href="#s-house" x="985" y="374" width="54" height="54"/>
+        <use href="#s-stall" x="985" y="446" width="54" height="54"/>
+        <use href="#s-cup" x="975" y="518" width="50" height="50"/>
+        <use href="#s-sweet" x="953" y="596" width="46" height="46"/>
+        <use href="#s-stall" x="790" y="330" width="54" height="54"/>
+        <use href="#s-sweet" x="794" y="396" width="46" height="46"/>
+        <use href="#s-cup" x="796" y="452" width="46" height="46"/>
+        <use href="#s-herb" x="790" y="504" width="46" height="46"/>
+        <use href="#s-house" x="536" y="674" width="54" height="54"/>
+        <use href="#s-herb" x="500" y="562" width="44" height="44"/>
+        <use href="#s-house" x="1244" y="600" width="56" height="56"/>
+        <use href="#s-cloud" x="96" y="128" width="110" height="110"/>
+        <use href="#s-cloud" x="1128" y="116" width="100" height="100"/>
+        <use href="#s-cloud" x="1184" y="552" width="92" height="92"/>
+        <use href="#s-cloud" x="860" y="906" width="92" height="92"/>
+        <use href="#s-bird" x="640" y="806" width="66" height="66"/>
+        <use href="#s-bird" x="1068" y="296" width="60" height="60"/>
+        <use href="#s-bird" x="244" y="226" width="56" height="56"/>
+        <use href="#s-boat" x="1082" y="400" width="74" height="74"/>
+        <use href="#s-boat" x="232" y="604" width="70" height="70"/>
+        <use href="#s-boat" x="946" y="776" width="72" height="72"/>
+        <use href="#s-boat" x="226" y="330" width="62" height="62"/>
+      </g>
+      <g id="landmarks">
+        <use href="#s-pagoda" x="898" y="140" width="108" height="108"/>
+        <use href="#s-temple" x="768" y="178" width="76" height="76"/>
+        <use href="#s-temple" x="676" y="236" width="70" height="70"/>
+        <use href="#s-temple" x="498" y="438" width="78" height="78"/>
+        <use href="#s-temple" x="784" y="628" width="66" height="66"/>
+        <use href="#s-office" x="742" y="592" width="66" height="66"/>
+        <use href="#s-temple" x="1168" y="340" width="68" height="68"/>
+        <use href="#s-temple" x="594" y="34" width="66" height="66"/>
+        <use href="#s-temple" x="1156" y="696" width="66" height="66"/>
+        <use href="#s-mosque" x="494" y="824" width="66" height="66"/>
+      </g>
+      <g id="ferry-lines">
+        <path d="M1186 424C1140 424 1092 428 1050 434" fill="none" stroke="var(--c-cream-100)" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 12" opacity=".95"/>
+        <use href="#s-ferry" x="1100" y="344" width="56" height="56"/>
+        <path d="M628 118C630 148 634 166 638 182" fill="none" stroke="var(--c-cream-100)" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 12" opacity=".95"/>
+        <use href="#s-ferry" x="660" y="106" width="56" height="56"/>
+        <path d="M1118 716C1046 710 968 700 908 690" fill="none" stroke="var(--c-cream-100)" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 12" opacity=".95"/>
+        <use href="#s-ferry" x="1004" y="686" width="56" height="56"/>
+        <path d="M572 846C562 812 552 776 544 744" fill="none" stroke="var(--c-cream-100)" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 12" opacity=".95"/>
+        <use href="#s-ferry" x="492" y="748" width="56" height="56"/>
+      </g>
+      <g id="people">
+        <use href="#p-potter" x="434" y="320" width="61" height="96"/>
+        <use href="#p-bike" x="664" y="466" width="66" height="104"/>
+        <use href="#s-bike" x="650" y="532" width="104" height="104"/>
+        <use href="#p-walk" x="1062" y="470" width="69" height="108"/>
+        <use href="#p-photo" x="764" y="62" width="66" height="104"/>
+        <use href="#p-sweet" x="680" y="846" width="64" height="100"/>
+        <use href="#p-walk" x="150" y="596" width="61" height="96"/>
+      </g>
+      <g id="pins">
+        <g><circle cx="430" cy="296" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="430" cy="296" r="13" fill="var(--c-clay)"/><text class="t-pin" x="430" y="296" dy=".36em">1</text></g>
+        <g><circle cx="486" cy="262" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="486" cy="262" r="13" fill="var(--c-clay)"/><text class="t-pin" x="486" y="262" dy=".36em">2</text></g>
+        <g><circle cx="372" cy="340" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="372" cy="340" r="13" fill="var(--c-clay)"/><text class="t-pin" x="372" y="340" dy=".36em">3</text></g>
+        <g><circle cx="523" cy="232" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="523" cy="232" r="13" fill="var(--c-clay)"/><text class="t-pin" x="523" y="232" dy=".36em">4</text></g>
+        <g><circle cx="566" cy="214" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="566" cy="214" r="13" fill="var(--c-clay)"/><text class="t-pin" x="566" y="214" dy=".36em">6</text></g>
+        <g><circle cx="352" cy="262" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="352" cy="262" r="13" fill="var(--c-clay)"/><text class="t-pin" x="352" y="262" dy=".36em">7</text></g>
+        <g><circle cx="338" cy="566" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="338" cy="566" r="13" fill="var(--c-clay)"/><text class="t-pin" x="338" y="566" dy=".36em">8</text></g>
+        <g><circle cx="392" cy="608" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="392" cy="608" r="13" fill="var(--c-clay)"/><text class="t-pin" x="392" y="608" dy=".36em">9</text></g>
+        <g><circle cx="352" cy="618" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="352" cy="618" r="13" fill="var(--c-sun)"/><text class="t-pin t-pin--dark" x="352" y="618" dy=".36em">15</text></g>
+        <g><circle cx="898" cy="264" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="898" cy="264" r="13" fill="var(--c-clay)"/><text class="t-pin" x="898" y="264" dy=".36em">5</text></g>
+        <g><circle cx="938" cy="286" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="938" cy="286" r="13" fill="var(--c-green-600)"/><text class="t-pin" x="938" y="286" dy=".36em">22</text></g>
+        <g><circle cx="898" cy="312" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="898" cy="312" r="13" fill="var(--c-sun)"/><text class="t-pin t-pin--dark" x="898" y="312" dy=".36em">13</text></g>
+        <g><circle cx="938" cy="334" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="938" cy="334" r="13" fill="var(--c-sun)"/><text class="t-pin t-pin--dark" x="938" y="334" dy=".36em">14</text></g>
+        <g><circle cx="898" cy="360" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="898" cy="360" r="13" fill="var(--c-sun)"/><text class="t-pin t-pin--dark" x="898" y="360" dy=".36em">11</text></g>
+        <g><circle cx="938" cy="382" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="938" cy="382" r="13" fill="var(--c-green-600)"/><text class="t-pin" x="938" y="382" dy=".36em">19</text></g>
+        <g><circle cx="898" cy="408" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="898" cy="408" r="13" fill="var(--c-sun)"/><text class="t-pin t-pin--dark" x="898" y="408" dy=".36em">12</text></g>
+        <g><circle cx="938" cy="430" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="938" cy="430" r="13" fill="var(--c-green-600)"/><text class="t-pin" x="938" y="430" dy=".36em">20</text></g>
+        <g><circle cx="898" cy="456" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="898" cy="456" r="13" fill="var(--c-green)"/><text class="t-pin" x="898" y="456" dy=".36em">30</text></g>
+        <g><circle cx="938" cy="478" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="938" cy="478" r="13" fill="var(--c-green-600)"/><text class="t-pin" x="938" y="478" dy=".36em">21</text></g>
+        <g><circle cx="898" cy="504" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="898" cy="504" r="13" fill="var(--c-clay)"/><text class="t-pin" x="898" y="504" dy=".36em">10</text></g>
+        <g><circle cx="938" cy="526" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="938" cy="526" r="13" fill="var(--c-green-600)"/><text class="t-pin" x="938" y="526" dy=".36em">26</text></g>
+        <g><circle cx="898" cy="552" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="898" cy="552" r="13" fill="var(--c-green-600)"/><text class="t-pin" x="898" y="552" dy=".36em">25</text></g>
+        <g><circle cx="938" cy="574" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="938" cy="574" r="13" fill="var(--c-green-600)"/><text class="t-pin" x="938" y="574" dy=".36em">27</text></g>
+        <g><circle cx="898" cy="600" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="898" cy="600" r="13" fill="var(--c-green-600)"/><text class="t-pin" x="898" y="600" dy=".36em">28</text></g>
+        <g><circle cx="836" cy="268" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="836" cy="268" r="13" fill="var(--c-green-600)"/><text class="t-pin" x="836" y="268" dy=".36em">23</text></g>
+        <g><circle cx="612" cy="262" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="612" cy="262" r="13" fill="var(--c-green-600)"/><text class="t-pin" x="612" y="262" dy=".36em">24</text></g>
+        <g><circle cx="600" cy="658" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="600" cy="658" r="13" fill="var(--c-sun)"/><text class="t-pin t-pin--dark" x="600" y="658" dy=".36em">16</text></g>
+        <g><circle cx="648" cy="678" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="648" cy="678" r="13" fill="var(--c-sun)"/><text class="t-pin t-pin--dark" x="648" y="678" dy=".36em">17</text></g>
+        <g><circle cx="696" cy="676" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="696" cy="676" r="13" fill="var(--c-sun)"/><text class="t-pin t-pin--dark" x="696" y="676" dy=".36em">18</text></g>
+        <g><circle cx="690" cy="606" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="690" cy="606" r="13" fill="var(--c-earth)"/><text class="t-pin" x="690" y="606" dy=".36em">29</text></g>
+        <g><circle cx="722" cy="648" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="722" cy="648" r="13" fill="var(--c-green)"/><text class="t-pin" x="722" y="648" dy=".36em">36</text></g>
+        <g><circle cx="822" cy="690" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="822" cy="690" r="13" fill="var(--c-green)"/><text class="t-pin" x="822" y="690" dy=".36em">35</text></g>
+        <g><circle cx="952" cy="262" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="952" cy="262" r="13" fill="var(--c-green)"/><text class="t-pin" x="952" y="262" dy=".36em">31</text></g>
+        <g><circle cx="804" cy="246" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="804" cy="246" r="13" fill="var(--c-green)"/><text class="t-pin" x="804" y="246" dy=".36em">32</text></g>
+        <g><circle cx="712" cy="308" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="712" cy="308" r="13" fill="var(--c-green)"/><text class="t-pin" x="712" y="308" dy=".36em">33</text></g>
+        <g><circle cx="538" cy="510" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="538" cy="510" r="13" fill="var(--c-green)"/><text class="t-pin" x="538" y="510" dy=".36em">34</text></g>
+        <g><circle cx="1200" cy="430" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="1200" cy="430" r="13" fill="var(--c-sky-800)"/><text class="t-pin" x="1200" y="430" dy=".36em">37</text></g>
+        <g><circle cx="628" cy="96" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="628" cy="96" r="13" fill="var(--c-sky-800)"/><text class="t-pin" x="628" y="96" dy=".36em">38</text></g>
+        <g><circle cx="1122" cy="716" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="1122" cy="716" r="13" fill="var(--c-sky-800)"/><text class="t-pin" x="1122" y="716" dy=".36em">39</text></g>
+        <g><circle cx="588" cy="876" r="15" fill="var(--c-cream-100)" opacity=".9"/><circle cx="588" cy="876" r="13" fill="var(--c-sky-800)"/><text class="t-pin" x="588" y="876" dy=".36em">40</text></g>
+      </g>
+      <g id="labels">
+        <path d="M404 196 424 234" stroke="var(--c-clay)" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round" fill="none"/>
+        <g><rect x="228" y="134" width="330" height="62" rx="31" fill="var(--c-cream-100)" opacity=".95"/>
+          <text class="t-spot" x="393.0" y="161.28" text-anchor="middle" style="fill:var(--c-clay-600);font-size:21px">หมู่บ้านกวานอาม่าน</text>
+          <text class="t-en" x="393.0" y="182.36" text-anchor="middle">KWAN AMAN · MON POTTERY VILLAGE</text></g>
+        <path d="M1002 244 968 218" stroke="var(--c-clay)" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round" fill="none"/>
+        <g><rect x="1000" y="214" width="320" height="60" rx="30" fill="var(--c-cream-100)" opacity=".95"/>
+          <text class="t-spot" x="1160.0" y="240.4" text-anchor="middle" style="fill:var(--c-clay-600);font-size:18px">วัดปรมัยยิกาวาส · เจดีย์เอียง</text>
+          <text class="t-en" x="1160.0" y="260.8" text-anchor="middle">WAT PORAMAIYIKAWAS</text></g>
+        <path d="M1042 600 1006 578" stroke="var(--c-clay)" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round" fill="none"/>
+        <g><rect x="1040" y="570" width="300" height="60" rx="30" fill="var(--c-cream-100)" opacity=".95"/>
+          <text class="t-spot" x="1190.0" y="596.4" text-anchor="middle" style="fill:var(--c-clay-600);font-size:21px">ตลาดริมน้ำชุมชนมอญ</text>
+          <text class="t-en" x="1190.0" y="616.8" text-anchor="middle">RIVERSIDE MON MARKET</text></g>
+        <g><rect x="764" y="157" width="84" height="21" rx="10" fill="var(--c-cream-100)" opacity=".92"/><text class="t-place" x="806" y="172" text-anchor="middle">วัดไผ่ล้อม</text></g>
+        <g><rect x="655" y="215" width="110" height="21" rx="10" fill="var(--c-cream-100)" opacity=".92"/><text class="t-place" x="710" y="230" text-anchor="middle">วัดเสาธงทอง</text></g>
+        <g><rect x="491" y="409" width="92" height="21" rx="10" fill="var(--c-cream-100)" opacity=".92"/><text class="t-place" x="537" y="424" text-anchor="middle">วัดศาลากุล</text></g>
+        <g><rect x="780" y="605" width="75" height="21" rx="10" fill="var(--c-cream-100)" opacity=".92"/><text class="t-place" x="817" y="620" text-anchor="middle">วัดฉิมพลี</text></g>
+        <g><rect x="684" y="559" width="128" height="21" rx="10" fill="var(--c-cream-100)" opacity=".92"/><text class="t-place" x="748" y="574" text-anchor="middle">อบต.เกาะเกร็ด</text></g>
+        <g><rect x="1138" y="319" width="128" height="21" rx="10" fill="var(--c-cream-100)" opacity=".92"/><text class="t-place" x="1202" y="334" text-anchor="middle">ท่าวัดสนามเหนือ</text></g>
+        <g><rect x="573" y="15" width="110" height="21" rx="10" fill="var(--c-cream-100)" opacity=".92"/><text class="t-place" x="628" y="30" text-anchor="middle">ท่าวัดบางจาก</text></g>
+        <g><rect x="1126" y="675" width="128" height="21" rx="10" fill="var(--c-cream-100)" opacity=".92"/><text class="t-place" x="1190" y="690" text-anchor="middle">ท่าวัดกลางเกร็ด</text></g>
+        <g><rect x="472" y="899" width="110" height="21" rx="10" fill="var(--c-cream-100)" opacity=".92"/><text class="t-place" x="527" y="914" text-anchor="middle">ท่ามัสยิดท่าอิฐ</text></g>
+        <text class="t-water" x="726" y="162" text-anchor="middle" transform="rotate(-5 726 162)">คลองลัดเกร็ด</text>
+        <text class="t-water" x="820" y="812" text-anchor="middle" transform="rotate(-6 820 812)">แม่น้ำเจ้าพระยา</text>
+        <text class="t-land" x="112" y="424" text-anchor="middle">ฝั่งท่าอิฐ</text>
+        <text class="t-land" x="1300" y="474" text-anchor="middle">อ.ปากเกร็ด</text>
+        <text class="t-land" x="1300" y="498" text-anchor="middle" style="font-size:12px;letter-spacing:.06em">PAK KRET · NONTHABURI</text>
+      </g>
+      <g id="title">
+        <rect x="978" y="18" width="398" height="196" rx="22" fill="var(--c-cream)" opacity=".9"/>
+        <g><rect x="1062" y="36" width="150" height="40" rx="20" fill="var(--c-clay)"/><path d="M1096 76l6 14 14-14z" fill="var(--c-clay)"/><text x="1137" y="62" text-anchor="middle" style="font-family:var(--font-display);font-weight:600;font-size:18px;fill:var(--c-cream-100)">ไปเที่ยวกัน!</text></g>
+        <text class="t-title" x="1358" y="128" text-anchor="end">เที่ยวเกาะเกร็ด</text>
+        <text class="t-title--sub" x="1358" y="160" text-anchor="end">เกาะกลางเจ้าพระยา · ชุมชนมอญ</text>
+        <text class="t-en" x="1358" y="196" text-anchor="end" style="font-size:12px">KOH KRET CRAFT ISLAND · NONTHABURI</text>
+      </g>
+      <g id="key">
+        <rect x="46" y="662" width="336" height="256" rx="18" fill="var(--c-cream-100)" opacity=".96"/>
+        <text class="t-place" x="112" y="700" text-anchor="middle">ผังเกาะย่อ</text>
+        <circle cx="112" cy="784" r="54" fill="var(--c-sky-400)"/>
+        <path d="M250 470C250 360 330 270 450 225C560 184 700 175 820 200C930 222 1010 270 1050 340C1085 402 1080 470 1040 530C1000 590 940 640 860 680C770 724 660 745 560 730C450 713 360 660 300 590C262 546 250 510 250 470Z" fill="var(--c-green-400)" transform="translate(42 735.7) scale(.105)"/>
+        <circle cx="152" cy="781" r="6" fill="var(--c-cream-100)"/><circle cx="152" cy="781" r="4" fill="var(--c-clay)"/>
+        <circle cx="109" cy="754" r="6" fill="var(--c-cream-100)"/><circle cx="109" cy="754" r="4" fill="var(--c-clay)"/>
+        <circle cx="137" cy="808" r="6" fill="var(--c-cream-100)"/><circle cx="137" cy="808" r="4" fill="var(--c-clay)"/>
+        <circle cx="99" cy="814" r="6" fill="var(--c-cream-100)"/><circle cx="99" cy="814" r="4" fill="var(--c-clay)"/>
+        <text class="t-note" x="112" y="858" text-anchor="middle">ท่าเรือ 4 ท่า รอบเกาะ</text>
+        <text class="t-spot" x="188" y="700" style="font-size:18px">ทั้งเกาะอยู่ในหน้านี้</text>
+        <text class="t-key" x="188" y="730">· เกาะกลางแม่น้ำเจ้าพระยา นั่งเรือข้ามฟาก 5 นาที</text>
+        <text class="t-key" x="188" y="753">· หมู่บ้านเครื่องปั้นดินเผามอญ กวานอาม่าน</text>
+        <text class="t-key" x="188" y="776">· เจดีย์เอียงวัดปรมัยยิกาวาส และวัดรอบเกาะอีก 5 วัด</text>
+        <text class="t-key" x="188" y="799">· ขนมไทยโบราณ ข้าวแช่ ชาสมุนไพร และคาเฟ่ริมน้ำ</text>
+        <text class="t-key" x="188" y="822">· ท่าเรือ 4 ท่ารอบเกาะ ขึ้นได้ทั้งสี่ทิศ</text>
+        <text class="t-key" x="188" y="845">· เช่าจักรยานปั่นรอบเกาะได้ใน 1 ชั่วโมง</text>
+        <text class="t-note" x="188" y="898">หมายเลขในแผนที่ตรงกับรายชื่อใต้ภาพ</text>
+      </g>
+      <g id="compass">
+        <circle cx="102" cy="98" r="34" fill="var(--c-cream-100)" opacity=".96"/>
+        <path d="M102 70 112 100 102 94 92 100z" fill="var(--c-clay)"/>
+        <path d="M102 126 92 98 102 104 112 98z" fill="var(--c-green-600)"/>
+        <text x="102" y="66" text-anchor="middle" style="font-family:var(--font-display);font-size:13px;font-weight:600;fill:var(--c-green)">N</text>
+      </g>
+      <g id="scale">
+        <rect x="1180" y="912" width="60" height="8" fill="var(--c-green-600)"/>
+        <rect x="1240" y="912" width="60" height="8" fill="var(--c-cream-100)"/>
+        <rect x="1180" y="912" width="120" height="8" fill="none" stroke="var(--c-green-600)" stroke-width="2"/>
+        <text class="t-note" x="1180" y="940">0</text>
+        <text class="t-note" x="1300" y="940" text-anchor="end">500 ม.</text>
+      </g>
+      <g id="folds" aria-hidden="true">
+        <rect x="330" y="0" width="40" height="980" fill="url(#g-fold-v)"/>
+        <path class="fold" d="M350 0V980"/>
+        <rect x="680" y="0" width="40" height="980" fill="url(#g-fold-v)"/>
+        <path class="fold" d="M700 0V980"/>
+        <rect x="1030" y="0" width="40" height="980" fill="url(#g-fold-v)"/>
+        <path class="fold" d="M1050 0V980"/>
+        <rect x="0" y="470" width="1400" height="40" fill="url(#g-fold-h)"/>
+        <path class="fold" d="M0 490H1400"/>
+      </g>
+    </svg>
+        </div>
+      </div>
+
+      <div class="mapkey">
+        <p class="mapkey__row"><span class="mapkey__dot" style="background: var(--c-clay)"></span> ดินเผา · นักปั้นและหัตถกรรม</p>
+        <p class="mapkey__row"><span class="mapkey__dot" style="background: var(--c-sun)"></span> แดดบ่าย · ขนมหวาน</p>
+        <p class="mapkey__row"><span class="mapkey__dot" style="background: var(--c-green-600)"></span> เขียว · สมุนไพร สปา เกษตร</p>
+        <p class="mapkey__row"><span class="mapkey__dot" style="background: var(--c-sky-800)"></span> น้ำเงิน · ท่าเรือขึ้นเกาะ</p>
+      </div>
+
+      <p class="draft-note">
+        แผนที่นี้วาดตามผังคร่าว ๆ ของเกาะ ใช้ดูภาพรวมว่าอะไรอยู่โซนไหน
+        ตำแหน่งจริงของแต่ละร้านยังต้องเช็กซ้ำหน้างานก่อนเผยแพร่
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       รายชื่อ 40 จุด แยกตามเส้นทาง
+       ============================================================ -->
+  <section class="section" aria-labelledby="h-routes">
+    <div class="wrap">
+      <div class="section__head">
+        <h2 class="section__title" id="h-routes">6 เส้นทาง 40 จุด</h2>
+        <p class="section__lead">เลขในวงกลมคือเลขเดียวกับหมุดบนแผนที่</p>
+      </div>
+
+      <div class="legend">
+      <section class="route route--craft">
+        <header class="route__head">
+          <span class="route__mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22c-5 0-8-3-8-8 0-3 2-5 3-7h10c1 2 3 4 3 7 0 5-3 8-8 8z" fill="currentColor"/><path d="M6 7h12l1-3c-2-1-4-2-7-2S8 3 6 4z" fill="currentColor"/></svg></span>
+          <h3 class="route__title">เส้นทางนักปั้นและหัตถกรรม<span class="route__en">SCULPTOR &amp; HANDICRAFT</span></h3>
+        </header>
+        <ul class="route__list">
+          <li><span class="route__no">1</span><span>กลุ่มหัตถกรรมเครื่องปั้นดินเผา หมู่ 1<span class="route__en-sm">Moo 1 Pottery</span></span></li>
+          <li><span class="route__no">2</span><span>ช่างหนุ่ย เครื่องปั้นดินเผา<span class="route__en-sm">Chang Nui Pottery</span></span></li>
+          <li><span class="route__no">3</span><span>ประดิษฐ์ทวงศ์<span class="route__en-sm">Praditwong Pottery Factory</span></span></li>
+          <li><span class="route__no">4</span><span>ลุงตี๋ ดินเปา<span class="route__en-sm">Lungti Din Pao Pottery</span></span></li>
+          <li><span class="route__no">5</span><span>บริรักษ์ เครื่องปั้นดินเผา<span class="route__en-sm">Borirak Pottery</span></span></li>
+          <li><span class="route__no">6</span><span>บ้านทาดดิน<span class="route__en-sm">Tad Din Home Pottery</span></span></li>
+          <li><span class="route__no">7</span><span>ช่างน่อง เครื่องปั้นดินเผา<span class="route__en-sm">Chang Nong Pottery</span></span></li>
+          <li><span class="route__no">8</span><span>ลัดดาบาติก<span class="route__en-sm">Ladda Batik</span></span></li>
+          <li><span class="route__no">9</span><span>สวนเกร็ดพุทธ<span class="route__en-sm">Kretput Learning Center</span></span></li>
+          <li><span class="route__no">10</span><span>กลุ่มอาชีพสหกรณ์จักสานพลาสติก<span class="route__en-sm">Plastic Wickerwork</span></span></li>
+        </ul>
+      </section>
+
+      <section class="route route--sweet">
+        <header class="route__head">
+          <span class="route__mark" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="14" r="8" fill="currentColor"/><path d="M4 6h16l-2 4H6z" fill="currentColor"/></svg></span>
+          <h3 class="route__title">เส้นทางขนมหวาน<span class="route__en">DESSERT RECIPES</span></h3>
+        </header>
+        <ul class="route__list">
+          <li><span class="route__no">11</span><span>กลุ่มขนมมงคลเกาะเกร็ด (ยุพิน ขนมไทยโบราณ)<span class="route__en-sm">Thai Ceremonious Dessert</span></span></li>
+          <li><span class="route__no">12</span><span>ขนมไทยแม่ทองเดิม<span class="route__en-sm">Tongterm Thai Dessert</span></span></li>
+          <li><span class="route__no">13</span><span>ขนมทองม้วน<span class="route__en-sm">Waffle Thai Dessert</span></span></li>
+          <li><span class="route__no">14</span><span>ขนมดอกจอก<span class="route__en-sm">Lotus Blossom Cookie</span></span></li>
+          <li><span class="route__no">15</span><span>ลัดดา ปั้นขลิบ<span class="route__en-sm">Ladda Fried Puff</span></span></li>
+          <li><span class="route__no">16</span><span>บ้านลูกชุบ<span class="route__en-sm">LookChoup Home</span></span></li>
+          <li><span class="route__no">17</span><span>ปังป้าใหญ่<span class="route__en-sm">Pang-Pa-Yai</span></span></li>
+          <li><span class="route__no">18</span><span>บ้านหนมปั้น เกาะเกร็ด<span class="route__en-sm">Baan-Nhom-Pun Kohkret</span></span></li>
+        </ul>
+      </section>
+
+      <section class="route route--herb">
+        <header class="route__head">
+          <span class="route__mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22V10" stroke="currentColor" stroke-width="2"/><path d="M12 12C6 12 3 9 3 3c6-1 9 3 9 9zM12 12c6 0 9-3 9-9-6-1-9 3-9 9z" fill="currentColor"/></svg></span>
+          <h3 class="route__title">เส้นทางสปา สมุนไพร เกษตร<span class="route__en">AGRICULTURE, HERBS &amp; SPA</span></h3>
+        </header>
+        <ul class="route__list">
+          <li><span class="route__no">19</span><span>Her Bee กลุ่มวิสาหกิจชุมชน หมู่ 1<span class="route__en-sm">Herbal Balm</span></span></li>
+          <li><span class="route__no">20</span><span>บ้านยาสา<span class="route__en-sm">Baan Yasa Herb for Health &amp; Beauty</span></span></li>
+          <li><span class="route__no">21</span><span>ร้านแป๊ะเต๋ ชาสมุนไพรรางแดง<span class="route__en-sm">Pae Te Rangdang Tea</span></span></li>
+          <li><span class="route__no">22</span><span>สมุนไพร เค กรรณิกา<span class="route__en-sm">Herbal Balm</span></span></li>
+          <li><span class="route__no">23</span><span>ศูนย์ส่งเสริมการแพทย์แผนไทยเพื่อสุขภาพ ต.เกาะเกร็ด<span class="route__en-sm">Thai Massage</span></span></li>
+          <li><span class="route__no">24</span><span>บ้านสมุนไพรรางแดง “เจ๊เพ็ญ”<span class="route__en-sm">Jae Pen Herbal Tea</span></span></li>
+          <li><span class="route__no">25</span><span>กลุ่มเกษตรกรทำสวนเกาะเกร็ด (สมุนไพรรางแดง “มงคล”)<span class="route__en-sm">Monkol Herbal Tea</span></span></li>
+          <li><span class="route__no">26</span><span>ท่องเที่ยวเชิงเกษตร สวนเมล่อนเกาะเกร็ด<span class="route__en-sm">Melon Farm</span></span></li>
+          <li><span class="route__no">27</span><span>สวนทุเรียนแม่จรูญ<span class="route__en-sm">Mae Jaroon Farm</span></span></li>
+          <li><span class="route__no">28</span><span>นฤมล สลัดโรล<span class="route__en-sm">Naruamon Salad Roll</span></span></li>
+        </ul>
+      </section>
+
+      <section class="route route--dance">
+        <header class="route__head">
+          <span class="route__mark" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="3" fill="currentColor"/><path d="M12 9c4 0 6 3 6 7l-3 1-1 6h-4l-1-6-3-1c0-4 2-7 6-7z" fill="currentColor"/></svg></span>
+          <h3 class="route__title">เส้นทางนาฏศิลป์<span class="route__en">TRADITIONAL THAI DANCE</span></h3>
+        </header>
+        <ul class="route__list">
+          <li><span class="route__no">29</span><span>ครูอุ้ม นาฏศิลป์ไทยเกาะเกร็ด<span class="route__en-sm">Kroo Aum Thai Dance</span></span></li>
+        </ul>
+      </section>
+
+      <section class="route route--bike">
+        <header class="route__head">
+          <span class="route__mark" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="6" cy="16" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="16" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 16l5-8h5l2 8M11 8h4" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
+          <h3 class="route__title">เส้นทางนักปั่นและวัดรอบเกาะ<span class="route__en">BIKER DESTINATION</span></h3>
+        </header>
+        <ul class="route__list">
+          <li><span class="route__no">30</span><span>แมวปั้น จักรยานให้เช่า<span class="route__en-sm">Bicycle Rental</span></span></li>
+          <li><span class="route__no">31</span><span>วัดปรมัยยิกาวาส<span class="route__en-sm">Poramaiyikawas Temple</span></span></li>
+          <li><span class="route__no">32</span><span>วัดไผ่ล้อม<span class="route__en-sm">Phai Lom Temple</span></span></li>
+          <li><span class="route__no">33</span><span>วัดเสาธงทอง<span class="route__en-sm">Sao Thong Thong Temple</span></span></li>
+          <li><span class="route__no">34</span><span>วัดศาลากุล<span class="route__en-sm">Sala Kul Temple</span></span></li>
+          <li><span class="route__no">35</span><span>วัดฉิมพลี<span class="route__en-sm">Chimphli Temple</span></span></li>
+          <li><span class="route__no">36</span><span>อบต.เกาะเกร็ด<span class="route__en-sm">Koh Kret Subdistrict Administrative Organization</span><span class="route__tel">โทร 02 583 9544 · 02 960 9063</span></span></li>
+        </ul>
+      </section>
+
+      <section class="route route--pier">
+        <header class="route__head">
+          <span class="route__mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 14h16c-1 5-5 8-8 8s-7-3-8-8z" fill="currentColor"/><path d="M12 2v10M7 6h10" stroke="currentColor" stroke-width="2"/></svg></span>
+          <h3 class="route__title">จุดลงเรือ<span class="route__en">PIER</span></h3>
+        </header>
+        <ul class="route__list">
+          <li><span class="route__no">37</span><span>ท่าวัดสนามเหนือ<span class="route__en-sm">Sa Nam Nuea Temple Pier</span></span></li>
+          <li><span class="route__no">38</span><span>ท่าวัดบางจาก<span class="route__en-sm">Bangjak Temple Pier</span></span></li>
+          <li><span class="route__no">39</span><span>ท่าวัดกลางเกร็ด<span class="route__en-sm">Klangkret Temple Pier</span></span></li>
+          <li><span class="route__no">40</span><span>ท่ามัสยิดท่าอิฐ<span class="route__en-sm">Ta-it Mosque Pier</span></span></li>
+        </ul>
+      </section>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       กิน นอน จิบกาแฟ
+       ============================================================ -->
+  <section class="section" aria-labelledby="h-stay">
+    <div class="wrap">
+      <div class="section__head">
+        <h2 class="section__title" id="h-stay">ที่พัก ร้านอาหาร ร้านกาแฟ</h2>
+        <p class="section__lead">กลุ่มนี้ไม่ได้ปักหมุดในแผนที่ เพราะกระจายอยู่ตลอดทางเดินริมน้ำ</p>
+      </div>
+
+      <div class="legend">
+      <section class="route route--stay">
+        <header class="route__head">
+          <span class="route__mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 11 12 3l10 8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 11v10h14V11" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
+          <h3 class="route__title">โฮมสเตย์<span class="route__en">HOMESTAY</span></h3>
+        </header>
+        <ul class="route__list">
+          <li><span class="route__no">1</span><span>ชมฟ้าโฮมสเตย์<span class="route__en-sm">Chom Fah Homestay</span><span class="route__tel">โทร 083 616 8086</span></span></li>
+          <li><span class="route__no">2</span><span>Cast Away Homestay<span class="route__en-sm">Cast Away Homestay</span><span class="route__tel">โทร 089 521 5965</span></span></li>
+          <li><span class="route__no">3</span><span>เกาะเกร็ดโฮมสเตย์<span class="route__en-sm">Koh Kret Homestay</span><span class="route__tel">โทร 087 010 1154</span></span></li>
+          <li><span class="route__no">4</span><span>โต้งโฮมสเตย์<span class="route__en-sm">Tong Homestay</span><span class="route__tel">โทร 085 022 1733</span></span></li>
+        </ul>
+      </section>
+
+      <section class="route route--sweet">
+        <header class="route__head">
+          <span class="route__mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 2v9a3 3 0 0 0 6 0V2M9 11v11" stroke="currentColor" stroke-width="2" fill="none"/><path d="M17 2c-2 3-2 7 0 9v11" stroke="currentColor" stroke-width="2" fill="none"/></svg></span>
+          <h3 class="route__title">ร้านอาหาร<span class="route__en">RESTAURANT</span></h3>
+        </header>
+        <ul class="route__list">
+          <li><span class="route__no">1</span><span>บ้านป้าสูน<span class="route__en-sm">Pa’Soon Home</span></span></li>
+          <li><span class="route__no">2</span><span>ยกเย็นขึ้นนก<span class="route__en-sm">Yok Yen Kuen Nok</span></span></li>
+          <li><span class="route__no">3</span><span>เตอ ปา ลา<span class="route__en-sm">De Pa La</span></span></li>
+          <li><span class="route__no">4</span><span>คุณโจ้<span class="route__en-sm">Khun Joe</span></span></li>
+          <li><span class="route__no">5</span><span>ข้าวแช่สูตรชาววัง<span class="route__en-sm">Chao Wang Rice in Ice Water</span></span></li>
+          <li><span class="route__no">6</span><span>ขนมเส้นป้าอ้วน<span class="route__en-sm">Pa’Ouan Rice Vermicelli</span></span></li>
+          <li><span class="route__no">7</span><span>ครัวคุณนิด เกาะเกร็ด<span class="route__en-sm">Krua Khun Nid</span></span></li>
+          <li><span class="route__no">8</span><span>ข้าวแช่ลุงแดง<span class="route__en-sm">Loung Dhang Rice in Ice Water</span></span></li>
+          <li><span class="route__no">9</span><span>ก๋วยเตี๋ยวดอกรัก<span class="route__en-sm">Dok Rak Noodle</span></span></li>
+        </ul>
+      </section>
+
+      <section class="route route--craft">
+        <header class="route__head">
+          <span class="route__mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 8h13v7a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z" fill="currentColor"/><path d="M17 10h2a2 2 0 0 1 0 5h-2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 5c-1-1 1-2 0-3M12 5c-1-1 1-2 0-3" stroke="currentColor" stroke-width="2" fill="none"/></svg></span>
+          <h3 class="route__title">ร้านกาแฟ<span class="route__en">CAFE</span></h3>
+        </header>
+        <ul class="route__list">
+          <li><span class="route__no">1</span><span>กาแฟคั่วมือ<span class="route__en-sm">Hand-roasted Coffee</span></span></li>
+          <li><span class="route__no">2</span><span>กาแฟบ้านเลขที่ 1<span class="route__en-sm">House No.1 Coffee</span></span></li>
+          <li><span class="route__no">3</span><span>Rivana Coffee House<span class="route__en-sm">Rivana Coffee House</span></span></li>
+          <li><span class="route__no">4</span><span>กาแฟสด<span class="route__en-sm">Fresh Coffee</span></span></li>
+          <li><span class="route__no">5</span><span>พะยอม<span class="route__en-sm">PaYom Tea</span></span></li>
+        </ul>
+      </section>
+      </div>
+    </div>
+  </section>
+
+</article>
+
+</main>
+
+<!-- ============================================================
+     FOOTER — สีล็อกไว้ตายตัว
+     ============================================================ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+
+      <div>
+        <div class="footer__brand">
+          <svg viewBox="0 0 96 96" aria-hidden="true">
+          <circle cx="48" cy="48" r="44" fill="var(--c-cream)"/>
+          <path d="M22 58c4-17 15-24 26-24s22 7 26 24z" fill="var(--c-green)"/>
+          <path d="M45 34l3-10 3 10z" fill="var(--c-earth)"/>
+          <rect x="18" y="64" width="60" height="6" rx="3" fill="var(--c-earth)"/>
+          <rect x="30" y="75" width="36" height="6" rx="3" fill="var(--c-earth)" opacity=".5"/>
+        </svg>
+          <span>
+            <span class="footer__name">KRET CHECK!</span><br>
+            <span class="footer__sub">เกาะเกร็ด · ชุมชนมอญ นนทบุรี</span>
+          </span>
+        </div>
+        <p class="footer__text">
+          เช็กก่อนไป เช็กอินตอนถึง คู่มือเที่ยวเกาะเกร็ดที่เขียนให้คนมีเวลาน้อย
+        </p>
+      </div>
+
+      <div>
+        <h3>เที่ยว</h3>
+        <ul>
+          <li><a href="index.html#plans">แพลนเที่ยว</a></li>
+          <li><a href="index.html#places">เที่ยวไหนดี</a></li>
+          <li><a href="index.html#eat">กินอะไรดี</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>เตรียมตัว</h3>
+        <ul>
+          <li><a href="map.html">แผนที่เกาะ</a></li>
+          <li><a href="index.html#ferry">เรือข้ามฟาก</a></li>
+          <li><a href="docs/sitemap.html">ผังเว็บ</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>ติดตาม</h3>
+        <ul>
+          <li><a href="index.html">Instagram</a></li>
+          <li><a href="index.html">TikTok</a></li>
+          <li><a href="docs/brand.html">เกี่ยวกับแบรนด์</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <p class="footer__bar">
+      © 2569 Kret Check · งานส่วนที่ 2 · เว็บบล็อกท่องเที่ยวเกาะเกร็ด<br>
+      ชื่อร้านและสถานที่บนแผนที่อ้างอิงจากแผนที่ท่องเที่ยวของชุมชนเกาะเกร็ด ต้องเช็กซ้ำก่อนเผยแพร่
+    </p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
