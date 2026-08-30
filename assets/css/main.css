@@ -378,6 +378,25 @@ a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 }
 .slot--wide { aspect-ratio: 16 / 9; }
 
+/* ------------------------------------------------------------
+   รูปจริง — ใช้แทน .slot เมื่อมีรูปแล้ว
+     <img class="shot" src="assets/img/xxx.jpg" alt="คำอธิบายรูป">
+   aspect-ratio ต้องตรงกับ .slot ที่มันมาแทน ไม่งั้นการ์ดจะสูงไม่เท่ากัน
+   object-fit: cover คือให้รูปเต็มกรอบโดยไม่ยืดผิดสัดส่วน ส่วนเกินถูกตัด
+   ------------------------------------------------------------ */
+.shot {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--bg-sunken);
+  border-bottom: 1px solid var(--card-line);
+}
+.shot--wide { aspect-ratio: 16 / 9; }
+
+/* ในหน้าบทความ กรอบมนกับ overflow อยู่ที่ .article__hero แล้ว */
+.article__hero .shot { border-bottom: 0; }
+
 .card__body { display: flex; flex-direction: column; gap: var(--sp-2); padding: var(--sp-4); flex: 1; }
 .card__kicker {
   font-family: var(--font-mono);
@@ -661,6 +680,7 @@ a.plan:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
   .hero__media {
     display: grid;
     place-items: center;
+    overflow: hidden;
     aspect-ratio: 4 / 3;
     border: 1px solid rgba(244, 241, 226, .28);
     border-radius: var(--r-lg);
@@ -670,6 +690,17 @@ a.plan:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
     font-size: var(--fs-sm);
     letter-spacing: .08em;
     text-align: center;
+  }
+  /* พอใส่รูปจริงแล้ว ให้รูปเต็มกรอบ hero ไปเลย
+     ต้องคง aspect-ratio 4/3 ไว้ที่ตัวรูปเอง ห้ามใช้ height: 100%
+     เพราะจะทำให้กรอบ hero ไปยืดตามสัดส่วนของรูปที่ใส่เข้ามาแทน
+     แล้วพอเปลี่ยนรูป หน้าตา hero จะเปลี่ยนตามไปด้วย */
+  .hero__media > .shot {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    border: 0;
+    background: transparent;
   }
 
   .grid { grid-template-columns: repeat(4, 1fr); }
