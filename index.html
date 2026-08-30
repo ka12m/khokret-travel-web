@@ -175,76 +175,113 @@
 
     <div class="map reveal">
       <div class="map__frame">
-        <svg class="map__art" viewBox="0 0 800 500" role="img"
-             aria-label="แผนผังเกาะเกร็ดแบบวาด แสดงเกาะกลางแม่น้ำเจ้าพระยา มีจุดสำคัญสี่จุดอยู่บนเกาะ และมีเส้นประแสดงเส้นทางเรือข้ามฟากจากฝั่งปากเกร็ดมายังเกาะ">
-          <rect class="map__water" x="0" y="0" width="800" height="500"/>
+        <svg class="map__art" viewBox="0 0 1000 640" role="img"
+             aria-label="ผังถนนเกาะเกร็ดแบบย่อ แสดงเกาะกลางแม่น้ำเจ้าพระยา มีถนนเลียบวงรอบเกาะและถนนตัดกลาง ฝั่งอำเภอปากเกร็ดอยู่ทางขวา มีเส้นประแสดงเส้นทางเรือข้ามฟาก และหมุดสี่จุดหลักบนเกาะ">
+          <rect class="map__water" x="0" y="0" width="1000" height="640"/>
 
-          <!-- ฝั่งปากเกร็ด ด้านเหนือ -->
-          <path class="map__land" d="M0 0 H800 V64 C712 92 628 78 528 100 C428 122 306 106 186 93 C114 85 58 90 0 99 Z"/>
-          <!-- ฝั่งตรงข้าม ด้านตะวันออกเฉียงใต้ -->
-          <path class="map__land" d="M800 196 C742 246 700 314 662 372 C634 416 596 462 556 500 H800 Z"/>
+          <!-- แผ่นดิน : ฝั่งตะวันตก / เกาะเกร็ด / ฝั่งปากเกร็ด -->
+          <path class="map__land" d="M0 0 V640 H96 C106 540 84 440 100 348 C112 268 88 158 104 58 L106 0 Z"/>
+          <path class="map__land" d="M1000 0 V640 H836 C820 536 848 436 834 344 C822 262 846 154 832 56 L830 0 Z"/>
+          <path class="map__land" d="M200 335 C200 240 280 158 400 136 C520 114 646 140 692 214 C730 276 720 356 682 424 C638 502 530 546 424 544 C316 542 240 480 214 406 C203 386 200 358 200 335 Z"/>
 
-          <!-- น้ำตื้นริมตลิ่งรอบเกาะ ทำให้เกาะดูลอยอยู่กลางน้ำ -->
-          <path class="map__shallow" d="M166 296 C168 230 242 186 334 168 C438 148 552 160 622 204 C686 244 692 304 650 354 C606 406 492 432 386 424 C280 416 198 374 172 334 C166 322 165 308 166 296 Z"/>
-
-          <!-- ตัวเกาะเกร็ด -->
-          <path class="map__isle" d="M180 296 C182 236 250 196 336 182 C432 166 540 176 606 216 C664 251 668 306 630 348 C588 394 484 416 386 408 C286 400 210 362 187 326 C181 314 179 305 180 296 Z"/>
-
-          <!-- เส้นทางเรือข้ามฟาก : เกาะเกร็ดไม่มีสะพาน ต้องนั่งเรือ -->
-          <path class="map__ferry" d="M480 112 V188"/>
-          <circle class="map__pier" cx="480" cy="104" r="7"/>
-          <rect class="map__cap" x="436" y="60" width="88" height="30" rx="15"/>
-          <text class="map__label" x="480" y="81">ท่าเรือ</text>
-
-          <rect class="map__cap" x="52" y="424" width="184" height="30" rx="15"/>
-          <text class="map__label" x="144" y="445">แม่น้ำเจ้าพระยา</text>
-
-          <!-- ต้นไม้ วางเลี่ยงตำแหน่งป้ายไว้แล้ว -->
-          <g class="map__tree">
-            <circle cx="600" cy="330" r="13"/><circle cx="624" cy="306" r="10"/>
-            <circle cx="246" cy="352" r="11"/><circle cx="286" cy="372" r="9"/>
-            <circle cx="446" cy="368" r="12"/><circle cx="530" cy="352" r="9"/>
-            <circle cx="232" cy="300" r="9"/><circle cx="576" cy="212" r="9"/>
+          <!-- พื้นที่สีเขียว : เขตวัดและสวนบนเกาะ -->
+          <g class="map__park">
+            <ellipse cx="462" cy="216" rx="72" ry="38"/>
+            <ellipse cx="342" cy="470" rx="56" ry="32"/>
+            <ellipse cx="602" cy="402" rx="50" ry="30"/>
+            <ellipse cx="928" cy="222" rx="62" ry="40"/>
           </g>
 
-          <!-- เรือลำเล็กบนแม่น้ำ -->
-          <path class="map__boat" d="M96 372 q22 16 44 0"/>
-          <path class="map__boat" d="M118 372 v-16"/>
-          <path class="map__boat" d="M714 138 q22 16 44 0"/>
-          <path class="map__boat" d="M736 138 v-16"/>
+          <!-- ถนน : ลงขอบให้ครบก่อน แล้วค่อยทับด้วยผิวถนน แบบแผนที่นำทาง -->
+          <g class="map__case">
+            <path stroke-width="16" d="M910 0 V640"/>
+            <path stroke-width="12" d="M252 336 C252 254 320 186 420 168 C522 150 620 172 656 232 C688 286 680 350 648 406 C610 470 520 504 428 502 C340 500 278 450 258 390 C253 374 252 352 252 336 Z"/>
+            <path stroke-width="9" d="M300 268 L462 332 L658 300"/>
+            <path stroke-width="9" d="M420 170 L448 336 L400 498"/>
+            <path stroke-width="9" d="M910 180 H842"/>
+            <path stroke-width="9" d="M910 330 H838"/>
+            <path stroke-width="9" d="M910 480 H846"/>
+            <path stroke-width="9" d="M48 0 V640"/>
+            <path stroke-width="8" d="M48 340 H102"/>
+            <path stroke-width="7" d="M352 214 L400 296"/>
+            <path stroke-width="7" d="M566 222 L524 306"/>
+            <path stroke-width="7" d="M372 420 L452 436"/>
+            <path stroke-width="7" d="M630 356 L566 344"/>
+            <path stroke-width="7" d="M300 380 L372 366"/>
+            <path stroke-width="7" d="M910 255 H858"/>
+            <path stroke-width="7" d="M910 405 H852"/>
+          </g>
+          <g class="map__road">
+            <path class="map__road--main" stroke-width="12" d="M910 0 V640"/>
+            <path stroke-width="8" d="M252 336 C252 254 320 186 420 168 C522 150 620 172 656 232 C688 286 680 350 648 406 C610 470 520 504 428 502 C340 500 278 450 258 390 C253 374 252 352 252 336 Z"/>
+            <path stroke-width="5" d="M300 268 L462 332 L658 300"/>
+            <path stroke-width="5" d="M420 170 L448 336 L400 498"/>
+            <path stroke-width="5" d="M910 180 H842"/>
+            <path stroke-width="5" d="M910 330 H838"/>
+            <path stroke-width="5" d="M910 480 H846"/>
+            <path stroke-width="5" d="M48 0 V640"/>
+            <path stroke-width="4.5" d="M48 340 H102"/>
+            <path stroke-width="3.5" d="M352 214 L400 296"/>
+            <path stroke-width="3.5" d="M566 222 L524 306"/>
+            <path stroke-width="3.5" d="M372 420 L452 436"/>
+            <path stroke-width="3.5" d="M630 356 L566 344"/>
+            <path stroke-width="3.5" d="M300 380 L372 366"/>
+            <path stroke-width="3.5" d="M910 255 H858"/>
+            <path stroke-width="3.5" d="M910 405 H852"/>
+          </g>
 
-          <!-- จุดสี่จุด เลขตรงกับป้ายด้านล่าง -->
+          <!-- เรือข้ามฟาก : เกาะเกร็ดไม่มีสะพาน ต้องข้ามด้วยเรือ -->
+          <path class="map__ferry" d="M832 362 H714"/>
+          <g class="map__pier">
+            <rect x="700" y="354" width="16" height="16" rx="3"/>
+            <rect x="826" y="354" width="16" height="16" rx="3"/>
+            <rect x="452" y="130" width="14" height="14" rx="3"/>
+            <rect x="330" y="512" width="14" height="14" rx="3"/>
+          </g>
+          <rect class="map__cap" x="726" y="392" width="86" height="26" rx="13"/>
+          <text class="map__label" x="769" y="411">ท่าเรือ</text>
+
+          <!-- ชื่อพื้นที่ : วางแนวนอนทั้งหมด ตัวหนังสือไทยตะแคงอ่านยาก -->
+          <text class="map__label--area" x="460" y="346">เกาะเกร็ด</text>
+          <rect class="map__cap" x="150" y="586" width="184" height="28" rx="14"/>
+          <text class="map__label" x="242" y="606">แม่น้ำเจ้าพระยา</text>
+          <rect class="map__cap" x="694" y="74" width="150" height="28" rx="14"/>
+          <text class="map__label" x="769" y="94">คลองลัดเกร็ด</text>
+          <rect class="map__cap" x="866" y="586" width="128" height="28" rx="14"/>
+          <text class="map__label" x="930" y="606">อ.ปากเกร็ด</text>
+
+          <!-- หมุดสี่จุด เลขตรงกับป้าย -->
           <g>
-            <circle class="map__dot" cx="248" cy="250" r="15"/>
-            <text class="map__dot-no" x="248" y="256">1</text>
-            <circle class="map__dot" cx="400" cy="210" r="15"/>
-            <text class="map__dot-no" x="400" y="216">2</text>
-            <circle class="map__dot" cx="560" cy="245" r="15"/>
-            <text class="map__dot-no" x="560" y="251">3</text>
-            <circle class="map__dot" cx="336" cy="340" r="15"/>
-            <text class="map__dot-no" x="336" y="346">4</text>
+            <circle class="map__dot" cx="285" cy="265" r="15"/>
+            <text class="map__dot-no" x="285" y="271">1</text>
+            <circle class="map__dot" cx="460" cy="195" r="15"/>
+            <text class="map__dot-no" x="460" y="201">2</text>
+            <circle class="map__dot" cx="645" cy="300" r="15"/>
+            <text class="map__dot-no" x="645" y="306">3</text>
+            <circle class="map__dot" cx="345" cy="455" r="15"/>
+            <text class="map__dot-no" x="345" y="461">4</text>
           </g>
         </svg>
 
         <!-- --x / --y คิดเป็น % ของกรอบ ให้ตรงกับพิกัดจุดใน viewBox ข้างบน
-             เช่น จุดที่ 1 อยู่ที่ (248, 250) ของ 800x500 = 31% , 50% -->
+             เช่น จุดที่ 1 อยู่ที่ (285, 265) ของ 1000x640 = 28.5% , 41.4% -->
         <div class="map__pins">
-          <a class="pin" style="--x: 31%; --y: 50%" href="places/leaning-pagoda.html">
+          <a class="pin" style="--x: 28.5%; --y: 41.4%" href="places/leaning-pagoda.html">
             <span class="pin__no">1</span>
             <span class="pin__name">เจดีย์เอียงมุเตา</span>
             <span class="pin__go" aria-hidden="true">→</span>
           </a>
-          <a class="pin" style="--x: 50%; --y: 42%" href="places/wat-poramai.html">
+          <a class="pin" style="--x: 46%; --y: 30.5%" href="places/wat-poramai.html">
             <span class="pin__no">2</span>
             <span class="pin__name">วัดปรมัยยิกาวาส</span>
             <span class="pin__go" aria-hidden="true">→</span>
           </a>
-          <a class="pin" style="--x: 70%; --y: 49%" href="places/riverside-market.html">
+          <a class="pin" style="--x: 64.5%; --y: 46.9%" href="places/riverside-market.html">
             <span class="pin__no">3</span>
             <span class="pin__name">ตลาดริมน้ำ</span>
             <span class="pin__go" aria-hidden="true">→</span>
           </a>
-          <a class="pin" style="--x: 42%; --y: 68%" href="places/kwan-aman.html">
+          <a class="pin" style="--x: 34.5%; --y: 71.1%" href="places/kwan-aman.html">
             <span class="pin__no">4</span>
             <span class="pin__name">หมู่บ้านกวานอาม่าน</span>
             <span class="pin__go" aria-hidden="true">→</span>

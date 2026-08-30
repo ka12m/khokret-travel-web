@@ -417,14 +417,14 @@ a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 }
 
 /* ============================================================
-   MAP — แผนผังย่อบนหน้าแรก
-   เป็นแค่ภาพรวมสี่จุดหลัก ของเต็มอยู่ที่ map.html
-   สีอ้างจาก token ชุดภาพประกอบเดียวกับ map.html และล็อกไว้เหมือนงานพิมพ์
-   ไม่สลับตามโหมดกลางคืน แผนที่สองอันจะได้ดูเหมือนวาดจากมือเดียวกัน
+   MAP — ผังถนนย่อบนหน้าแรก
+   วาดเป็นผังถนนแบบแผนที่นำทาง ไม่ได้ใช้ tile จากผู้ให้บริการแผนที่
+   เพราะ CSP ของหน้าตัวอย่างบล็อกรูปจากโฮสต์ภายนอก และจะได้ไม่ต้องใช้ API key
+   ถนนวาดสองชั้น ชั้นล่างเป็นขอบ ชั้นบนเป็นผิวถนน แบบเดียวกับแผนที่นำทางทั่วไป
+   สีล็อกไว้เหมือนงานพิมพ์ ไม่สลับตามโหมดกลางคืน เหมือน map.html
 
-   มือถือ  : แผนผังอยู่บน ป้ายสถานที่เรียงเป็นรายการอยู่ล่าง
-   1000px+ : ป้ายลอยทับบนแผนผังตามตำแหน่งจริง
-   ใช้ลิงก์ชุดเดียวกันทั้งสองแบบ ไม่ได้เขียน markup ซ้ำ
+   มือถือ  : ผังอยู่บน ป้ายสถานที่เรียงเป็นรายการอยู่ล่าง
+   1000px+ : ป้ายลอยทับบนผังตามตำแหน่งจริง
    ============================================================ */
 .map {
   border: 1px solid var(--card-line);
@@ -433,28 +433,34 @@ a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
   box-shadow: var(--shadow-sm);
 }
 
-.map__frame { position: relative; background: var(--c-sky-500); }
+.map__frame { position: relative; background: var(--c-sky-400); }
 .map__art { display: block; width: 100%; height: auto; }
 
-.map__water { fill: var(--c-sky-500); }
-.map__shallow { fill: var(--c-sky-400); }
-.map__land { fill: var(--c-green-300); }
-.map__isle { fill: var(--c-green-500); stroke: var(--c-cream-100); stroke-width: 3; }
-.map__tree { fill: var(--c-green-600); }
-.map__boat { fill: none; stroke: var(--c-cream-100); stroke-width: 2.5; stroke-linecap: round; opacity: .8; }
-.map__ferry { fill: none; stroke: var(--c-cream-100); stroke-width: 3; stroke-dasharray: 8 8; stroke-linecap: round; }
-.map__pier { fill: var(--c-sky-800); stroke: var(--c-cream-100); stroke-width: 2.5; }
+.map__water { fill: var(--c-sky-400); }
+.map__land { fill: var(--c-cream-300); }
+.map__park { fill: var(--c-green-200); }
+
+/* ถนน : ชั้นขอบก่อน แล้วทับด้วยผิวถนน */
+.map__case { fill: none; stroke: var(--c-mute-warm); stroke-opacity: .35; stroke-linecap: round; stroke-linejoin: round; }
+.map__road { fill: none; stroke: var(--c-cream-100); stroke-linecap: round; stroke-linejoin: round; }
+.map__road--main { stroke: var(--c-sun-500); }
+
+.map__ferry { fill: none; stroke: var(--c-sky-800); stroke-width: 3; stroke-dasharray: 9 9; stroke-linecap: round; }
+.map__pier { fill: var(--c-sky-800); }
 .map__dot { fill: var(--c-clay); stroke: var(--c-cream-100); stroke-width: 3; }
 .map__dot-no { fill: var(--c-cream-100); font-family: var(--font-mono); font-size: 17px; font-weight: 500; text-anchor: middle; }
 
-/* ป้ายบนภาพวางบนแคปซูลครีมเสมอ แบบเดียวกับ map.html
-   ถ้าวางตัวหนังสือลงบนน้ำหรือบนหญ้าตรง ๆ คอนทราสต์จะไม่ผ่าน */
+/* ป้ายบนภาพวางบนแคปซูลครีมเสมอ ตัวหนังสือจะได้ไม่ไปนอนบนน้ำหรือบนถนน */
 .map__cap { fill: var(--c-cream-100); }
-.map__label {
+.map__label { fill: var(--c-earth); font-family: var(--font-mono); font-size: 15px; text-anchor: middle; }
+.map__label--area {
   fill: var(--c-earth);
-  font-family: var(--font-mono);
-  font-size: 16px;
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
   text-anchor: middle;
+  opacity: .5;
+  letter-spacing: .06em;
 }
 
 /* ---------- ป้ายสถานที่ ---------- */
