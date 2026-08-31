@@ -275,6 +275,7 @@
     if (item) item.classList.add('is-active');
 
     place(pin);
+    frame(pin);
     card.querySelector('.poi__close').focus({ preventScroll: true });
   }
 
@@ -317,6 +318,19 @@
     card.setAttribute('data-flip', String(y < card.offsetHeight + 30));
   }
 
+  /* ---------- 8.5 จอเล็ก ดันหมุดขึ้นมาเหนือแผ่น ----------
+     แผ่นข้อมูลกินพื้นที่ครึ่งล่างของจอ ถ้าหมุดที่เพิ่งกดอยู่ใต้แผ่นพอดี
+     คนจะไม่เห็นว่าตัวเองกดจุดไหน จึงเลื่อนหน้าให้หมุดมาอยู่กลางที่ว่างข้างบน */
+  function frame(pin) {
+    if (wide.matches) return;
+    var free = window.innerHeight - card.offsetHeight;
+    if (free < 140) return;               /* จอเตี้ยมาก ขยับไปก็ไม่ช่วย */
+    var box = pin.getBoundingClientRect();
+    var dy = box.top + box.height / 2 - free / 2;
+    if (Math.abs(dy) < 8) return;
+    window.scrollBy({ top: dy, behavior: reduced ? 'auto' : 'smooth' });
+  }
+
   /* ---------- 9. เลื่อนจากรายชื่อไปหาหมุด ---------- */
   function jumpTo(no, trigger) {
     var pin = pins[no];
@@ -328,7 +342,11 @@
       var to = scroller.scrollLeft + (box.left - view.left) - view.width / 2 + box.width / 2;
       scroller.scrollTo({ left: to, behavior: reduced ? 'auto' : 'smooth' });
     }
-    sheet.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' });
+    /* จอเล็กไม่ต้องจัดแนวตั้งตรงนี้ ปล่อยให้ frame() ทำตอนเปิดกล่อง
+       ไม่งั้นจะสั่งเลื่อนสองครั้งซ้อนแล้วชนกันเอง */
+    if (wide.matches) {
+      sheet.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' });
+    }
 
     /* รอให้เลื่อนเสร็จก่อนค่อยวางกล่อง ไม่งั้นกล่องจะไปโผล่ผิดที่ */
     window.setTimeout(function () { open(no, trigger); }, reduced ? 0 : 320);
