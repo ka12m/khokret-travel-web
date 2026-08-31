@@ -44,6 +44,21 @@
 }
 .map-hint svg { width: 18px; height: 18px; flex: none; }
 
+/* ---------- คำใบ้ว่าหมุดกดได้ โผล่ทุกขนาดจอ ---------- */
+.map-tip {
+  display: flex;
+  gap: var(--sp-2);
+  align-items: flex-start;
+  margin-bottom: var(--sp-4);
+  padding: var(--sp-3);
+  background: var(--bg-sunken);
+  border-radius: var(--r-sm);
+  color: var(--text-mute);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-snug);
+}
+.map-tip svg { width: 20px; height: 20px; flex: none; margin-top: 1px; }
+
 /* ---------- ตัวหนังสือในแผนที่ ---------- */
 .mapsheet text { font-family: var(--font-body); }
 .t-title {
@@ -208,12 +223,235 @@
 .mapkey__dot { flex: none; width: 18px; height: 18px; border-radius: var(--r-pill); }
 
 /* ============================================================
+   ป๊อบอัพจุดบนแผนที่ (assets/js/map.js เป็นคนเปิดปิด)
+   ถ้าไม่มี JS ทั้งบล็อกนี้ไม่ถูกใช้เลย แผนที่กลับไปเป็นภาพนิ่งเฉย ๆ
+   ============================================================ */
+
+/* ---------- หมุดที่กดได้ ----------
+   ชั้นตกแต่ง (รอยพับกระดาษ ป้ายชื่อ ตัวคน) วาดทับหมุดอยู่หลายจุด
+   ถ้าปล่อยให้มันรับคลิกด้วย หมุดที่อยู่ใต้รอยพับจะกดไม่ติด
+   จึงปิดการรับคลิกทั้งแผ่นแล้วเปิดคืนให้เฉพาะหมุด                */
+.map { pointer-events: none; }
+.map .pin { pointer-events: auto; }
+
+.pin {
+  cursor: pointer;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform var(--dur) var(--ease);
+}
+.pin:hover { transform: scale(1.18); }
+.pin:focus { outline: none; }
+.pin:focus-visible circle:first-of-type {
+  stroke: var(--c-earth);
+  stroke-width: 3;
+}
+.pin.is-active { transform: scale(1.32); }
+.pin.is-active circle:first-of-type {
+  stroke: var(--c-earth);
+  stroke-width: 2.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pin { transition: none; }
+}
+
+/* ---------- กล่องป๊อบอัพ ----------
+   ฐานคือจอมือถือ เป็นแผ่นเลื่อนขึ้นจากขอบล่างของจอ
+   เพราะจอเล็กแผนที่เลื่อนแนวนอนได้ ถ้าผูกกล่องไว้กับหมุด
+   กล่องจะวิ่งหนีออกนอกจอตอนคนลากแผนที่                        */
+.poi {
+  position: fixed;
+  z-index: 60;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: var(--sp-4);
+  padding-bottom: calc(var(--sp-4) + env(safe-area-inset-bottom, 0px));
+  background: var(--bg-raised);
+  color: var(--text);
+  border-top: 4px solid var(--c-clay);
+  border-radius: var(--r-md) var(--r-md) 0 0;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(100%);
+  transition: transform var(--dur) var(--ease);
+}
+.poi[data-open="true"] { transform: translateY(0); }
+
+/* สีขอบบนของกล่องเปลี่ยนตามเส้นทางของจุดนั้น ให้ตรงกับสีหมุด */
+.poi[data-route="craft"] { border-top-color: var(--c-clay); }
+.poi[data-route="sweet"] { border-top-color: var(--c-sun-600); }
+.poi[data-route="herb"]  { border-top-color: var(--c-green-600); }
+.poi[data-route="dance"] { border-top-color: var(--c-earth); }
+.poi[data-route="bike"]  { border-top-color: var(--c-green); }
+.poi[data-route="pier"]  { border-top-color: var(--c-sky-800); }
+
+.poi__close {
+  position: absolute;
+  top: var(--sp-3);
+  right: var(--sp-3);
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--card-line);
+  border-radius: var(--r-pill);
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+}
+.poi__close svg { width: 18px; height: 18px; }
+.poi__close:hover { background: var(--bg-sunken); }
+
+.poi__head {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: var(--sp-3);
+  align-items: start;
+  padding-right: 40px;
+}
+.poi__no {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--r-pill);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  line-height: 1;
+  background: var(--c-cream-300);
+  color: var(--c-earth);
+}
+.poi[data-route="craft"] .poi__no { background: var(--c-clay);      color: var(--c-cream-100); }
+.poi[data-route="sweet"] .poi__no { background: var(--c-sun);       color: var(--c-earth); }
+.poi[data-route="herb"]  .poi__no { background: var(--c-green-600); color: var(--c-cream-100); }
+.poi[data-route="dance"] .poi__no { background: var(--c-earth);     color: var(--c-cream-100); }
+.poi[data-route="bike"]  .poi__no { background: var(--c-green);     color: var(--c-cream-100); }
+.poi[data-route="pier"]  .poi__no { background: var(--c-sky-800);   color: var(--c-cream-100); }
+
+.poi__route {
+  color: var(--text-mute);
+  font-size: var(--fs-xs);
+  letter-spacing: .04em;
+}
+.poi__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-lg);
+  line-height: var(--lh-snug);
+  margin-top: 2px;
+}
+.poi__en {
+  color: var(--text-mute);
+  font-size: var(--fs-xs);
+  letter-spacing: .04em;
+}
+.poi__note {
+  margin-top: var(--sp-3);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-snug);
+}
+.poi__tel {
+  margin-top: var(--sp-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+}
+.poi__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-top: var(--sp-3);
+}
+.poi__link {
+  display: inline-block;
+  padding: 6px var(--sp-3);
+  border: 1px solid var(--card-line);
+  border-radius: var(--r-pill);
+  background: var(--bg);
+  color: var(--text);
+  font-size: var(--fs-sm);
+  text-decoration: none;
+}
+.poi__link:hover { background: var(--bg-sunken); }
+.poi__src {
+  margin-top: var(--sp-3);
+  padding-top: var(--sp-2);
+  border-top: 1px dashed var(--card-line);
+  color: var(--text-mute);
+  font-size: var(--fs-xs);
+  line-height: var(--lh-snug);
+}
+
+/* ---------- เลขในรายชื่อกลายเป็นปุ่ม ---------- */
+.route__list button.route__no {
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-mono);
+}
+.route__list button.route__no:hover { filter: brightness(1.12); }
+.route__list li.is-active {
+  background: var(--bg-sunken);
+  border-radius: var(--r-sm);
+  outline: 2px solid var(--c-clay);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .poi { transition: none; }
+}
+
+/* ============================================================
    ขยายขึ้นตามจอ — min-width เท่านั้น (HANDOFF ข้อ 7)
    ============================================================ */
 @media (min-width: 700px) {
   .legend { grid-template-columns: repeat(2, 1fr); }
   .mapkey { grid-template-columns: repeat(2, 1fr); }
   .mapsheet__scroll > svg { width: 1300px; max-width: none; }
+
+  /* จอนี้ขึ้นไป กล่องลอยชี้หมุดได้ พิกัดสองตัวนี้ map.js เป็นคนใส่ */
+  .poi {
+    position: absolute;
+    left: var(--poi-x, 50%);
+    top: var(--poi-y, 50%);
+    right: auto;
+    bottom: auto;
+    width: min(300px, calc(100% - 32px));
+    border-radius: var(--r-md);
+    border-top-width: 4px;
+    transform: translate(-50%, calc(-100% - 22px)) scale(.96);
+    opacity: 0;
+    transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+  }
+  .poi[data-open="true"] {
+    transform: translate(-50%, calc(-100% - 22px)) scale(1);
+    opacity: 1;
+  }
+  /* หมุดอยู่ชิดขอบบนของแผ่น กล่องพลิกลงไปอยู่ใต้หมุดแทน */
+  .poi[data-flip="true"] { transform: translate(-50%, 44px) scale(.96); }
+  .poi[data-open="true"][data-flip="true"] { transform: translate(-50%, 44px) scale(1); }
+
+  /* หางกล่องชี้หมุด */
+  .poi::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -9px;
+    width: 16px;
+    height: 16px;
+    margin-left: -8px;
+    background: var(--bg-raised);
+    border-right: 1px solid var(--card-line);
+    border-bottom: 1px solid var(--card-line);
+    transform: rotate(45deg);
+  }
+  .poi[data-flip="true"]::after {
+    top: -9px;
+    bottom: auto;
+    border: none;
+    border-left: 1px solid var(--card-line);
+    border-top: 1px solid var(--card-line);
+  }
 }
 
 @media (min-width: 1000px) {
@@ -221,5 +459,7 @@
   .mapkey { grid-template-columns: repeat(4, 1fr); }
   .map-hint { display: none; }
   .mapsheet__scroll { overflow-x: visible; }
+  /* ป๊อบอัพต้องล้นออกนอกแผ่นได้ พอเลิกเลื่อนแนวนอนแล้วปลด overflow ทิ้ง */
+  .mapsheet { overflow: visible; }
   .mapsheet__scroll > svg { width: 100%; max-width: 100%; }
 }
