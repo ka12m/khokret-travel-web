@@ -395,6 +395,8 @@ a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 .shot--wide { aspect-ratio: 16 / 9; }
 /* แผนที่กับอินโฟกราฟิกต้องเห็นครบทั้งภาพ ครอปแล้วข้อมูลหาย จึงปล่อยตามสัดส่วนจริง */
 .shot--full { aspect-ratio: auto; object-fit: contain; }
+/* รูปแนวตั้งในบทความ จำกัดความกว้างไม่ให้สูงจนกินทั้งหน้าจอ */
+.shot--tall { aspect-ratio: auto; object-fit: contain; max-width: 27rem; margin-inline: auto; }
 
 /* ในหน้าบทความ กรอบมนกับ overflow อยู่ที่ .article__hero แล้ว */
 .article__hero .shot { border-bottom: 0; }
