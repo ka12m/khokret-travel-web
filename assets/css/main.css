@@ -684,7 +684,12 @@ a.plan:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
   .nav__links { display: flex; align-items: center; gap: 2px; }
 
   .hero { padding-block: var(--sp-8); }
-  .hero__grid { grid-template-columns: 1.05fr .95fr; align-items: center; gap: var(--sp-7); }
+  /* hero ไม่มีรูปแล้ว จึงเป็นคอลัมน์เดียว จำกัดความกว้างไว้ไม่ให้บรรทัดยาวเกินอ่านสบาย
+     ถ้าใส่ .hero__media กลับมาเมื่อไร กฎล่างจะสลับเป็นสองคอลัมน์ให้เอง */
+  .hero__grid { align-items: center; gap: var(--sp-7); }
+  .hero__grid > :first-child { max-width: 44rem; }
+  .hero__grid:has(.hero__media) { grid-template-columns: 1.05fr .95fr; }
+  .hero__grid:has(.hero__media) > :first-child { max-width: none; }
   .hero__media {
     display: grid;
     place-items: center;
