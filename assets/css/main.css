@@ -832,6 +832,8 @@ a.plan:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 .prose li { padding-left: var(--sp-1); }
 .prose a { color: var(--text); text-decoration-thickness: 2px; text-underline-offset: 3px; }
 .prose figure { margin: 0; }
+/* .prose figure ทับ margin-top ของกฎ * + * ทำให้รูปติดกับข้อความบน คืนระยะให้เท่าบล็อกอื่น */
+.prose > * + figure { margin-top: var(--sp-5); }
 .prose figcaption {
   margin-top: var(--sp-2);
   color: var(--text-mute);
