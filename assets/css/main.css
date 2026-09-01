@@ -393,6 +393,8 @@ a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
   border-bottom: 1px solid var(--card-line);
 }
 .shot--wide { aspect-ratio: 16 / 9; }
+/* แผนที่กับอินโฟกราฟิกต้องเห็นครบทั้งภาพ ครอปแล้วข้อมูลหาย จึงปล่อยตามสัดส่วนจริง */
+.shot--full { aspect-ratio: auto; object-fit: contain; }
 
 /* ในหน้าบทความ กรอบมนกับ overflow อยู่ที่ .article__hero แล้ว */
 .article__hero .shot { border-bottom: 0; }
