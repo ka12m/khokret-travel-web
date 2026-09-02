@@ -40,6 +40,89 @@
 <script>
 (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('kretcheck-theme');if(t)d.setAttribute('data-theme',t);}catch(e){}})();
 </script>
+
+<!-- JSON-LD — ยังไม่ใส่ราคาและเวลาเปิด เพราะข้อมูลบนหน้ายังเป็นตัวอย่าง
+     เติมพร้อมตอนลบ .draft-note ดูเช็กลิสต์ใน HANDOFF.md -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://ka12m.github.io/khokret-travel-web/#website",
+      "name": "Kret Check",
+      "url": "https://ka12m.github.io/khokret-travel-web/",
+      "description": "คู่มือเที่ยวเกาะเกร็ด นนทบุรี สำหรับคนมีเวลาครึ่งวัน รวมวิธีนั่งเรือข้ามฟาก ท่าเรือที่ควรใช้ ที่เที่ยวสี่จุดที่เดินถึงกันหมด และของกินมอญที่มีเฉพาะบนเกาะ",
+      "inLanguage": "th-TH",
+      "publisher": {
+        "@id": "https://ka12m.github.io/khokret-travel-web/#org"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://ka12m.github.io/khokret-travel-web/#org",
+      "name": "Kret Check",
+      "url": "https://ka12m.github.io/khokret-travel-web/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ka12m.github.io/khokret-travel-web/assets/logo/logo-512.png",
+        "width": 512,
+        "height": 512
+      }
+    },
+    {
+      "@type": "TouristDestination",
+      "@id": "https://ka12m.github.io/khokret-travel-web/#destination",
+      "name": "เกาะเกร็ด",
+      "alternateName": [
+        "เกาะเกร็ด นนทบุรี",
+        "Koh Kret"
+      ],
+      "description": "คู่มือเที่ยวเกาะเกร็ด นนทบุรี สำหรับคนมีเวลาครึ่งวัน รวมวิธีนั่งเรือข้ามฟาก ท่าเรือที่ควรใช้ ที่เที่ยวสี่จุดที่เดินถึงกันหมด และของกินมอญที่มีเฉพาะบนเกาะ",
+      "url": "https://ka12m.github.io/khokret-travel-web/",
+      "image": "https://ka12m.github.io/khokret-travel-web/assets/img/og-cover.jpg",
+      "inLanguage": "th-TH",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "เกาะเกร็ด",
+        "addressRegion": "นนทบุรี",
+        "addressCountry": "TH"
+      },
+      "touristType": [
+        "นักท่องเที่ยวแบบไปเช้าเย็นกลับ",
+        "สายวัฒนธรรม",
+        "สายกิน",
+        "สายถ่ายรูป"
+      ],
+      "includesAttraction": [
+        {
+          "@type": "TouristAttraction",
+          "name": "วัดปรมัยยิกาวาส",
+          "url": "https://ka12m.github.io/khokret-travel-web/places/wat-poramai.html"
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "เจดีย์เอียงมุเตา",
+          "url": "https://ka12m.github.io/khokret-travel-web/places/leaning-pagoda.html"
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "หมู่บ้านเครื่องปั้นดินเผาเกาะเกร็ด (กวานอาม่าน)",
+          "url": "https://ka12m.github.io/khokret-travel-web/places/kwan-aman.html"
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "ตลาดริมน้ำเกาะเกร็ด",
+          "url": "https://ka12m.github.io/khokret-travel-web/places/riverside-market.html"
+        }
+      ],
+      "isPartOf": {
+        "@id": "https://ka12m.github.io/khokret-travel-web/#website"
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
