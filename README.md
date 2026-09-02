@@ -29,11 +29,14 @@ python3 -m http.server 8000
 ├── index.html              หน้าแรก single page เลื่อนยาว 10 section
 ├── article-template.html   เทมเพลตหน้าบทความ ก๊อปไปทำหน้าใหม่
 ├── 404.html
+├── robots.txt              เปิดให้ Google เก็บ + ชี้ไป sitemap
+├── sitemap.xml             12 หน้าเนื้อหา ตรงกับ canonical แบบ 1:1
 ├── assets/
 │   ├── css/tokens.css      สี ฟอนต์ ระยะห่าง breakpoint — อยู่ที่นี่ที่เดียว
 │   ├── css/main.css        สไตล์ทั้งหมด เขียน mobile first
 │   ├── js/main.js          theme toggle · burger menu · scroll reveal
-│   ├── img/                รูปจริง (ยังว่าง)
+│   ├── img/                รูป WebP ที่เสิร์ฟจริง + og-cover.jpg การ์ดแชร์
+│   ├── img/_original/      รูปต้นฉบับก่อนย่อ ไม่ได้เสิร์ฟ ลบทิ้งได้
 │   └── logo/               logo-full · logo-circle · logo-small
 ├── places/                 เที่ยวไหนดี 4 หน้า
 ├── eat/                    กินอะไรดี 4 หน้า
@@ -72,11 +75,14 @@ python3 -m http.server 8000
 
 ## ยังไม่เสร็จ
 
-- [ ] **ใส่รูปจริง** — ค้นด้วยคำว่า `ใส่รูปตรงนี้` แล้วแทนที่ `<div class="slot">` ด้วย `<img>`
 - [ ] **ข้อมูลค่าเรือ เวลา ราคา ยังเป็นตัวอย่างทั้งหมด** ต้องไปเก็บของจริงที่เกาะเกร็ดก่อน
       แล้วค่อยลบกล่อง `.draft-note` ที่เตือนไว้ออก
+- [ ] **รูปที่ใช้อยู่เป็นภาพม็อคอัพที่มีลายน้ำของเจ้าของ** ต้องเปลี่ยนหรือขออนุญาตก่อนเผยแพร่
+- [x] ~~ใส่รูปจริง~~ ใส่แล้วทุกหน้า
 - [ ] หน้า `เกี่ยวกับเรา` · `ติดต่อ` · หน้าผลค้นหา · หน้าแท็ก
 - [ ] ใส่ URL โซเชียลจริงใน footer
 - [ ] deploy ด้วย GitHub Pages
+- [x] ~~SEO~~ — วางโครงครบแล้ว (robots · sitemap · canonical · OG · JSON-LD · รูป WebP)
+      เช็กลิสต์ก่อนและหลัง deploy อยู่ใน [HANDOFF.md ข้อ 11](HANDOFF.md)
 
 > ⚠ **ห้าม deploy จนกว่าจะเก็บข้อมูลจริงมาแทนที่ตัวเลขตัวอย่างแล้ว**
