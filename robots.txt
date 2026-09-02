@@ -1,0 +1,18 @@
+# Kret Check — เกาะเกร็ด ชุมชนมอญ นนทบุรี
+
+# ตั้งใจไม่ใส่ Disallow เลย
+# หน้าที่ไม่อยากให้ขึ้นผลค้นหา (docs/ , article-template.html , 404.html)
+# ใช้ <meta name="robots" content="noindex"> แทน
+# เพราะถ้า Disallow ไว้ Google จะเข้ามาอ่านหน้าไม่ได้ เลยไม่เห็น noindex
+# แล้วกลายเป็นเก็บ URL เปล่า ๆ ขึ้นผลค้นหาแทน ซึ่งแย่กว่าเดิม
+
+User-agent: *
+Allow: /
+
+Sitemap: https://ka12m.github.io/khokret-travel-web/sitemap.xml
+
+# หมายเหตุสำคัญ — GitHub Pages แบบ project site
+# robots.txt อ่านจาก host root คือ https://ka12m.github.io/robots.txt เท่านั้น
+# ไฟล์นี้จะถูกเสิร์ฟที่ https://ka12m.github.io/khokret-travel-web/robots.txt
+# ซึ่ง crawler ไม่ได้อ่าน จึงยังไม่มีผลจนกว่าจะย้ายไปโดเมนของตัวเอง
+# ตอนนี้ที่ทำงานจริงคือ noindex ในแต่ละหน้า กับ sitemap.xml ที่ส่งเข้า Search Console ตรง ๆ
