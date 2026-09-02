@@ -1,0 +1,12 @@
+# Kret Check — เกาะเกร็ด ชุมชนมอญ นนทบุรี
+
+# ตั้งใจไม่ใส่ Disallow เลย
+# หน้าที่ไม่อยากให้ขึ้นผลค้นหา (docs/ , article-template.html , 404.html)
+# ใช้ <meta name="robots" content="noindex"> แทน
+# เพราะถ้า Disallow ไว้ Google จะเข้ามาอ่านหน้าไม่ได้ เลยไม่เห็น noindex
+# แล้วกลายเป็นเก็บ URL เปล่า ๆ ขึ้นผลค้นหาแทน ซึ่งแย่กว่าเดิม
+
+User-agent: *
+Allow: /
+
+Sitemap: https://khokret.site/sitemap.xml
