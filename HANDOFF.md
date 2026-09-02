@@ -253,7 +253,7 @@ path แบบ `../` จึงใช้ไม่ได้ในไฟล์น�
 ### โดเมนที่ตรึงไว้ทั้งเว็บ
 
 ```
-https://ka12m.github.io/khokret-travel-web/
+https://khokret.site/
 ```
 
 URL นี้ถูก **hardcode เป็น absolute** อยู่ใน `canonical`, `og:url`, `og:image`,
@@ -266,7 +266,7 @@ URL นี้ถูก **hardcode เป็น absolute** อยู่ใน `ca
 
 ```bash
 # แก้ทุกจุดในคำสั่งเดียว
-OLD='https://ka12m.github.io/khokret-travel-web/'
+OLD='https://khokret.site/'   # โดเมนปัจจุบัน
 NEW='https://example.com/'          # ใส่โดเมนใหม่ตรงนี้
 grep -rl "$OLD" --include='*.html' --include='*.xml' --include='*.txt' . \
   | xargs sed -i "s#$OLD#$NEW#g"
@@ -305,7 +305,7 @@ grep -rl "$OLD" --include='*.html' --include='*.xml' --include='*.txt' . \
 ### หลัง deploy
 
 1. สมัคร **Google Search Console** → ยืนยัน property เป็นแบบ URL prefix
-   ใส่ `https://ka12m.github.io/khokret-travel-web/`
+   ใส่ `https://khokret.site/`
 2. ส่ง `sitemap.xml` ในเมนู Sitemaps แล้วขอ index หน้าแรกด้วย URL Inspection
 3. ตรวจ JSON-LD ด้วย **Rich Results Test** และ **Schema Markup Validator**
 4. วัด **PageSpeed Insights** โหมดมือถือ ดู LCP กับ CLS

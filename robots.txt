@@ -9,10 +9,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ka12m.github.io/khokret-travel-web/sitemap.xml
-
-# หมายเหตุสำคัญ — GitHub Pages แบบ project site
-# robots.txt อ่านจาก host root คือ https://ka12m.github.io/robots.txt เท่านั้น
-# ไฟล์นี้จะถูกเสิร์ฟที่ https://ka12m.github.io/khokret-travel-web/robots.txt
-# ซึ่ง crawler ไม่ได้อ่าน จึงยังไม่มีผลจนกว่าจะย้ายไปโดเมนของตัวเอง
-# ตอนนี้ที่ทำงานจริงคือ noindex ในแต่ละหน้า กับ sitemap.xml ที่ส่งเข้า Search Console ตรง ๆ
+Sitemap: https://khokret.site/sitemap.xml
