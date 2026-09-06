@@ -367,7 +367,9 @@ a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 .slot {
   display: grid;
   place-items: center;
-  aspect-ratio: 4 / 3;
+  /* มือถือคอลัมน์เดียว การ์ดกว้างเต็มจอ 4/3 จะสูงจนกินพื้นที่เกินครึ่งหน้าจอ
+     จึงเริ่มที่ 3/2 แล้วค่อยเปลี่ยนเป็น 4/3 ตอนขึ้นหลายคอลัมน์ (ดูท้ายไฟล์) */
+  aspect-ratio: 3 / 2;
   background: var(--bg-sunken);
   border-bottom: 1px solid var(--card-line);
   color: var(--text-mute);
@@ -376,7 +378,7 @@ a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
   letter-spacing: .08em;
   text-align: center;
 }
-.slot--wide { aspect-ratio: 16 / 9; }
+.slot--wide { aspect-ratio: 3 / 2; }
 
 /* ------------------------------------------------------------
    รูปจริง — ใช้แทน .slot เมื่อมีรูปแล้ว
@@ -387,16 +389,22 @@ a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 .shot {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  /* ต้องมี height: auto เสมอ — ในแท็ก <img> มี width/height ติดมาด้วย (กัน CLS)
+     ค่าพวกนั้นถูกอ่านเป็นความสูงคงที่ ถ้าไม่ปลดจะทับ aspect-ratio ข้างล่าง
+     ผลคือรูปโดนยืดสูงผิดสัดส่วน เห็นชัดสุดตอนดูบนมือถือ */
+  height: auto;
+  aspect-ratio: 3 / 2;
   object-fit: cover;
   background: var(--bg-sunken);
   border-bottom: 1px solid var(--card-line);
 }
-.shot--wide { aspect-ratio: 16 / 9; }
-/* แผนที่กับอินโฟกราฟิกต้องเห็นครบทั้งภาพ ครอปแล้วข้อมูลหาย จึงปล่อยตามสัดส่วนจริง */
-.shot--full { aspect-ratio: auto; object-fit: contain; }
+.shot--wide { aspect-ratio: 3 / 2; }
+/* แผนที่กับอินโฟกราฟิกต้องเห็นครบทั้งภาพ ครอปแล้วข้อมูลหาย จึงปล่อยตามสัดส่วนจริง
+   ใช้ !important เพราะสัดส่วนของ .shot ถูกเขียนทับตามขนาดจอในท้ายไฟล์
+   สองคลาสนี้ต้องไม่ถูกบังคับสัดส่วนไม่ว่าจอไหน */
+.shot--full { aspect-ratio: auto !important; object-fit: contain; }
 /* รูปแนวตั้งในบทความ จำกัดความกว้างไม่ให้สูงจนกินทั้งหน้าจอ */
-.shot--tall { aspect-ratio: auto; object-fit: contain; max-width: 27rem; margin-inline: auto; }
+.shot--tall { aspect-ratio: auto !important; object-fit: contain; max-width: 27rem; margin-inline: auto; }
 
 /* ในหน้าบทความ กรอบมนกับ overflow อยู่ที่ .article__hero แล้ว */
 .article__hero .shot { border-bottom: 0; }
@@ -668,6 +676,10 @@ a.plan:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
   .hero__title { font-size: var(--fs-4xl); }
   .facts__grid { grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); }
   .grid { grid-template-columns: repeat(2, 1fr); }
+  /* พอเป็น 2 คอลัมน์ การ์ดแคบลงครึ่งหนึ่ง รูป 4/3 จึงไม่สูงเกินอีกต่อไป
+     และครอปน้อยกว่า 3/2 ทำให้เห็นตัวอาคาร/อาหารเต็มกว่า */
+  .slot, .shot { aspect-ratio: 4 / 3; }
+  .slot--wide, .shot--wide { aspect-ratio: 16 / 9; }
   .fac__grid { grid-template-columns: repeat(2, 1fr); }
   .tickets { grid-template-columns: repeat(2, 1fr); }
   .steps { grid-template-columns: repeat(2, 1fr); gap: var(--sp-5); }
