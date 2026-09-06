@@ -406,6 +406,16 @@ a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 /* รูปแนวตั้งในบทความ จำกัดความกว้างไม่ให้สูงจนกินทั้งหน้าจอ */
 .shot--tall { aspect-ratio: auto !important; object-fit: contain; max-width: 27rem; margin-inline: auto; }
 
+/* หนึ่งร้านหนึ่ง section — .prose > * + * เว้นระยะให้เฉพาะลูกชั้นแรก
+   ข้างใน section จึงต้องกำหนดเอง ไม่งั้นหัวข้อกับคำอธิบายติดกัน */
+.shop > * + * { margin-top: var(--sp-4); }
+.shop .summary__list { margin-top: var(--sp-5); }
+
+/* รูปคู่ของหนึ่งร้าน — มือถือเรียงลงมา จอ 700px ขึ้นไปวางคู่กัน
+   ใช้ในหน้าคาเฟ่ที่แต่ละร้านมีสองรูป */
+.shots { display: grid; gap: var(--sp-3); }
+.shots .slot, .shots .shot { border-radius: var(--r-sm); border-bottom: 0; }
+
 /* ในหน้าบทความ กรอบมนกับ overflow อยู่ที่ .article__hero แล้ว */
 .article__hero .shot { border-bottom: 0; }
 
@@ -672,6 +682,7 @@ a.plan:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
    700-999px — ไอแพดแนวตั้ง : 2 คอลัมน์ ยังใช้เมนูปุ่มกดเปิด
    ============================================================ */
 @media (min-width: 700px) {
+  .shots { grid-template-columns: 1fr 1fr; }
   .section__title { font-size: var(--fs-3xl); }
   .hero__title { font-size: var(--fs-4xl); }
   .facts__grid { grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); }
