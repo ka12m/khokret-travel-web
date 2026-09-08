@@ -403,14 +403,22 @@ a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
    ใช้ !important เพราะสัดส่วนของ .shot ถูกเขียนทับตามขนาดจอในท้ายไฟล์
    สองคลาสนี้ต้องไม่ถูกบังคับสัดส่วนไม่ว่าจอไหน */
 .shot--full { aspect-ratio: auto !important; object-fit: contain; }
-/* โลโก้ร้านไม่ใช่ภาพถ่าย ครอปแล้วชื่อร้านหาย จึงย่อให้เห็นครบทั้งภาพ
-   แต่ยังคงสัดส่วนของ .shot ไว้ เพื่อให้สองช่องในแถวเดียวกันสูงเท่ากัน */
-.shot--logo { object-fit: contain; }
 /* รูปแนวตั้งในบทความ จำกัดความกว้างไม่ให้สูงจนกินทั้งหน้าจอ */
 .shot--tall { aspect-ratio: auto !important; object-fit: contain; max-width: 27rem; margin-inline: auto; }
 
 /* หนึ่งร้านหนึ่ง section — .prose > * + * เว้นระยะให้เฉพาะลูกชั้นแรก
    ข้างใน section จึงต้องกำหนดเอง ไม่งั้นหัวข้อกับคำอธิบายติดกัน */
+/* โลโก้ร้านเป็นภาพจัตุรัส ใส่ในกรอบรูปแนวนอนแล้วสัดส่วนเพี้ยน
+   จะครอปก็เสียชื่อร้านที่อยู่ใต้ภาพ จึงย่อเป็นตราเล็กวางคู่ชื่อร้านแทน */
+.shop__head { display: flex; align-items: center; gap: var(--sp-3); }
+.shop__head h2 { margin: 0; }
+.shop__logo {
+  flex: none;
+  width: 3.5rem;
+  height: 3.5rem;
+  object-fit: contain;
+  border-radius: var(--r-sm);
+}
 .shop > * + * { margin-top: var(--sp-4); }
 .shop .summary__list { margin-top: var(--sp-5); }
 
@@ -686,6 +694,10 @@ a.plan:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
    ============================================================ */
 @media (min-width: 700px) {
   .shots { grid-template-columns: 1fr 1fr; }
+  /* ร้านที่มีรูปเดียว ไม่ต้องแบ่งครึ่ง ปล่อยเต็มความกว้าง */
+  .shots--single { grid-template-columns: 1fr; }
+  /* จอกว้างขึ้น ชื่อร้านไม่ต้องแย่งที่กับตราแล้ว ขยายตราให้เห็นลายชัดขึ้น */
+  .shop__logo { width: 4.5rem; height: 4.5rem; }
   .section__title { font-size: var(--fs-3xl); }
   .hero__title { font-size: var(--fs-4xl); }
   .facts__grid { grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); }
