@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Kret Check — sitemap
-     มีเฉพาะ 12 หน้าเนื้อหาจริง
+     มีเฉพาะ 13 หน้าเนื้อหาจริง
      ไม่ใส่ docs/ , article-template.html , 404.html เพราะทั้งหมดเป็น noindex
      ทุก URL ตรงกับ <link rel="canonical"> ของหน้านั้นแบบ 1:1
      เพิ่มหน้าใหม่แล้วอย่าลืมมาเพิ่มตรงนี้ด้วย -->
@@ -26,6 +26,12 @@
   <url>
     <loc>https://khokret.site/plans/photo.html</loc>
     <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://khokret.site/plans/workshop.html</loc>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

@@ -30,7 +30,7 @@ python3 -m http.server 8000
 ├── article-template.html   เทมเพลตหน้าบทความ ก๊อปไปทำหน้าใหม่
 ├── 404.html
 ├── robots.txt              เปิดให้ Google เก็บ + ชี้ไป sitemap
-├── sitemap.xml             12 หน้าเนื้อหา ตรงกับ canonical แบบ 1:1
+├── sitemap.xml             13 หน้าเนื้อหา ตรงกับ canonical แบบ 1:1
 ├── assets/
 │   ├── css/tokens.css      สี ฟอนต์ ระยะห่าง breakpoint — อยู่ที่นี่ที่เดียว
 │   ├── css/main.css        สไตล์ทั้งหมด เขียน mobile first
@@ -40,7 +40,7 @@ python3 -m http.server 8000
 │   └── logo/               logo-full · logo-circle · logo-small
 ├── places/                 เที่ยวไหนดี 4 หน้า
 ├── eat/                    กินอะไรดี 4 หน้า
-├── plans/                  แพลนเที่ยว 3 หน้า
+├── plans/                  แพลนเที่ยว 4 หน้า
 └── docs/
     ├── sitemap.html        ผังเว็บ + wireframe 4 ขนาดจอ + ตารางสี
     └── brand.html          ที่มาของชื่อ โลโก้ สี ฟอนต์

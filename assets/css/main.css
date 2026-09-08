@@ -745,10 +745,11 @@ a.plan:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
   .steps { grid-template-columns: repeat(4, 1fr); }
   .footer__grid { grid-template-columns: 1.6fr 1fr 1fr 1fr; }
 
-  /* แพลนเที่ยว : เลิกเลื่อนซ้ายขวา กลายเป็น grid */
+  /* แพลนเที่ยว : เลิกเลื่อนซ้ายขวา กลายเป็น grid
+     สี่คอลัมน์เท่าจำนวนแพลนที่มี ถ้าเพิ่มแพลนที่ห้าจะตกลงไปแถวสองเอง */
   .rail {
     grid-auto-flow: row;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     overflow: visible;
     margin-inline: 0;
     padding-inline: 0;
