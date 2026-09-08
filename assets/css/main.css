@@ -403,6 +403,9 @@ a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
    ใช้ !important เพราะสัดส่วนของ .shot ถูกเขียนทับตามขนาดจอในท้ายไฟล์
    สองคลาสนี้ต้องไม่ถูกบังคับสัดส่วนไม่ว่าจอไหน */
 .shot--full { aspect-ratio: auto !important; object-fit: contain; }
+/* โลโก้ร้านไม่ใช่ภาพถ่าย ครอปแล้วชื่อร้านหาย จึงย่อให้เห็นครบทั้งภาพ
+   แต่ยังคงสัดส่วนของ .shot ไว้ เพื่อให้สองช่องในแถวเดียวกันสูงเท่ากัน */
+.shot--logo { object-fit: contain; }
 /* รูปแนวตั้งในบทความ จำกัดความกว้างไม่ให้สูงจนกินทั้งหน้าจอ */
 .shot--tall { aspect-ratio: auto !important; object-fit: contain; max-width: 27rem; margin-inline: auto; }
 
