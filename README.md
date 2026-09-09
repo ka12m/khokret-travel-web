@@ -30,7 +30,7 @@ python3 -m http.server 8000
 ├── article-template.html   เทมเพลตหน้าบทความ ก๊อปไปทำหน้าใหม่
 ├── 404.html
 ├── robots.txt              เปิดให้ Google เก็บ + ชี้ไป sitemap
-├── sitemap.xml             13 หน้าเนื้อหา ตรงกับ canonical แบบ 1:1
+├── sitemap.xml             14 หน้าเนื้อหา ตรงกับ canonical แบบ 1:1
 ├── assets/
 │   ├── css/tokens.css      สี ฟอนต์ ระยะห่าง breakpoint — อยู่ที่นี่ที่เดียว
 │   ├── css/main.css        สไตล์ทั้งหมด เขียน mobile first
@@ -38,7 +38,7 @@ python3 -m http.server 8000
 │   ├── img/                รูป WebP ที่เสิร์ฟจริง + og-cover.jpg การ์ดแชร์
 │   ├── img/_original/      รูปต้นฉบับก่อนย่อ ไม่ได้เสิร์ฟ ลบทิ้งได้
 │   └── logo/               logo-full · logo-circle · logo-small
-├── places/                 เที่ยวไหนดี 4 หน้า
+├── places/                 เที่ยวไหนดี 5 หน้า
 ├── eat/                    กินอะไรดี 4 หน้า
 ├── plans/                  แพลนเที่ยว 4 หน้า
 └── docs/

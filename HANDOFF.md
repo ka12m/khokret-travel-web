@@ -29,7 +29,7 @@
 - [x] `index.html` — ครบทั้ง 10 section ตามข้อ 4
 - [x] โลโก้ 3 ขนาดเป็นไฟล์ `.svg` แยก
 - [x] `article-template.html` — เทมเพลตหน้าบทความ (ข้อ 7.4)
-- [x] หน้าหมวด `places/` 4 หน้า · `eat/` 4 หน้า · `plans/` 4 หน้า
+- [x] หน้าหมวด `places/` 5 หน้า · `eat/` 4 หน้า · `plans/` 4 หน้า
 - [x] `404.html`
 - [x] `docs/sitemap.html` — ผังเว็บ + wireframe 4 ขนาดจอ + ตารางสี
 - [x] `docs/brand.html` — คำอธิบายชื่อ โลโก้ สี ฟอนต์
@@ -168,7 +168,7 @@ Label / mono      : IBM Plex Mono (400, 500)
 | 2 | `#top` | Hero — พาดหัว · สติกเกอร์ 3 อัน · ปุ่ม 2 ปุ่ม · ช่องรูป (เฉพาะจอ ≥1000px) |
 | 3 | `.facts` | แถบตอบ 3 คำถาม — ไกลไหม แพงไหม งบเท่าไร |
 | 4 | `#plans` | แพลนเที่ยว 4 แบบ (มือถือเลื่อนซ้ายขวา / คอมเป็น grid) |
-| 5 | `#places` | เที่ยวไหนดี 4 จุด |
+| 5 | `#places` | เที่ยวไหนดี 5 จุด |
 | 6 | `#eat` | กินอะไรดี 4 อย่าง |
 | 7 | `#ferry` | เรือข้ามฟาก — การ์ดตั๋ว 2 เส้นทาง + 4 ขั้นตอน (พื้นสีฟ้า) |
 | 8 | `#fac` | สิ่งอำนวยความสะดวก 8 หัวข้อ (พื้นสีเขียว) |
@@ -297,12 +297,12 @@ grep -rl "$OLD" --include='*.html' --include='*.xml' --include='*.txt' . \
 
 | เรื่อง | ไฟล์ |
 |---|---|
-| `robots.txt` + `sitemap.xml` (13 หน้าเนื้อหา) | root |
-| `canonical` แบบ absolute ทุกหน้า | 13 หน้าเนื้อหา |
+| `robots.txt` + `sitemap.xml` (14 หน้าเนื้อหา) | root |
+| `canonical` แบบ absolute ทุกหน้า | 14 หน้าเนื้อหา |
 | `noindex` กันหน้าภายในไปแย่งอันดับ | `article-template.html`, `docs/*`, `404.html` |
-| `title` / `description` เขียนใหม่ให้ตรงคำค้นไทย | 13 หน้าเนื้อหา |
+| `title` / `description` เขียนใหม่ให้ตรงคำค้นไทย | 14 หน้าเนื้อหา |
 | `og:*` + `twitter:*` + การ์ดแชร์ 1200×630 | ทุกหน้า + `assets/img/og-cover.jpg` |
-| JSON-LD (`TouristDestination` / `TouristAttraction` / `Article` / `BreadcrumbList`) | 13 หน้าเนื้อหา |
+| JSON-LD (`TouristDestination` / `TouristAttraction` / `Article` / `BreadcrumbList`) | 14 หน้าเนื้อหา |
 | รูปเป็น WebP 15 MB → 3 MB · `width`/`height` · `lazy` · `fetchpriority` | `assets/img/` |
 | `<time datetime>` แปลง พ.ศ. เป็น ค.ศ. แล้ว | 12 หน้าบทความ |
 
