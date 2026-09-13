@@ -619,6 +619,39 @@ a.plan:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 .fac__item p { margin-top: var(--sp-2); font-size: var(--fs-sm); opacity: .82; }
 
 /* ============================================================
+   FOLLOW — แถบชวนตามดู TikTok
+   สีล็อกไว้ตายตัวเหมือน footer ไม่เปลี่ยนตามโหมด (HANDOFF ข้อ 3)
+   Lucky Dice บน Moselle Green = 8.6:1 · The Bay บน Moselle Green = 8.0:1
+   ============================================================ */
+.follow {
+  background: var(--c-green);
+  color: var(--c-cream);
+  padding-block: var(--sp-6);
+}
+.follow__box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-4);
+}
+.follow__icon { width: 40px; height: 40px; flex: none; color: var(--c-sun); }
+.follow__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: 700;
+}
+/* ตัวหนังสือรองบนพื้นเขียว ใช้เฉดอุ่นชุดเดิม = 5.4:1 */
+.follow__lead {
+  margin-top: var(--sp-3);
+  max-width: 48ch;
+  color: var(--c-mute-cool);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-snug);
+}
+.follow__btn { flex: none; }
+.follow__btn svg { width: 20px; height: 20px; flex: none; }
+
+/* ============================================================
    FOOTER — สีล็อกไว้ตายตัว (HANDOFF ข้อ 3)
    ============================================================ */
 .footer {
@@ -709,6 +742,9 @@ a.plan:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
   .fac__grid { grid-template-columns: repeat(2, 1fr); }
   .tickets { grid-template-columns: repeat(2, 1fr); }
   .steps { grid-template-columns: repeat(2, 1fr); gap: var(--sp-5); }
+  .follow__box { flex-direction: row; align-items: center; gap: var(--sp-5); }
+  .follow__text { flex: 1; }
+  .follow__title { font-size: var(--fs-2xl); }
   .footer__grid { grid-template-columns: 1.4fr 1fr 1fr; }
   .rail { grid-auto-columns: 46%; }
 }

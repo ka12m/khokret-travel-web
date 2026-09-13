@@ -80,7 +80,7 @@ python3 -m http.server 8000
 - [ ] **รูปที่ใช้อยู่เป็นภาพม็อคอัพที่มีลายน้ำของเจ้าของ** ต้องเปลี่ยนหรือขออนุญาตก่อนเผยแพร่
 - [x] ~~ใส่รูปจริง~~ ใส่แล้วทุกหน้า
 - [ ] หน้า `เกี่ยวกับเรา` · `ติดต่อ` · หน้าผลค้นหา · หน้าแท็ก
-- [ ] ใส่ URL โซเชียลจริงใน footer
+- [ ] ใส่ URL Instagram จริงใน footer (TikTok ใส่ `@kretcheck` แล้ว)
 - [ ] deploy ด้วย GitHub Pages
 - [x] ~~SEO~~ — วางโครงครบแล้ว (robots · sitemap · canonical · OG · JSON-LD · รูป WebP)
       เช็กลิสต์ก่อนและหลัง deploy อยู่ใน [HANDOFF.md ข้อ 11](HANDOFF.md)
