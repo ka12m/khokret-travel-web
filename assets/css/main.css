@@ -134,6 +134,7 @@ ul, ol { margin: 0; padding: 0; }
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: .01em;
+  white-space: nowrap;
 }
 
 /* บรรทัดคู่ใต้โลโก้ — ต้องมีเสมอในบริบทที่คนยังไม่รู้จักแบรนด์ */
@@ -146,6 +147,34 @@ ul, ol { margin: 0; padding: 0; }
   letter-spacing: .04em;
   line-height: 1.2;
 }
+
+/* ลิงก์ TikTok ในแถบเมนู — อยู่ถัดจากโลโก้ ตรงช่องว่างก่อนเมนูหลัก
+   ไม่ใช้ทรงเดียวกับ .nav__link เพราะปุ่มเมนูที่ถูกเลือกอยู่ใช้พื้น The Bay
+   ถ้าทำให้เหมือนกันจะอ่านเป็นเมนูที่เลือกอยู่ เลยใช้ขอบแบบ .icon-btn แทน
+
+   ต่ำกว่า 700px ซ่อนไว้ เพราะแถบบนมีโลโก้สองบรรทัดกับปุ่มอีกสองปุ่มอยู่แล้ว
+   จอ 320px จะดันจนหน้าเลื่อนแนวนอน — มือถือไปใช้ลิงก์ในเมนูปุ่มกดแทน */
+.nav__social {
+  display: none;
+  align-items: center;
+  gap: var(--sp-2);
+  flex: none;
+  height: 40px;
+  padding-inline: var(--sp-3);
+  border: 1px solid rgba(244, 241, 226, .28);
+  border-radius: var(--r-pill);
+  color: var(--c-cream);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.nav__social:hover { background: rgba(244, 241, 226, .14); border-color: rgba(244, 241, 226, .5); }
+.nav__social svg { width: 18px; height: 18px; flex: none; color: var(--c-sun); }
+/* จอต่ำกว่า 1200px เหลือแค่ไอคอน ไม่งั้นไปเบียดโลโก้กับเมนูหลัก */
+.nav__social-label { display: none; }
 
 .nav__links {
   display: none;              /* มือถือ+ไอแพดแนวตั้ง : ซ่อนไว้ในเมนูปุ่มกด */
@@ -727,6 +756,7 @@ a.plan:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
    ============================================================ */
 @media (min-width: 700px) {
   .shots { grid-template-columns: 1fr 1fr; }
+  .nav__social { display: inline-flex; }
   /* ร้านที่มีรูปเดียว ไม่ต้องแบ่งครึ่ง ปล่อยเต็มความกว้าง */
   .shots--single { grid-template-columns: 1fr; }
   /* จอกว้างขึ้น ชื่อร้านไม่ต้องแย่งที่กับตราแล้ว ขยายตราให้เห็นลายชัดขึ้น */
@@ -813,8 +843,15 @@ a.plan:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
    1200px+ — คอม : ระยะห่างกว้างขึ้น
    ============================================================ */
 @media (min-width: 1200px) {
+  /* จอคอมค่อยโชว์ชื่อบัญชีต่อท้ายไอคอน แลกกับการบีบระยะในแถบให้แคบลง
+     ไม่งั้นชื่อแบรนด์จะโดนดันจนตกบรรทัด */
+  .nav__bar { gap: var(--sp-2); }
+  .nav__social { gap: 6px; padding-inline: var(--sp-2); }
+  .nav__social-label { display: inline; }
   .nav__links { gap: var(--sp-2); }
-  .nav__link { padding: var(--sp-2) var(--sp-4); font-size: var(--fs-md); }
+  /* เดิมเมนูขยายทั้งตัวหนังสือและระยะข้างในปุ่ม พอมีลิงก์ TikTok มาอยู่ในแถบด้วย
+     ที่ไม่พอ เลยคงตัวหนังสือที่ 16px ไว้ แล้วลดระยะข้างในปุ่มลงหนึ่งขั้น */
+  .nav__link { padding: var(--sp-2) var(--sp-3); font-size: var(--fs-md); }
   .grid { gap: var(--sp-6); }
   .rail { gap: var(--sp-6); }
   .fac__grid { gap: var(--sp-5); }
